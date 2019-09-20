@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopePipeline", "HopePipeline\HopePipeline.csproj", "{1416D50B-B31D-4AFC-B0B7-CE731FD5CABA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1416D50B-B31D-4AFC-B0B7-CE731FD5CABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1416D50B-B31D-4AFC-B0B7-CE731FD5CABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1416D50B-B31D-4AFC-B0B7-CE731FD5CABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1416D50B-B31D-4AFC-B0B7-CE731FD5CABA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F0E9EF8-56AE-440E-9A11-53EC1CBFC3BC}
+	EndGlobalSection
+EndGlobal
