@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Images\**" />
+    <Content Remove="Views\Images\**" />
+    <EmbeddedResource Remove="Views\Images\**" />
+    <None Remove="Views\Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\images\ccr-logo.png" />
   </ItemGroup>
 
@@ -29,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Images\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
 
 </Project>
