@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Client>
+
+@{
+    ViewData["Title"] = "RefList";
+}
+
+<h2>RefList</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caregiver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caregiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                <a asp-controller="Client" asp-action="StartIntake" asp-route-clientID="@item.ClientID">Start Intake</a> |
+                <a asp-controller="Client" asp-action="EditReferral">Edit Referral</a> |
+                <a asp-controller="Client" asp-action="ViewMoreInfo">View More</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
