@@ -11,7 +11,7 @@ namespace HopePipeline.Models
         public string Name { get; set; }
         public string Caregiver { get; set; }
         public string Gender { get; set; }
-     /*   public string Ethnicity { get; set; }
+       public string Ethnicity { get; set; }
         public string DoB { get; set; }
         public string School { get; set; }
         public string RefSource { get; set; }
@@ -22,7 +22,7 @@ namespace HopePipeline.Models
         public bool adopted { get; set; }
         public bool evicted { get; set; }
         public bool parentJail { get; set; }
-        public bool asthma { get; set; }*/
+        public bool asthma { get; set; }
 
     }
 }
