@@ -5,30 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Account\**" />
-    <Compile Remove="Views\Images\**" />
-    <Content Remove="Views\Account\**" />
-    <Content Remove="Views\Images\**" />
-    <EmbeddedResource Remove="Views\Account\**" />
-    <EmbeddedResource Remove="Views\Images\**" />
-    <None Remove="Views\Account\**" />
-    <None Remove="Views\Images\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\images\ccr-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +26,10 @@
     <Content Update="Views\Home\Contact.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Images\" />
   </ItemGroup>
 
 </Project>

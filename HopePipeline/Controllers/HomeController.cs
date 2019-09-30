@@ -22,11 +22,6 @@ namespace HopePipeline.Controllers
             return View();
         }
 
-        public IActionResult RefList()
-        {
-            return View();
-        } 
-
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
@@ -35,11 +30,6 @@ namespace HopePipeline.Controllers
         }
 
         public IActionResult Referral()
-        {
-            return View();
-        }
-
-        public IActionResult Help()
         {
             return View();
         }
