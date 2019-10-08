@@ -26,6 +26,22 @@ namespace HopePipeline.Controllers
        {
             return View();
        }
+       
+       public IActionResult Delete(int deletee)
+        {
+            var list = repository.Clients;
+            foreach(Client Cl in repository.Clients)
+            {
+                if (Cl.ClientID == deletee)
+                    repository.Clients.ToList.R
+                    
+            }
+
+
+
+            
+            return View("RefList", repository.Clients);
+        }
 
        public IActionResult ViewMoreInfo()
         {
