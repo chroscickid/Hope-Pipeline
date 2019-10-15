@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HopePipeline.Models;
-using Xceed.Wpf.Toolkit;
 
 namespace HopePipeline.Controllers
 {
@@ -27,7 +26,7 @@ namespace HopePipeline.Controllers
             return View();
        }
        
-       public IActionResult Delete(int deletee)
+      /* public IActionResult Delete(int deletee)
         {
             var list = repository.Clients;
             foreach(Client Cl in repository.Clients)
@@ -41,7 +40,7 @@ namespace HopePipeline.Controllers
 
             
             return View("RefList", repository.Clients);
-        }
+        }*/
 
        public IActionResult ViewMoreInfo()
         {
