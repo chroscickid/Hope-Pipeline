@@ -18,8 +18,10 @@ namespace HopePipeline.Controllers
         public ViewResult RefList() => View(repository.Clients);
 
 
-        public ViewResult StartIntake(int m) => View(repository.Clients.FirstOrDefault(p => p.ClientID == m));
-        
+        public ViewResult StartTracking()
+        {
+            return View();
+        }
 
        public IActionResult EditReferral()
        {

@@ -44,7 +44,7 @@
                     @Html.DisplayFor(modelItem => item.DoB)
                 </td>
                 <td>
-                    <a asp-controller="Client" asp-action="StartIntake" asp-route-clientID="@item.ClientID">Start Intake</a> |
+                    <a asp-controller="Client" asp-action="StartTracking">Start Tracking</a> |
                     <a asp-controller="Client" asp-action="ViewMoreInfo">View or Edit Referral</a> |
                     <a asp-controller="Client" asp-action="Delete" asp-route-clientID="@item.ClientID">Delete the referral</a>
                 </td>
