@@ -1,6 +1,69 @@
 ﻿@{
-    ViewData["Title"] = "Admin Log-in";
+    ViewData["Title"] = "Home Page";
 }
 
-<h1 class="center-block text-center">Admin Log-in</h1>
-Test!
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background-color: #09335e;
+            color: white;
+            padding: 10px 18px;
+            width: auto;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            color: white;
+            background-color: #f44336;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Admin Log In</h3>
+        <p></p>
+        <form action="/action_page.php">
+
+            <p></p>
+            <p></p>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <p></p>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <p></p>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            &nbsp;&nbsp;
+            <input type="submit" value="Log In">
+            <p></p>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+
+
+        </form>
+    </div>
+</body>
+</html>
