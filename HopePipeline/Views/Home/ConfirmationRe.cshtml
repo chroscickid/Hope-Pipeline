@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmationRe";
+}
+
+<h1 class="center-block text-center">Referral</h1>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <br /><br />
+   
+
+    <h2>@ViewData["message"] </h2>
+    <h4>@ViewBag.two</h4>
+    <h4>and will get back with you as soon as possible.</h4>
+    <h4>Thank you, and have Wonderful day!</h4>
+    @using (Html.BeginForm("ConfirmationRe", "Home", FormMethod.Post))
+    {<input type="hidden" name="Id" value=@ViewBag.number>
+        <br />
+        <br />
+        <p>
+            To get this confirmation in an email please enter your email address:
+            <br /><input type="email" name="emailaddress">
+        </p>
+
+        <button type="submit" name="submit" value="Send Email">Submit</button>
+    }
+    <br />
+
+</body>
+</html>

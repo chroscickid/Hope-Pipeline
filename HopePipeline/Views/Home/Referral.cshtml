@@ -1,4 +1,4 @@
-﻿@model HopePipeline.Referral
+﻿@model HopePipeline.Models.All
 @{
     ViewData["Title"] = "Referral Page";
 }
@@ -49,25 +49,28 @@
 
 
 
-    @using (Html.BeginForm("Referral", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Referral", "Home", FormMethod.Post, new { enctype ="multipart/form-data"}))
     {@Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     @ViewBag.PKvalue;
-    @Html.HiddenFor(model => model.Id, new { Value = ViewBag.PKvalue })
+    @Html.HiddenFor(model => model.referral.pK, new { Value = ViewBag.PKvalue })
+
+    @Html.HiddenFor(model => model.filereferral.pK, new { Value = ViewBag.PKvalue })
+    @Html.HiddenFor(model => model.filereferral.idPK, new { Value = ViewBag.file })
 
 
-    @Html.HiddenFor(model => model.Status, new { Value = ViewBag.Status })
+    @Html.HiddenFor(model => model.referral.status, new { Value = ViewBag.status })
 
-    @Html.HiddenFor(model => model.Issues_Impacting_student, new { })
-    @Html.HiddenFor(model => model.Upcoming_meeting_scheduled_with_school, new { })
+    @Html.HiddenFor(model => model.referral.issues, new { })
+    @Html.HiddenFor(model => model.referral.meeting, new { })
 
-    @Html.HiddenFor(model => model.Time, new { })
+    @Html.HiddenFor(model => model.referral.time, new { })
 
-    @Html.HiddenFor(model => model.What_is_the_best_way_to_communicate_with_the_youth_family, new { })
+    @Html.HiddenFor(model => model.referral.communication, new { })
 
-    @Html.HiddenFor(model => model.Is_the_youth_a_student_in_a_Duval_County_Public_School, new { })
-    @Html.HiddenFor(model => model.Date_Referral_Input, new { Value = ViewBag.ms })
+    @Html.HiddenFor(model => model.referral.youthInSchool, new { })
+    @Html.HiddenFor(model => model.referral.dateInput, new { Value = ViewBag.ms })
 
     <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
     1.1 Login Page -->
@@ -80,8 +83,8 @@
 
         <tr>
             <td>
-                Email Address: @Html.EditorFor(model => model.email_address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email_address, "", new { @class = "text-danger" })
+                Email Address: @Html.EditorFor(model => model.referral.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.email, "", new { @class = "text-danger" })
             </td>
         </tr>
     </table>
@@ -92,20 +95,20 @@
         <tr>
             <td>
                 First Name:
-                @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.fName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.fName, "", new { @class = "text-danger" })
             </td>
 
             <td>
                 Last Name:
-                @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.lName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.lName, "", new { @class = "text-danger" })
             </td>
 
             <td>
                 Date Of Birth:
-                @Html.EditorFor(model => model.Date_of_Birth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date_of_Birth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.dOB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.dOB, "", new { @class = "text-danger" })
             </td>
         </tr>
 
@@ -113,8 +116,8 @@
             <!-- is their a reason you don't ask for first and last name???? -->
             <td>
                 Primary Caretaker's Name:
-                @Html.EditorFor(model => model.Primary_Caretaker_s_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Primary_Caretaker_s_Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.guardianName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.guardianName, "", new { @class = "text-danger" })
             </td>
 
             <td>
@@ -133,27 +136,27 @@
 
             <td>
                 Street Address:
-                @Html.EditorFor(model => model.Street_Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Street_Address, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.address, "", new { @class = "text-danger" })
                 <br><br>
-                Zip Code:  @Html.EditorFor(model => model.zip_code, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.zip_code, "", new { @class = "text-danger" })
+                Zip Code:  @Html.EditorFor(model => model.referral.zip, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.zip, "", new { @class = "text-danger" })
             </td>
         </tr>
 
         <tr>
             <td>
                 Parent/Guardian's email address:
-                @Html.EditorFor(model => model.Parents_Guardian_s_Email_Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Parents_Guardian_s_Email_Address, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.guardianEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.guardianEmail, "", new { @class = "text-danger" })
 
 
             </td>
 
             <td colspan="2">
                 Parent/Guardian phone number:
-                @Html.EditorFor(model => model.Parents_Guardian_s_Phone_number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Parents_Guardian_s_Phone_number, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.guardianPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.guardianPhone, "", new { @class = "text-danger" })
             </td>
         </tr>
         <tr>
@@ -166,8 +169,8 @@
 
                 </select><br>
                 If yes, what is the date and time of the meeting?<br>
-                Date: @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })<br>
+                Date: @Html.EditorFor(model => model.referral.date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.date, "", new { @class = "text-danger" })<br>
                 Time:<input type="time" name="meetingtime">
             </td>
         </tr>
@@ -203,8 +206,8 @@
         <tr>
             <td>
                 Where is the youth currently attending school?
-                @Html.EditorFor(model => model.Where_is_the_youth_currently_attending_school, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Where_is_the_youth_currently_attending_school, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.currentSchool, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.currentSchool, "", new { @class = "text-danger" })
             </td>
         </tr>
     </table>
@@ -217,8 +220,8 @@
         <tr>
             <td>
                 Is there anything else you would like us to know about the youth or their family?
-                @Html.EditorFor(model => model.Is_there_anything_else_you_would_like_us_to_know_about_the_youth_or_their_family, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Is_there_anything_else_you_would_like_us_to_know_about_the_youth_or_their_family, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.referral.otherInfo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referral.otherInfo, "", new { @class = "text-danger" })
             </td>
         </tr>
         <tr>
@@ -236,9 +239,8 @@
         </tr>
         <tr>
             <td>
-                <!-- is their a reason you don't ask for first and last name????     <h3>Please upload any assessments, evaluations or additional documents you feel are important for us to have related to advocacy for this youth.</h3>
-
-                Select files: <input type="file" name="myFile" multiple><br><br>-->
+                <h3>Please upload any assessments, evaluations or additional documents you feel are important for us to have related to advocacy for this youth.</h3>
+                Select files:  <input type="file" name="file" multiple />
             </td>
         </tr>
 
