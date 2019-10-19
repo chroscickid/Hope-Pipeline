@@ -17,7 +17,7 @@
     <h4>@ViewBag.two</h4>
     <h4>and will get back with you as soon as possible.</h4>
     <h4>Thank you, and have Wonderful day!</h4>
-    @using (Html.BeginForm("ConfirmationRe", "Home", FormMethod.Post))
+    @using (Html.BeginForm("ConfirmationRe", "b", FormMethod.Post))
     {<input type="hidden" name="Id" value=@ViewBag.number>
         <br />
         <br />

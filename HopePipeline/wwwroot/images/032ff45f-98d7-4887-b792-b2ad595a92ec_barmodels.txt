@@ -1,0 +1,115 @@
+         <td>
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.Name, new { Value = ViewBag.Drink2 })
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form -control", style = "width:50px;font-size:40px" } })
+                </td>
+                <td>
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.Name, new { Value = ViewBag.Drink3 })
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form -control", style = "width:50px;font-size:40px" } })
+                </td>
+                <td>
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.Name, new { Value = ViewBag.Drink4 })
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form -control", style = "width:50px;font-size:40px" } })
+                </td>
+                <td>
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.Name, new { Value = ViewBag.Drink5 })
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form -control", style = "width:50px;font-size:40px" } })
+                </td>
+                <td>
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.Name, new { Value = ViewBag.Drink6 })
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form -control", style = "width:50px;font-size:40px" } })
+                </td>   
+
+
+
+Login
+
+
+namespace Bar
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Login
+    {
+        [Required(ErrorMessage = "Please Provide Bartender ID", AllowEmptyStrings = false)]
+        public string BartenderID { get; set; }
+    }
+}
+
+Order
+
+namespace Bar
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public partial class Order
+    {   [Key]
+        public string OrderID { get; set; }
+        [Key]
+        public string Name { get; set; }
+        public string Quantity { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        public virtual Drink Drink { get; set; }
+       
+    }
+    
+}
+
+Drink
+namespace Bar
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    public partial class Drink
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Drink()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    [Key]
+        public string Name { get; set; }
+        public string Price { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+    }
+}
+ 
+Customer
+
+
+namespace Bar
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+   
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Customer
+    {
+        
+          [Key]
+        public string OrderID { get; set; }
+        public string OrderName { get; set; }
+        public string Status { get; set; }
+    
+      
+        public virtual ICollection<Order> Orders { get; set; }
+     
+    }
+}

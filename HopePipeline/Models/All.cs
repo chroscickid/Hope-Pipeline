@@ -7,8 +7,8 @@ namespace HopePipeline.Models
 {
     public class All
     {
-        public Referral referral = new Referral();
-        public FilesReferrals filereferral = new FilesReferrals();
+        public referralBrandi referral = new referralBrandi();
+        public filesReferralBrandi filereferral = new filesReferralBrandi();
 
     }
 }
