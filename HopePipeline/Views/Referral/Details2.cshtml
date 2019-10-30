@@ -1,0 +1,255 @@
+﻿@using Microsoft.AspNetCore.Identity
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*
+@addTagHelper *, AuthoringTagHelpers*
+
+@model HopePipeline.Models.Referral
+
+@{
+    ViewData["Title"] = "Referral Page";
+}
+
+<h1 class="center-block text-center">Referral</h1>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #e6f3ff;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        table#t01 th {
+            background-color: #005199;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Decision after login by authorized user -->
+
+    <h1>Hope Pipeline Referral Form</h1>
+
+
+
+
+    @using (Html.BeginForm("referralBrandi", "b", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @ViewBag.PKvalue;
+
+
+    <input type="hidden" name="primaryKey" value=@ViewBag.PKvalue>
+
+
+
+
+
+
+    <input type="hidden" name="status" value="Pending">
+
+
+    <input type="hidden" name="dateInput" value=@ViewBag.ms>
+    <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
+    1.1 Login Page -->
+    <p></p>
+    <table id="t01">
+
+        <tr>
+            <th>Referral for Educational Advocacy</th>
+        </tr>
+
+        <tr>
+            <td>
+                Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    </table>
+    <table id="t01">
+        <tr>
+            <th colspan="3">Youth and Family Basic Information</th>
+        </tr>
+        <tr>
+            <td>
+                First Name:
+                @Html.EditorFor(model => model.fName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fName, "", new { @class = "text-danger" })
+            </td>
+
+            <td>
+                Last Name:
+                @Html.EditorFor(model => model.lName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lName, "", new { @class = "text-danger" })
+            </td>
+
+            <td>
+                Date Of Birth:
+                @Html.EditorFor(model => model.dOB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dOB, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <!-- is their a reason you don't ask for first and last name???? -->
+            <td>
+                Primary Caretaker's Name:
+                @Html.EditorFor(model => model.guardianName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.guardianName, "", new { @class = "text-danger" })
+            </td>
+
+            <td>
+                What is the primary caretaker's relationship to the youth?(please select all that apply)
+
+                <br>  <input type="checkbox" name="Mother" value="Mother">Mother<br>
+                <input type="checkbox" name="Father" value=" Father">Father<br>
+                <input type="checkbox" name="Guardian" value="Guardian">Guardian<br>
+                <input type="checkbox" name="Familymember" value="Family member">Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
+                <input type="checkbox" name="FosterParent" value="Foster Parent">Foster Parent<br>
+
+                Other:<input type="text" name="VariableFM">
+                <br>
+            </td>
+
+
+            <td>
+                Street Address:
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                <br><br>
+                Zip Code:  @Html.EditorFor(model => model.zip, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.zip, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Parent/Guardian's email address:
+                @Html.EditorFor(model => model.guardianEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.guardianEmail, "", new { @class = "text-danger" })
+
+
+            </td>
+
+            <td colspan="2">
+                Parent/Guardian phone number:
+                @Html.EditorFor(model => model.guardianPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.guardianPhone, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                Does the youth have any upcoming meetings scheduled with their school? 	<select name="Meeting">
+                    <option value="Select">Please Select an Option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+
+                </select><br>
+                If yes, what is the date and time of the meeting?<br>
+                Date: @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })<br>
+
+                Time:<input type="time" name="meetingtime">
+            </td>
+        </tr>
+    </table>
+    <table id="t01">
+
+        <tr>
+            <th>Youth Needs</th>
+        </tr>
+        <tr>
+            <td>
+                Is this youth a student in a Duval County Public School? 	<select name="School">
+                    <option value="Select">Please Select an Option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+
+                </select><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                What issues are currently impacting the youth? Please check all that apply.
+                <br>  <input type="checkbox" name="Failed" value="Failed a grade">Failed a grade<br>
+                <input type="checkbox" name="Suspended" value="Frequently suspendeds">Frequently suspended<br>
+                <input type="checkbox" name="Alt" value="In an alternative school setting ">In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
+                <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP">Has a 504 plan or an IEP<br>
+                <input type="checkbox" name="Notenrolled" value="Not enrolled in school">Not enrolled in school<br>
+                <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted">Has a history of being Baker Acted<br>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Where is the youth currently attending school?
+                @Html.EditorFor(model => model.currentSchool, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.currentSchool, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    </table>
+    <table id="t01">
+
+        <tr>
+            <th>You tell us.</th>
+        </tr>
+
+        <tr>
+            <td>
+                Is there anything else you would like us to know about the youth or their family?
+                @Html.EditorFor(model => model.otherInfo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.otherInfo, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                What is the best way to communicate with the youth/family?
+
+                <input type="radio" name="Reach" value="Phone">Phone
+                <input type="radio" name="Reach" value="Email">Email
+                <input type="radio" name="Reach" value="Text">Text
+
+
+
+                <input type="radio" name="1"> Other:<input type="text" name="Reach"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Please upload any assessments, evaluations or additional documents you feel are important for us to have related to advocacy for this youth.</h3>
+                Select files:  <input type="file" name="file" multiple />
+            </td>
+        </tr>
+
+    </table><br />
+
+
+    <button type="submit" name="submit" value="Submit">Submit</button>
+
+}
+</body>
+</html>
