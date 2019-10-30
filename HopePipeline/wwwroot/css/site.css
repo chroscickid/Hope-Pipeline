@@ -50,3 +50,8 @@ body {
 .searchbox {
     float: right;
 }
+
+.navbar-brand {
+    width: 60%;
+    height: 60%;
+}
