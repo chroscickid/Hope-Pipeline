@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace HopePipeline.Models
 {
+    //Eventually, this will be the "referral" model
     public class Client
     {
         public int ClientID { get; set; }
