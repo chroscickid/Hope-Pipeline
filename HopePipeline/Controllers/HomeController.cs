@@ -26,11 +26,12 @@ namespace HopePipeline.Controllers
     {
       
 
-          //private HopePipelineName db = new dbEntities1();
+          
         public IActionResult Index()
         {
             return View();
         }
+       
 
         public IActionResult Admin()
         {

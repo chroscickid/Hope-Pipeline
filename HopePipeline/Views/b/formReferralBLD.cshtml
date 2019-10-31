@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@*@using Microsoft.AspNetCore.Identity
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*
 @addTagHelper *, AuthoringTagHelpers*
 
@@ -47,14 +47,14 @@
 <body>
 
 
-    <!-- Decision after login by authorized user -->
+  
 
     <h1>Hope Pipeline Referral Form</h1>
 
 
 
 
-    @using (Html.BeginForm("referralBrandi", "b", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("formReferralBLD", "b", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {@Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -72,8 +72,7 @@
 
 
     <input type="hidden" name="dateInput" value=@ViewBag.ms>
-    <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
-    1.1 Login Page -->
+ 
     <p></p>
     <table id="t01">
 
@@ -113,7 +112,7 @@
         </tr>
 
         <tr>
-            <!-- is their a reason you don't ask for first and last name???? -->
+           
             <td>
                 Primary Caretaker's Name:
                 @Html.EditorFor(model => model.guardianName, new { htmlAttributes = new { @class = "form-control" } })
@@ -252,4 +251,4 @@
 
 }
 </body>
-</html>
+</html>*@

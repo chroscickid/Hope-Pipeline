@@ -1,4 +1,4 @@
-﻿@model HopePipeline.Models.referralBrandi
+﻿@*@model HopePipeline.Models.referralBrandi
 
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -51,12 +51,11 @@
 <body>
 
 
-    <!-- Decision after login by authorized user -->
+ 
 
     <h1>Hope Pipeline Contact Info</h1>
 
-    <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
-    1.1 Login Page -->
+   
     <p></p>
     <table id="t01">
 
@@ -65,7 +64,7 @@
         </tr>
 
         <tr>
-            <!-- is their a reason you don't ask for first and last name???? -->
+            
             <td>Primary Caretaker's Name:  @Html.DisplayFor(model => model.guardianName)</td>
         </tr>
         <tr>
@@ -121,5 +120,5 @@
 <p>
 
     @Html.ActionLink("Back to List", "Index", "Home")
-</p>
+</p>*@
 

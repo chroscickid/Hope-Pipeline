@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewData["Title"] = "contactInfoM";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #e6f3ff;
+            font-size: 25px;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+            font-size: 25px;
+        }
+
+        table#t01 th {
+            background-color: #005199;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Decision after login by authorized user -->
+
+    <h1>Hope Pipeline Contact Info</h1>
+
+    <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
+    1.1 Login Page -->
+    <p></p>
+    <table id="t01">
+
+        <tr>
+            <th> Client:Name</th>
+        </tr>
+
+        <tr>
+            <!-- is their a reason you don't ask for first and last name???? -->
+            <td>Primary Caretaker's Name: Name</td>
+        </tr>
+        <tr>
+            <td>
+                Primary Caretaker's Relationship: Relationship
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>Parent/Guardian Phone Number: 912-659-4157</td>
+        </tr>
+        <tr>
+            <td>Parent/Guardian's E-mail Address: hick@gmail.com</td>
+
+        </tr>
+        <tr>
+            <td>
+                Street Address:  12 mojito lane<br><br>
+                Zip Code:  12547
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                What is the best way to communicate with the youth/family:  email
+
+            </td>
+        </tr>
+
+
+    </table>
+    <table id="t01">
+        <tr>
+            <th> Referral Souce for Contact</th>
+        </tr>
+        <tr>
+            <td>
+                Referral Source E-mail Address:  tosh@gmail.com
+
+            </td>
+
+        </tr>
+    </table>
+
+
+</body>
+</html>
+
+
+
+<p>
+
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\b\referralBrandi.cshtml">
+    <Content Update="Views\b\formReferralBLD.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

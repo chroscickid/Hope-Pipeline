@@ -1,5 +1,5 @@
 ﻿
-@{
+@*@{
     ViewData["Title"] = "ConfirmationRe";
 }
 
@@ -7,28 +7,32 @@
 
 <!DOCTYPE html>
 <html>
+<head>
 
+
+</head>
 <body>
 
     <br /><br />
-   
+
 
     <h2>@ViewData["message"] </h2>
     <h4>@ViewBag.two</h4>
     <h4>and will get back with you as soon as possible.</h4>
     <h4>Thank you, and have Wonderful day!</h4>
-    @using (Html.BeginForm("ConfirmationRe", "b", FormMethod.Post))
+    @using (Html.BeginForm("ConfirmationReBLD", "b", FormMethod.Post))
     {<input type="hidden" name="Id" value=@ViewBag.number>
         <br />
         <br />
         <p>
             To get this confirmation in an email please enter your email address:
-            <br /><input type="email" name="emailaddress">
+            <br /><input type="email" name="emailaddress"  size="35" style="font-size:25px;">
+        
+            <br />
+        <input type="image" src="~/images/email33.png" alt="Submit">
         </p>
-
-        <button type="submit" name="submit" value="Send Email">Submit</button>
     }
     <br />
 
 </body>
-</html>
+</html>*@

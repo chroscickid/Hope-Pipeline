@@ -15,9 +15,10 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+  
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top makeittan">
+    <nav class="navbar navbar-inverse navbar-fixed-top makeittan"style="padding:5px; font-size:30px;height:120px;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,9 +27,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/ccr-logo.png" alt="Center for Children's Rights logo" height="100%" width="140%" /></a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/ccr-logo.png" alt="Center for Children's Rights logo" /></a>
             </div>
             <div class="navbar-collapse collapse navbar-right">
+               
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li>|</li>
@@ -40,7 +42,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div class="container body-content" style="padding-top:120px">
         @RenderBody()
         <hr />
         <footer>
