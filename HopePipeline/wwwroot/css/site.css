@@ -51,7 +51,10 @@ body {
     float: right;
 }
 
+.navbar-brand > img {
+    width: 40%;
+}
+
 .navbar-brand {
-    width: 60%;
-    height: 60%;
+    padding: 10px 10px;
 }
