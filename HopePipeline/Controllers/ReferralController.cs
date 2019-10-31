@@ -25,14 +25,14 @@ namespace HopePipeline.Controllers
             {
                 case "Name":
                     IEnumerable<Referral> sort = list.OrderBy(Referral => Referral.lName);
-                        return View("/RefList.cshtml");
+                    return RefList();
                 case "Date":
-                    return View("/RefList.cshtml");
+                    return RefList();
                 case "Status":
-                    return View("/RefList.cshtml");
+                    return RefList();
+                default:
+                    return RefList();
             }
-
-            return View("/RefList.cshtml");
 
         }
 
