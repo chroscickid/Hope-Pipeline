@@ -6,14 +6,32 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HopePipeline.Models;
 
+
+using System.Web;
+
+using System.Data;
+
+using System.Net;
+using System.Net.Mail;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
+
 namespace HopePipeline.Controllers
 {
     public class HomeController : Controller
+
+
     {
+      
+
+          
         public IActionResult Index()
         {
             return View();
         }
+       
 
         public IActionResult Admin()
         {
@@ -29,15 +47,12 @@ namespace HopePipeline.Controllers
             return View();
         }
 
-        public IActionResult Referral()
-        {
-            return View();
-        }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+     }   }
     }
-}
+

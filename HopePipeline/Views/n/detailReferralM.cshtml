@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewData["Title"] = "detailReferralM";
+}
+
+
+<head>
+    <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Downloading File:" ;
+            }
+
+    </script>
+    <style>
+
+        table {
+            width: auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 11px;
+            text-align: left;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #e6f3ff;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        table#t01 th {
+            background-color: #005199;
+            color: white;
+        }
+    </style>
+</head>
+<h2>Referral </h2>
+
+<div>
+    <h4>Detail</h4>
+    <hr />
+    <table id="t01">
+        <tr>
+            <td style="text-align:right">First Name:</td>
+            
+                <td>FirstName</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right">Last Name: </td>
+           
+                <td> LastName</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right">Date of Birth:</td>
+           
+                <td> Date of Birth</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right">  Guardian's Name:</td>
+           
+                <td> guardianName</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right"> Guardian's relationship to the youth:</td>
+           
+                <td> guardianRelationship</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right"> Address:</td>
+           
+            
+                <td> address</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right"> Zip Code</td>
+           
+                <td> zip</td>
+            
+        </tr>
+        <tr>
+            <td style="text-align:right">Guardian's Email:</td>
+            
+                <td>guardianEmail</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Guardian's Phone Number:</td>
+         
+                <td> guardianPhone</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Date of Youth's Meeting:</td>
+           
+                <td>date</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Time of Youth's Meeting:</td>
+           
+                <td> time</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Youth a student in a Duval County Public School:</td>
+       
+                <td> youthInSchool</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Issues which are currently impacting the Youth:</td>
+         
+                <td>issues</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Youth's school they are currently Attending:</td>
+          
+                <td> currentSchool</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">   General Information Provided:</td>
+          
+                <td> otherInfo</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Best way to Communicate with youth:</td>
+           
+                <td> communication</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Status:</td>
+           
+                <td> status</td>
+            
+
+        </tr>
+
+
+        <tr>
+            <td style="text-align:right">  Date Referral Input:</td>
+            
+                <td>dateInput</td>
+            
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Referral Source's Email for youth:</td>
+            
+                <td> email</td>
+            
+
+        </tr>
+
+       
+            <tr>
+                <td style="text-align:right">File:</td>
+
+                <td>
+                    file
+                </td>
+            </tr>
+        
+
+
+
+
+
+    </table>
+    <p id="demo"></p>
+</div>
+<div>
+
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>

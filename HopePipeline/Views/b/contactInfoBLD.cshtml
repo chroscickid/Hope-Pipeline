@@ -1,0 +1,124 @@
+﻿@*@model HopePipeline.Models.referralBrandi
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*
+@addTagHelper *, AuthoringTagHelpers*
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+
+@{
+    ViewData["Title"] = "contactInfoBrandi";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #e6f3ff;
+            font-size: 25px;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+            font-size: 25px;
+        }
+
+        table#t01 th {
+            background-color: #005199;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+ 
+
+    <h1>Hope Pipeline Contact Info</h1>
+
+   
+    <p></p>
+    <table id="t01">
+
+        <tr>
+            <th> Client: @Html.DisplayFor(model=>model.lName), @Html.DisplayFor(model => model.fName)</th>
+        </tr>
+
+        <tr>
+            
+            <td>Primary Caretaker's Name:  @Html.DisplayFor(model => model.guardianName)</td>
+        </tr>
+        <tr>
+            <td>
+                Primary Caretaker's Relationship: @Html.DisplayFor(model => model.guardianRelationship)
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>Parent/Guardian Phone Number:  @Html.DisplayFor(model => model.guardianPhone)</td>
+        </tr>
+        <tr>
+            <td>Parent/Guardian's E-mail Address: @Html.DisplayFor(model => model.guardianEmail)</td>
+
+        </tr>
+        <tr>
+            <td>
+                Street Address:  @Html.DisplayFor(model => model.address)<br><br>
+                Zip Code:  @Html.DisplayFor(model => model.zip)
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                What is the best way to communicate with the youth/family:  @Html.DisplayFor(model => model.communication)
+
+            </td>
+        </tr>
+
+
+    </table>
+    <table id="t01">
+        <tr>
+            <th> Referral Souce for Contact</th>
+        </tr>
+        <tr>
+            <td>
+                Referral Source E-mail Address:  @Html.DisplayFor(model => model.email)
+
+            </td>
+
+        </tr>
+    </table>
+
+
+</body>
+</html>
+
+
+
+<p>
+
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>*@
+

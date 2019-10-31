@@ -1,0 +1,219 @@
+﻿@*@model IEnumerable<Object>
+
+@{
+    ViewData["Title"] = "detailBrandi";
+    List<HopePipeline.Models.referralBrandi> lstreferral = Model.ToList()[0] as List<HopePipeline.Models.referralBrandi>;
+    List<HopePipeline.Models.filesReferralBrandi> lstfile = Model.ToList()[1] as List<HopePipeline.Models.filesReferralBrandi>;
+}
+    <head>
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Downloading File:" ;
+            }
+  
+        </script>
+        <style>
+
+            table {
+                width: auto;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 11px;
+                text-align: left;
+            }
+
+            table#t01 tr:nth-child(even) {
+                background-color: #e6f3ff;
+            }
+
+            table#t01 tr:nth-child(odd) {
+                background-color: #fff;
+            }
+
+            table#t01 th {
+                background-color: #005199;
+                color: white;
+            }
+        </style>
+    </head>
+<h2>Referral </h2>
+
+<div>
+    <h4>Detail</h4>
+    <hr />
+    <table id="t01">
+        <tr>
+            <td style="text-align:right">First Name:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.fName</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right">Last Name: </td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.lName</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right">Date of Birth:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.dOB</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right">  Guardian's Name:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.guardianName</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right"> Guardian's relationship to the youth:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.guardianRelationship</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right"> Address:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.address</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right"> Zip Code</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.zip</td>
+            }
+        </tr>
+        <tr>
+            <td style="text-align:right">Guardian's Email:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.guardianEmail</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Guardian's Phone Number:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.guardianPhone</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Date of Youth's Meeting:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.date</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Time of Youth's Meeting:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.time</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Youth a student in a Duval County Public School:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.youthInSchool</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Issues which are currently impacting the Youth:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.issues</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Youth's school they are currently Attending:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.currentSchool</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">   General Information Provided:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.otherInfo</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Best way to Communicate with youth:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.communication</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right"> Status:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.status</td>
+            }
+
+        </tr>
+
+
+        <tr>
+            <td style="text-align:right">  Date Referral Input:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.dateInput</td>
+            }
+
+        </tr>
+        <tr>
+            <td style="text-align:right">Referral Source's Email for youth:</td>
+            @foreach (var item in lstreferral)
+            {
+                <td> @item.email</td>
+            }
+
+        </tr>
+
+        @foreach (var item in lstfile)
+        {
+    <tr>
+        <td style="text-align:right">File:</td>
+        
+        <td>
+       <a href=@item.fileNameY target="_blank">@item.file</a> </td>
+    </tr>
+       }
+
+
+     
+
+
+    </table>
+    <p id="demo"></p>
+</div>
+<div>
+
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>*@
