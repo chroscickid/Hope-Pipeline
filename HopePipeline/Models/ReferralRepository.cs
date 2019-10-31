@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace HopePipeline.Models
 {
-    public interface ClientRepository
+    public interface ReferralRepository
     {
-        IEnumerable<Client> Clients { get; }
+        IEnumerable<Referral> Referrals { get; }
     }
 }

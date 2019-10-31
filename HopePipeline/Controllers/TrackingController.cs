@@ -8,7 +8,7 @@ namespace HopePipeline.Controllers
 {
     public class TrackingController : Controller
     {
-        public IActionResult Index()
+        public IActionResult StartTracking()
         {
             return View();
         }

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HopePipeline.Models.Referral>
+
+@{
+    ViewData["Title"] = "Referral List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Referrals</h2>
+<div class="searchbox">
+<form asp-action="Search" method="post">
+    <input type="text" name="search" /> <button type="submit">Search</button>
+</form>
+    </div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              <a asp-controller="Referral" asp-action="SortList" asp-route-field="Name">Name</a>
+            </th>
+            <th>
+                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Date">Date of Birth</a>
+            </th>
+            <th>
+                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Status">Status</a>
+            </th>
+            <th>
+               More Options
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.lName) , @Html.DisplayFor(modelItem => item.fName)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.dOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-controller="Tracking" asp-action="StartTracking">Start Tracking</a> |
+                <a asp-controller="Referral" asp-action="Details">Details</a> |
+                <a asp-controller="Referral" asp-action="Delete">Delete</a>
+            </td>
+        </tr>; }
+    </tbody>
+</table>

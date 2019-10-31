@@ -1,0 +1,51 @@
+﻿@model HopePipeline.Models.Report;
+@{
+    ViewData["Title"] = "GenerateReports";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Generate Reports</h2>
+<div class="box">
+    <form asp-controller="Report" asp-action="ViewReports" method="post">
+        <select name="demoField1" asp-for="demoField1">
+            <option value="none" selected>--Please pick an option--</option>
+            <option value="gender">Gender</option>
+            <option value="ethnicity">Ethnicity</option>
+            <option value="gender">Gender</option>
+            <option value="parent">Single Parent</option>
+        </select>
+        <select name="demoField1relation" asp-for="demoField1relation">
+            <option value="none" selected>--Please pick an option</option>
+            <option value="one">These fields will</option>
+            <option value="two">be populated based</option>
+            <option value="three">on the previous field</option>
+        </select>
+        <br />
+        <select name="demoField2" asp-for="demoField2">
+            <option value="none" selected>--Please pick an option--</option>
+            <option value="gender">Gender</option>
+            <option value="ethnicity">Ethnicity</option>
+            <option value="gender">Gender</option>
+            <option value="parent">Single Parent</option>
+        </select>
+        <select name="demoField2relation" asp-for="demoField2relation">
+            <option value="none" selected>--Please pick an option--</option>
+            <option value="one">These fields will</option>
+            <option value="two">be populated based</option>
+            <option value="three">on the previous field</option>
+        </select>
+        <br />
+        <select name="otherField" asp-for="otherField">
+            <option value="none" selected>--PLease pick an option--</option>
+            <option value="failed">Student failed a grade</option>
+            <option value="bakeract">Student has been Baker Acted</option>
+            <option value="iep">Student has an IEP</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<a asp-controller="Report" asp-action="ExportDb">Click here to export to Excel</a>
+

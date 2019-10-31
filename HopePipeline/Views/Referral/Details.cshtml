@@ -1,0 +1,145 @@
+﻿@model HopePipeline.Models.Referral
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>Referral</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.lName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.lName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dOB)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dOB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.guardianName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.guardianName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.guardianRelationship)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.guardianRelationship)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.guardianEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.guardianEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.guardianPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.guardianPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.meeting)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.meeting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.youthInSchool)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.youthInSchool)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.issues)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.issues)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.currentSchool)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.currentSchool)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.otherInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.otherInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.communication)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.communication)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.zip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.zip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dateInput)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dateInput)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
