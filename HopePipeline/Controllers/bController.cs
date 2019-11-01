@@ -184,8 +184,9 @@ namespace HopePipeline.Controllers
                         string webRootPath = hostingEnvironment.ContentRootPath;
 
                         string uploadsFolder = Path.Combine(webRootPath, "wwwroot\\images");
-
-                        unqiueFileName = Guid.NewGuid().ToString() + "_" + files.FileName;
+                        string strPath = files.FileName;
+                        string filename = Path.GetFileName(strPath);
+                        unqiueFileName = Guid.NewGuid().ToString() + "_" + filename ;
 
                         string filePath = Path.Combine(uploadsFolder, unqiueFileName);
                         using (FileStream fs = System.IO.File.Create(filePath))
