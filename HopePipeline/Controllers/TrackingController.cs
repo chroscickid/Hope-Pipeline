@@ -8,7 +8,28 @@ namespace HopePipeline.Controllers
 {
     public class TrackingController : Controller
     {
-        public IActionResult StartTracking()
+        public IActionResult demoTracking()
+        {
+            return View();
+        }
+
+        public ViewResult ccrTracking()
+        {
+            return View();
+        }
+
+        public ViewResult schoolTracking()
+        {
+            return View();
+        }
+
+        public ViewResult disciplineTracking()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SubmitTracking()
         {
             return View();
         }
