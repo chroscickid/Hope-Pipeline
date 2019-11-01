@@ -292,7 +292,7 @@ namespace HopePipeline.Controllers
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("IndexA", "b");
         }
 
         public ViewResult ConfirmationRe1(referralBrandi referral)
