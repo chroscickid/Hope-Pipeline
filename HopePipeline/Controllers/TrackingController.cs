@@ -33,5 +33,10 @@ namespace HopePipeline.Controllers
         {
             return View();
         }
+
+        public ViewResult TrackingList()
+        {
+            return View();
+        }
     }
 }

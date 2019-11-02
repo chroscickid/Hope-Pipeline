@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Tracking List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Tracking</h2>
+<div class="searchbox">
+    <form asp-action="Search" method="post">
+        Search by
+        <input type="radio" name="searchOptions" value="fName"/>
+        <label>First Name</label>
+        <input type="radio" name="searchOptions" value="lName"/>
+        <label>Last Name</label>
+        <input type="text" name="search" /> <button type="submit">Search</button>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Name">Name</a>
+            </th>
+            <th>
+                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Date">Phone number</a>
+            </th>
+            <th>
+                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Status">Status</a>
+            </th>
+            <th>
+                More Options
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        
+            <tr>
+                <td>
+                    placeholder
+                </td>
+                <td>
+                    placeholder
+                </td>
+                <td>
+                    placeholder
+                </td>
+                <td>
+                    <a asp-controller="Tracking" asp-action="demoTracking">Edit</a> |
+                    <a asp-controller="n" asp-action="detailTrackingM">Details</a> |
+                    <a asp-controller="Referral" asp-action="Delete">Delete</a>
+                </td>
+            </tr>
+;
+        
+    </tbody>
+</table>
