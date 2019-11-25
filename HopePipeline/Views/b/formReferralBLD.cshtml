@@ -77,12 +77,24 @@
     <table id="t01">
 
         <tr>
-            <th>Referral for Educational Advocacy</th>
+            <th colspan="2">Referral for Educational Advocacy</th>
+        </tr>
+        <tr>
+            <td>
+                Referral Sources First Name:
+                @Html.EditorFor(model => model.referralfname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referralfname, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                Referral Sources Last Name:
+                @Html.EditorFor(model => model.referrallname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referrallname, "", new { @class = "text-danger" })
+            </td>
         </tr>
 
         <tr>
-            <td>
-                Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            <td colspan="2">
+               Referral Sources Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </td>
         </tr>
@@ -200,6 +212,7 @@
                 <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP">Has a 504 plan or an IEP<br>
                 <input type="checkbox" name="Notenrolled" value="Not enrolled in school">Not enrolled in school<br>
                 <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted">Has a history of being Baker Acted<br>
+                <input type="checkbox" name="Dependent" value="Dependent">Dependent<br>
 
             </td>
         </tr>

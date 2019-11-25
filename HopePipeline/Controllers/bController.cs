@@ -97,7 +97,7 @@ namespace HopePipeline.Controllers
         [ValidateAntiForgeryToken]
 
         public ActionResult formReferralBLD(string Mother, string Father, string Guardian, string Familymember, string FosterParent, string VariableFM, string Failed,
-            string Suspended, string Alt, string Plan, string Notenrolled, string Hxbaker, string Meeting, string meetingtime,
+            string Suspended, string Alt, string Plan, string Notenrolled, string Hxbaker, string Dependent, string Meeting, string meetingtime,
             string School, string Reach, string primaryKey, string status, string dateInput, IFormFile[] file,
                referralBrandi referral)
 
@@ -140,6 +140,8 @@ namespace HopePipeline.Controllers
                 { answer1 = answer1 + Notenrolled + "," + " "; }
                 if (Hxbaker != null)
                 { answer1 = answer1 + Hxbaker + "," + " "; }
+                if (Dependent != null)
+                { answer1 = answer1 + Dependent + "," + " "; }
                 referral.issues = answer1;
 
                 referral.youthInSchool = School;

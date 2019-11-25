@@ -48,19 +48,27 @@
     <h1>Hope Pipeline Referral Form</h1>
 
 
-   
+
     <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
     1.1 Login Page -->
+
     <p></p>
     <table id="t01">
 
         <tr>
-            <th>Referral for Educational Advocacy</th>
+            <th colspan="2">Referral for Educational Advocacy</th>
         </tr>
-
         <tr>
             <td>
-                Email Address: <input type="email" ><br>
+                Referral Sources First Name: <input type="text"><br>
+            </td>
+            <td>
+                Referral Sources Last Name:<input type="text"><br>
+            </td>
+        </tr>
+        <tr >
+            <td colspan="2">
+                Email Address: <input type="email"><br>
             </td>
         </tr>
     </table>
@@ -76,7 +84,7 @@
 
             <td>
                 Last Name:
-                <input type="text" ><br>
+                <input type="text"><br>
             </td>
 
             <td>
@@ -168,7 +176,7 @@
                 <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP">Has a 504 plan or an IEP<br>
                 <input type="checkbox" name="Notenrolled" value="Not enrolled in school">Not enrolled in school<br>
                 <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted">Has a history of being Baker Acted<br>
-
+                <input type="checkbox" name="Dependent" value="Dependent">Dependent<br>
             </td>
         </tr>
         <tr>
@@ -213,7 +221,7 @@
     </table><br />
 
 
-    <button type="submit" onclick="location.href='confirmationM';" >Submit</button>
+    <button type="submit" onclick="location.href='confirmationM';">Submit</button>
 
 
 </body>

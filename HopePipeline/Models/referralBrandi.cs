@@ -66,6 +66,9 @@ namespace HopePipeline.Models
 
         public string time { get; set; }
 
+        public string referralfname { get; set; }
+        public string referrallname { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<filesReferralBrandi> filesReferralBrandi { get; set; }
         public virtual ICollection<trackingReferral> trackingReferral { get; set; }
