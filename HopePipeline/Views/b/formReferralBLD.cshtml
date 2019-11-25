@@ -81,12 +81,12 @@
         </tr>
         <tr>
             <td>
-                Referral Sources First Name:
+                Referral Source's First Name:
                 @Html.EditorFor(model => model.referralfname, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.referralfname, "", new { @class = "text-danger" })
             </td>
             <td>
-                Referral Sources Last Name:
+                Referral Source's Last Name:
                 @Html.EditorFor(model => model.referrallname, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.referrallname, "", new { @class = "text-danger" })
             </td>
@@ -94,7 +94,7 @@
 
         <tr>
             <td colspan="2">
-               Referral Sources Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+               Referral Source's Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </td>
         </tr>
