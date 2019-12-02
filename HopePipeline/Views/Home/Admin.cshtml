@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Admin Login";
 }
 
 
@@ -9,13 +9,11 @@
     <meta name="viewport" content="width = device-width, initial-scale=1">
 
     <style>
-        body 
-        {
+        body {
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        input[type=text], input[type=password] 
-        {
+        input[type=text], input[type=password] {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -24,8 +22,7 @@
             box-sizing: border-box;
         }
 
-        input[type=submit] 
-        {
+        input[type=submit] {
             background-color: #09335e;
             color: white;
             padding: 10px 18px;
@@ -35,8 +32,7 @@
             cursor: pointer;
         }
 
-        .cancelbtn 
-        {
+        .cancelbtn {
             width: auto;
             padding: 10px 18px;
             color: white;
@@ -51,20 +47,21 @@
     <div class="container">
         <h3>Administrator Log In</h3>
         <p></p>
-        <form action="/action_page.php">
-
+        @ViewBag.error
+        <form method="post" asp-controller="account" asp-action="login">
             <p></p>
             <p></p>
-            <label for="uname"><b>Username/Email</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="username"><b>Username/Email</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
             <p></p>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
             <p></p>
             <button type="button" onclick="javascript:history.back().style.display='none'" class="cancelbtn" OnClientClick="JavaScript:window.history.back(1);return false;">Cancel </button>
             &nbsp;&nbsp;
-
-            <input type="submit" value="Log In">
+            @Html.AntiForgeryToken()
+            &nbsp;&nbsp;
+            <input type="submit" value="Login">
             <p></p>
             <h5><a asp-action="ForgotPassword">Forgot Password?</a></h5>
 

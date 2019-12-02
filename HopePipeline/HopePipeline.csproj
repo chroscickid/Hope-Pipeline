@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Images\" />
+    <Folder Include="wwwroot\data\" />
   </ItemGroup>
 
 </Project>
