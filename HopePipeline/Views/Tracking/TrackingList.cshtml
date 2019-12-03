@@ -1,4 +1,4 @@
-﻿
+﻿@model HopePipeline.Models.Tracking
 @{
     ViewData["Title"] = "Tracking List";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,12 +8,75 @@
 <h2>Tracking</h2>
 <div class="searchbox">
     <form asp-action="Search" method="post">
-        Search by
-        <input type="radio" name="searchOptions" value="fName"/>
-        <label>First Name</label>
-        <input type="radio" name="searchOptions" value="lName"/>
-        <label>Last Name</label>
-        <input type="text" name="search" /> <button type="submit">Search</button>
+        <div id="part1">
+            <select id="field1" name="field1">
+                <option value="none" selected>None</option>
+                @{
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        <option value="@property.PropertyName">@property.PropertyName</option>
+                    }
+                }
+            </select>
+            <input id="text1" name="text1" />
+            <a onclick="addSearchField(1);">+</a>
+            <br />
+        </div>
+        <div id="part2" style="display:none">
+            <select id="field2" name="field2">
+                <option value="none" selected>None</option>
+                @{
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        <option value="@property.PropertyName">@property.PropertyName</option>
+                    }
+                }
+            </select>
+            <input id="text2" name="text2" />
+            <a onclick="addSearchField(2);">+</a>
+        </div>
+        <div id="part3" style="display:none">
+            <select id="field3" name="field3">
+                <option value="none" selected>None</option>
+                @{
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        <option value="@property.PropertyName">@property.PropertyName</option>
+                    }
+                }
+            </select>
+            <input id="text3" name="text3" />
+            <a onclick="addSearchField(3);">+</a>
+        </div>
+        <div id="part4" style="display:none">
+            <select id="field4" name="field4">
+                <option value="none" selected>None</option>
+                @{
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        <option value="@property.PropertyName">@property.PropertyName</option>
+                    }
+                }
+            </select>
+            <input id="text4" name="text4" />
+            <a onclick="addSearchField(4);">+</a>
+        </div>
+        <div id="part5" style="display:none">
+            <select id="field5" name="field5">
+                <option value="none" selected>None</option>
+                @{
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        <option value="@property.PropertyName">@property.PropertyName</option>
+                    }
+                }
+            </select>
+            <input id="text5" name="text5" />
+        </div>
+        <button type="submit" onclick="">Search</button>
+
+
+
     </form>
 </div>
 
@@ -37,25 +100,25 @@
         </tr>
     </thead>
     <tbody>
-       
-        
-            <tr>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    <a asp-controller="Tracking" asp-action="demoTracking">Edit</a> |
-                    <a asp-controller="n" asp-action="detailTrackingM">Details</a> |
-                    <a asp-controller="Referral" asp-action="Delete">Delete</a>
-                </td>
-            </tr>
-;
-        
+
+
+        <tr>
+            <td>
+                placeholder
+            </td>
+            <td>
+                placeholder
+            </td>
+            <td>
+                placeholder
+            </td>
+            <td>
+                <a asp-controller="Tracking" asp-action="demoTracking">Edit</a> |
+                <a asp-controller="n" asp-action="detailTrackingM">Details</a> |
+                <a asp-controller="Referral" asp-action="Delete">Delete</a>
+            </td>
+        </tr>
+        ;
+
     </tbody>
 </table>

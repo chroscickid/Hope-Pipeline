@@ -15,6 +15,8 @@ namespace HopePipeline.Models
         public string otherField { get; set; }
         public string otherFieldrelation { get; set; }
 
+        public Tracking Clients { get; set; }
+
 
     }
 }

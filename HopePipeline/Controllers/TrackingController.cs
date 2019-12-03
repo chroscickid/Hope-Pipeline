@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using HopePipeline.Models;
 
 namespace HopePipeline.Controllers
 {
@@ -37,6 +38,13 @@ namespace HopePipeline.Controllers
         public ViewResult TrackingList()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Search(Tracking model)
+        {
+            string retur = model.Name;
+            return Content(retur);
         }
     }
 }
