@@ -1,13 +1,37 @@
-﻿@Model HopePipeline.Models.Report;
-{
-    ViewData["Title"] = "ViewReports";
+﻿@model HopePipeline.Models.DbEntities.Reports.ReportResults;
+@{
+    ViewData["Title"] = "Repults Results";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
 }
 
-<h2>View Reports</h2>
-
-<div>
-
-</div>
+<h1>Reports Results</h1>
+<h3>Showing @Model.ResultsList.Count results out of [Placeholder]</h3>
+<table id="viewreport" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>@Model.field[0]</th>
+            <th>@Model.field[1]</th>
+            <th>@Model.field[2]</th>
+            <th>@Model.field[3]</th>
+            <th>@Model.field[4]</th>
+            <th>@Model.field[5]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.ResultsList)
+        {
+        <tr>
+            <td>@row.fName, @row.lName</td>
+            <td>@row.releField1</td>
+            <td>@row.releField2</td>
+            <td>@row.releField3</td>
+            <td>@row.releField4</td>
+            <td>@row.releField5</td>
+        </tr>;
+        }
+    </tbody>
+        
+   
+</table>
 

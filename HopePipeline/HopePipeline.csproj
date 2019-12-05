@@ -5,11 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Images\**" />
+    <Content Remove="Views\Images\**" />
+    <EmbeddedResource Remove="Views\Images\**" />
+    <None Remove="Views\Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\images\ccr-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.Core" Version="2.24.0" />
+    <PackageReference Include="JsonFx" Version="2.0.1209.2802" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
@@ -30,14 +38,10 @@
     <Content Update="Views\Home\Contact.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Referral\RefList - Copy.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="FIles\" />
-    <Folder Include="Views\Images\" />
     <Folder Include="wwwroot\files\" />
   </ItemGroup>
 
