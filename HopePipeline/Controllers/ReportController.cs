@@ -32,7 +32,7 @@ namespace HopePipeline.Controllers
                 return View("ReportError");
             }
 
-            string connectionString = "hello???";
+            string connectionString = "placeholder";
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
