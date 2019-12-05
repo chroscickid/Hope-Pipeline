@@ -33,5 +33,15 @@ namespace HopePipeline.Controllers
             return View();
 
         }
+        public IActionResult EditTrackingM()
+        {
+            return View();
+
+        }
+        public IActionResult editReferralM()
+        {
+            return View();
+
+        }
     }
 }
