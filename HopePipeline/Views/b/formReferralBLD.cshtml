@@ -47,13 +47,22 @@
 
         function yesnoCheck() {
             if (document.getElementById('yesCheck').checked) {
-                document.getElementById('ifYes').style.display= 'block';
+                document.getElementById('ifYes').style.display = 'block';
             }
             else document.getElementById('ifYes').style.display = 'none';
 
         }
-
+        function myConfirm() {
+          
+            var r = confirm("Please Confirm you would like to submit the Referral Form")
+            if (r == true)
+                return true;
+            else
+                return false;
+        }
+   
     </script>
+
 
 </head>
 <body>
@@ -273,7 +282,7 @@
     </table><br />
 
 
-    <button type="submit" name="submit" value="Submit">Submit</button>
+    <button type="submit" name="submit" value="Submit" onclick="myConfirm()">Submit</button>
 
 }
 </body>

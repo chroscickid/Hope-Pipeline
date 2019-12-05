@@ -48,7 +48,17 @@
             else document.getElementById('ifYes').style.display = 'none';
 
         }
-
+          function myConfirm() {
+          
+            var r = confirm("Please Confirm you would like to submit the Referral Form")
+              if (r == true) {
+                  
+                  window.location.href = "confirmationM";
+                  return true;
+              }
+            else
+                return false;
+        }
     </script>
 </head>
 <body>
@@ -244,7 +254,7 @@
     </table><br />
 
 
-    <button type="submit" onclick="location.href='confirmationM';">Submit</button>
+    <button type="submit" onclick="myConfirm()" >Submit</button>
 
 
 </body>

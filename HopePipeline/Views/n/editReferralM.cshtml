@@ -40,6 +40,21 @@
             color: white;
         }
     </style>
+    <script>
+    function editConfirm() {
+
+    var r = confirm("Please Confirm you would like to Submit your changes")
+    if (r == true) {
+
+   window.location.href = "detailReferralM";
+  return true;
+    }
+    else
+    return false;
+    }
+    </script>
+   
+
 </head>
 <body>
 
@@ -264,7 +279,7 @@
 
             </table>
             <br />
-            <button type="Submit" onclick="location.href='confirmationM';">Save Changes</button>
+            <input type = "button" onclick="editConfirm()" value="Save Changes"/>
             &nbsp;  &nbsp;  &nbsp;  &nbsp;
             <input type="reset"><br /><br /><br />
             <a asp-action="Index" asp-controller="Home">Back to List</a>
