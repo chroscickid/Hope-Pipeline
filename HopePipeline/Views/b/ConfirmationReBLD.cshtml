@@ -18,8 +18,7 @@
 
     <h2>@ViewData["message"] </h2>
     <h4>@ViewBag.two</h4>
-    <h4>and will get back with you as soon as possible.</h4>
-    <h4>Thank you, and have Wonderful day!</h4>
+    <h4>Thank you for your submission</h4>
     @using (Html.BeginForm("ConfirmationReBLD", "b", FormMethod.Post))
     {<input type="hidden" name="Id" value=@ViewBag.number>
         <br />

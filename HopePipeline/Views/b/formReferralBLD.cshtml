@@ -122,7 +122,7 @@
     </table>
     <table id="t01">
         <tr>
-            <th colspan="3">Youth and Family Basic Information</th>
+            <th colspan="4">Youth and Family Basic Information</th>
         </tr>
         <tr>
             <td>
@@ -135,6 +135,9 @@
                 Last Name:
                 @Html.EditorFor(model => model.lName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.lName, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                Gender:Need to add this
             </td>
 
             <td>
@@ -152,7 +155,7 @@
                 @Html.ValidationMessageFor(model => model.guardianName, "", new { @class = "text-danger" })
             </td>
 
-            <td>
+            <td colspan="2">
                 What is the primary caretaker's relationship to the youth?(please select all that apply)
 
                 <br>  <input type="checkbox" name="Mother" value="Mother">Mother<br>
@@ -177,7 +180,7 @@
         </tr>
 
         <tr>
-            <td>
+            <td colspan="2">
                 Parent/Guardian's email address:
                 @Html.EditorFor(model => model.guardianEmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.guardianEmail, "", new { @class = "text-danger" })
@@ -192,7 +195,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="4">
                 Does the youth have any upcoming meetings scheduled with their school?<br />
                 Yes <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="yesCheck">&nbsp;&nbsp;
                 No <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="noCheck">&nbsp;&nbsp;
