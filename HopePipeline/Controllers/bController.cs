@@ -20,6 +20,7 @@ using System.Text;
 using Microsoft.Extensions.Hosting;
 using System.ComponentModel;
 using System.Dynamic;
+using Microsoft.EntityFrameworkCore;
 
 namespace HopePipeline.Controllers
 {
@@ -373,7 +374,7 @@ namespace HopePipeline.Controllers
         public ActionResult detailTrackingBLD(int pK)
         {
             List<object> myModel = new List<object>();
-            ViewData["Message"] = "Detail of Referral information for clients.";
+            ViewData["Message"] = "Detail of Tracking information for clients.";
 
             var list = from r in db.referralBrandi
                        where (r.pK == pK)
@@ -390,5 +391,7 @@ namespace HopePipeline.Controllers
             return View(myModel);
         }
 
+       
+          
+        }
     }
-}
