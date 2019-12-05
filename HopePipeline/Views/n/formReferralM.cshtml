@@ -39,6 +39,17 @@
             color: white;
         }
     </style>
+    <script type="text/javascript">
+
+        function yesnoCheck() {
+            if (document.getElementById('yesCheck').checked) {
+                document.getElementById('ifYes').style.display= 'block';
+            }
+            else document.getElementById('ifYes').style.display = 'none';
+
+        }
+
+    </script>
 </head>
 <body>
 
@@ -141,20 +152,24 @@
         </tr>
         <tr>
             <td colspan="3">
+
+
                 Does the youth have any upcoming meetings scheduled with their school?<br />
-                <select name="Meeting">
-                    <option value="Select">Please Select an Option</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                    <option value="Maybe">Maybe</option>
+                Yes <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="yesCheck">&nbsp;&nbsp;
+                No <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="noCheck">&nbsp;&nbsp;
+                Maybe <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="nooCheck"><br>
 
-                </select><br>
-                If yes, what is the date and time of the meeting?<br>
-                Date:<br />
-                <input type="date"><br>
 
-                Time:<br />
-                <input type="time" name="meetingtime">
+
+                <div id="ifYes" style="display:none">
+                    If yes, what is the date and time of the meeting?<br>
+                    Date:<br />
+                    <input type="date"><br>
+
+                    Time:<br />
+                    <input type="time" name="meetingtime">
+                </div>
+
             </td>
         </tr>
     </table>
