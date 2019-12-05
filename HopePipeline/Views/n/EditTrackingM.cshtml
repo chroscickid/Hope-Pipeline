@@ -1,14 +1,20 @@
 ﻿
 @{
-    ViewData["Title"] = "EditTrackingM";
+    ViewData["Title"] = "editTrackingM";
 }
 
 
+
+
+
+
+
+<!DOCTYPE html>
+<html>
 <head>
     <style>
-
         table {
-            width: auto;
+            width: 100%;
         }
 
         table, th, td {
@@ -17,8 +23,8 @@
         }
 
         th, td {
-            padding: 11px;
-            text-align: right;
+            padding: 15px;
+            text-align: left;
         }
 
         table#t01 tr:nth-child(even) {
@@ -33,555 +39,256 @@
             background-color: #005199;
             color: white;
         }
-
-        td:first-child {
-            font-weight: bold
-        }
     </style>
+    <script>
+        function editConfirm() {
+
+            var r = confirm("Please Confirm you would like to Submit your changes")
+            if (r == true) {
+
+                window.location.href = "detailTrackingM";
+                return true;
+            }
+            else
+                return false;
+        }
+    </script>
+
+
 </head>
-<h2>Edit Tracking Information</h2>
-
-<div>
-    <h4>Edit</h4>
-    <hr />
-    <table id="t01">
+<body>
 
 
-        <tr>
-            <td>
-                Client Code:
-            </td>
+    <!-- Decision after login by authorized user -->
 
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="wga01">
-            </td>
-        </tr>
+    <h1>Edit Client Tracking Information</h1>
 
 
-        <tr>
-            <td>
-                First Name:
-            </td>
 
-            <td style="text-align:left">
-           
-                <input type="text" name="ClientCode" value="jill">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Last Name:
-            </td>
+    <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
+    1.1 Login Page -->
 
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="pan">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Guardian Name:
-            </td>
+    <div>
+        <form>
+            <table id="t01">
+                <tr>
+                    <td style="text-align:right">First Name:</td>
 
-            <td style="text-align:left">
-               
-                <input type="text" name="ClientCode" value="Teal">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Guardian's Relationship to Youth:
-            </td>
+                    <td> <input type="text" value="Bryan"></td>
 
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="Father">
-              
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Date of Birth:
-            </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right">Last Name: </td>
 
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]
-                12/5/1425
-            </td>
-        </tr>
-        <tr>
-            <td>
-                School:
-            </td>
+                    <td><input type="text" value="Brice"></td>
 
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="Tyler HighSchool">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral Date:
-            </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right">Date of Birth:</td>
 
-            <td style="text-align:left">
-                12/5/5204[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-            </td>
-        </tr>
+                    <td> <input type="date" value="2008-12-31"></td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">  Guardian's Name:</td>
+
+                    <td><input type="text" value="Victoria"></td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Guardian's relationship to the youth:</td>
+
+                    <td>
+                        <br>  <input type="checkbox" name="Mother" value="Mother" checked>Mother<br>
+                        <input type="checkbox" name="Father" value=" Father">Father<br>
+                        <input type="checkbox" name="Guardian" value="Guardian">Guardian<br>
+                        <input type="checkbox" name="Familymember" value="Family member">Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
+                        <input type="checkbox" name="FosterParent" value="Foster Parent">Foster Parent<br>
+
+                        Other:<input type="text" name="VariableFM">
+                        <br>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Address:</td>
 
 
-        <tr>
-            <td>
-                Gender Identity:
-            </td>
+                    <td> <input type="text" value="12 House St."></td>
 
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="female">[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Ethnicity:
-            </td>
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="Hispanic">[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                Grade Level:
-            </td>
-            <td style="text-align:left">
-                12th[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral Source:
-            </td>
-            <td style="text-align:left">
-                <input type="text" name="ClientCode" value="Haley">
-             
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Did they Fail a Grade?
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[]]]]]]]]]]]]]
-                5th
-            </td>
-        </tr>
-        <tr>
-            <td>
-                How many times have they Failed a Grade:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]
-                3
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Have they been Baker Acted:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                No
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Are they in a Female led Household:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                Yes
-            </td>
-        </tr>
-        <tr>
-            <td>
-                If, No why is the household not considered Female led:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Domestic Violence History:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Incarcerated Parent:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Which Parent is Incarcerated:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Do they have asthma:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Level of Svc/Type of Representation:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Intake Date:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Reason for nonengagement:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Open/Close Status:
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Legal Advocacy Taken:
-            </td>
-            <td style="text-align:left">//////////////
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Remedy/Resolution:
-            </td>
-            <td style="text-align:left">///////////////////
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Re-arrest while represented?
-            </td>
-            <td style="text-align:left">[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                School at time of closure:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral 1:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral 2:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral 3:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral 4:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Referral 5:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Re-arrested during advocacy:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                (Re-arrested)Advocacy at court?
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ( Re-arrested) Advocacy at staffing:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Has an IEP/504:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Which IEP or 504's:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Current Reading Level:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Current Math Level:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Current IEP Services:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                In Pride?
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                New FBA?
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Additional IEP Services Gained:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Atditional Accommodations Gained:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Any atditional comp?
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                How much addittional comp:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Bullied:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Was Bullying Reported:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Bullying Report Date:
-            </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Zip Code</td>
+
+                    <td><input type="text" value="12541"></td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Guardian's Email:</td>
+
+                    <td>  <input type="email" value="toria@gmail.com"></td>
 
 
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Suspended more than 2 times:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Suspended more than 2 times, how many:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                In an Alternative School:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                What Alternative School:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                When was youth in the Alternative School:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                How many times was youth in Alt School:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                How many Days owed:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Other legal issues:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Total Days of ISS/OSS:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Total Days of Discipline:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Total Days of Discipline since Intake:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Total OSS since Intake:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-        <tr>
-            <td>
-                JJ Outcome:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Guardian's Phone Number:</td>
 
-    </table>
-</div>
-<div>
-    <a asp-action="Index" asp-controller="Home">Back to List</a>
-</div>
+                    <td><input type="text" value="912-584-4125"></td>
+
+
+                </tr>
+
+                <tr>
+                    <td style="text-align:right"> Does the youth have a meeting?</td>
+
+                    <td>
+                        <select name="Meeting">
+                            <option value="Select">Please Select an Option</option>
+                            <option value="Yes" selected>Yes</option>
+                            <option value="No">No</option>
+                            <option value="Maybe">Maybe</option>
+
+                        </select><br>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Date of Youth's Meeting:</td>
+
+                    <td><input type="date" value="2019-12-31"><br></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Time of Youth's Meeting:</td>
+
+                    <td><input type="time" name="meetingtime" value="10:53:05"></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Youth a student in a Duval County Public School:</td>
+
+                    <td>
+                        <select name="School">
+                            <option value="Select">Please Select an Option</option>
+                            <option value="Yes" checked>Yes</option>
+                            <option value="No">No</option>
+                            <option value="Maybe">Maybe</option>
+
+                        </select>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Issues which are currently impacting the Youth:</td>
+
+                    <td>
+                        <br>  <input type="checkbox" name="Failed" value="Failed a grade">Failed a grade<br>
+                        <input type="checkbox" name="Suspended" value="Frequently suspendeds">Frequently suspended<br>
+                        <input type="checkbox" name="Alt" value="In an alternative school setting " checked>In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
+                        <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP">Has a 504 plan or an IEP<br>
+                        <input type="checkbox" name="Notenrolled" value="Not enrolled in school">Not enrolled in school<br>
+                        <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted">Has a history of being Baker Acted<br>
+                        <input type="checkbox" name="Dependent" value="Dependent">Dependent<br>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Youth's school they are currently Attending:</td>
+
+                    <td>  <input type="text" value="Duval HighSchool"></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">   General Information Provided:</td>
+
+
+                    <td>  <textarea id="subject" name="subject" placeholder="We are having a hard time finding permanent housing" style="height:200px; width:300px"></textarea></td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Best way to Communicate with youth:</td>
+
+                    <td>
+                        <input type="radio" name="Reach" value="Phone" checked>Phone
+                        <input type="radio" name="Reach" value="Email">Email
+                        <input type="radio" name="Reach" value="Text">Text
+                        <input type="radio" name="1"> Other:<input type="text" name="Reach"><br>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Status:</td>
+
+                    <td>
+
+
+                        <input type="radio" name="Status" value="Open" checked>Open
+                        <input type="radio" name="Status" value="Closed">Closed
+                        <input type="radio" name="Status" value="Non-Engagement">Closed Non-Engagement
+                        <br>
+                    </td>
+
+
+                </tr>
+
+
+                <tr>
+                    <td style="text-align:right">  Date Referral Input:</td>
+
+                    <td><input type="date" value="2019-12-31"></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Referral Source's First Name:</td>
+
+                    <td> <input type="text" value="Roger"></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Referral Source's Last Name:</td>
+
+                    <td> <input type="text" value="Pan"></td>
+
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Referral Source's Email for youth:</td>
+
+                    <td> <input type="email" value="RogerP@gmail.com"></td>
+
+
+                </tr>
+
+
+                <tr>
+                    <td style="text-align:right">File:</td>
+
+                    <td>
+                        file  &nbsp;  &nbsp;  &nbsp;
+                    </td>
+                </tr>
+
+            </table>
+            <br />
+            <input type="button" onclick="editConfirm()" value="Save Changes" />
+            &nbsp;  &nbsp;  &nbsp;  &nbsp;
+            <input type="reset"><br /><br /><br />
+            <a asp-action="Index" asp-controller="Home">Back to List</a>
+
+        </form>
+
+        <p id="demo"></p>
+    </div>
+
+
+</body>
+</html>
