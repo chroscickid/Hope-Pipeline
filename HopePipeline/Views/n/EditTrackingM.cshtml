@@ -72,6 +72,13 @@
         <form>
             <table id="t01">
                 <tr>
+                    <td style="text-align:right"> ClientID </td>
+
+                    <td> <input type="text" value="wg4237"></td>
+
+                </tr>
+
+                <tr>
                     <td style="text-align:right">First Name:</td>
 
                     <td> <input type="text" value="Bryan"></td>
@@ -84,11 +91,119 @@
 
                 </tr>
                 <tr>
+                    <td style="text-align:right">Gender Identity: </td>
+
+                    <td>
+                        <input type="radio" name="gender" value="male"> He/Him/His<br>
+                        <input type="radio" name="gender" value="female"> She/Her/Hers<br>
+                        <input type="radio" name="gender" value="trans*" checked> They/Them/Theirs<br />
+                        <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
+                        <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
+                        <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Ethnicity: </td>
+
+                    <td>
+                        <select>
+                            <option value="nhWhite">Non Hispanic White</option>
+                            <option value="hispanic">Hispanic</option>
+                            <option value="natAm">Native American</option>
+                            <option value="jewish">Jewish</option>
+                            <option value="black">Black</option>
+                            <option value="multi">Multiple Ethnicities</option>
+                            <option value="notListed" selected>Ethnicity Not Listed</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
                     <td style="text-align:right">Date of Birth:</td>
 
                     <td> <input type="date" value="2008-12-31"></td>
 
                 </tr>
+                <tr>
+                    <td style="text-align:right">Baker Acted</td>
+
+                    <td>
+                        <input type="radio" name="baker" value="y"> Yes<br />
+                        <input type="radio" name="noBaker" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td style="text-align:right"> Female-led household?</td>
+
+                    <td>
+                        <input type="radio" name="femHouse" value="y" checked> Yes<br />
+                        <input type="radio" name="noFemHouse" value="n" /> No <br />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td style="text-align:right"> Adopted </td>
+
+                    <td>
+                        <input type="radio" name="adopted" value="y"> Yes<br />
+                        <input type="radio" name="notAdopted" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Evicted</td>
+
+                    <td>
+                        <input type="radio" name="evicted" value="y"> Yes<br />
+                        <input type="radio" name="notEvicted" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td style="text-align:right"> Incarcarated Parent</td>
+
+                    <td>
+                        <input type="radio" name="incarParent" value="y"> Yes<br />
+                        <input type="radio" name="incarParent" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right"> Incarcarated Parent</td>
+
+                    <td>
+                        <input type="radio" name="incarParent" value="y"> Yes<br />
+                        <input type="radio" name="incarParent" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:right">Asthma</td>
+
+                    <td>
+                        <input type="radio" name="asthma" value="y"> Yes<br />
+                        <input type="radio" name="noAsthma" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <tr>
                     <td style="text-align:right">  Guardian's Name:</td>
 
@@ -268,13 +383,207 @@
 
                 </tr>
 
+                <tr>
+
+                    <td> Level of Service Provided</td>
+                    <td>
+                        <br />
+                        <input type="radio" name="none" value="n"> None
+                        <br />
+                        <input type="radio" name="infoEdu" value="info" checked /> Information/Education
+                        <br />
+                        <input type="radio" name="serviceAdvice" value="service"> Brief Service/Advice
+                        <br />
+                        <input type="radio" name="full" value="full" /> Full
+                        <br />
+                    </td>
+                </tr>
 
                 <tr>
-                    <td style="text-align:right">File:</td>
+                    <td>Intake Date</td>
 
                     <td>
-                        file  &nbsp;  &nbsp;  &nbsp;
+                        <input type="date" name="dob" value="2019-12-31">
                     </td>
+
+                </tr>
+                <tr>
+                    <td> Reason for Nonengagement</td>
+                    <td>
+                        <input type="radio" name="contact" value="n"> Unable to Contact
+                        <br />
+                        <input type="radio" name="intake" value="info" /> Unable to Complete Intake
+                        <br />
+                        <input type="radio" name="declined" value="service"> Family Declined Services
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Case open/close status
+                    </td>
+                    <td>
+                        <input type="radio" name="Open" value="o" checked> Open
+                        <br />
+                        <input type="radio" name="closed" value="c" /> Closed
+                        <br />
+                        <input type="radio" name="nonEngageClose" value="nec"> Closed due to nonengagement
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        School
+                    </td>
+                    <td>
+                        <input type="text" name="school" value="Kernan Trail Elementary" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Failed a Grade
+                    </td>
+                    <td>
+                        <input type="radio" name="fail" value="y"> Yes<br />
+                        <input type="radio" name="noFail" value="n" checked /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        If yes, which grade and how many times
+                    </td>
+                    <td>
+                        <input type="text" name="failedGrade" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Has an IEP/504 Plan<br />
+                    </td>
+                    <td>
+                        <input type="radio" name="emo" value="emo"> Emotional/Behavioral Disability<br />
+                        <input type="radio" name="gifted" value="gifted" checked /> Gifted<br />
+                        <input type="radio" name="intellectual" value="intell"> Intellectual Disability<br />
+                        <input type="radio" name="language" value="lang" /> Language Impairment<br />
+                        <input type="radio" name="otherHealth" value="otherHealth" /> Other Health Impairment<br />
+                        <input type="radio" name="specificLearning" value="specificLearning"> Specific Learning Disability<br />
+                        <input type="radio" name="speech" value="speech" /> Speech Impairment<br />
+                        <input type="radio" name="other" value="other"> Other <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        In Pride
+                    </td>
+                    <td>
+                        <input type="radio" name="inPride" value="y" checked> Yes<br />
+                        <input type="radio" name="notInPride" value="n" /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        New FBA
+                    </td>
+                    <td>
+                        <input type="radio" name="newFBA" value="y" checked> Yes<br />
+                        <input type="radio" name="noNewFBA" value="n" /> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Addititonal Accomodations Gained
+                    </td>
+                    <td>
+                        <input type="radio" name="accomGained" value="y" checked> Yes<br />
+                        <input type="radio" name="noaccomGained" value="n" /> No <br />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        Additional Compensatory Services <br />
+                    </td>
+                    <td>
+                        <input type="radio" name="compServices" value="y"> Yes<br />
+                        <input type="radio" name="noCompServices" value="y" checked> No<br />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        If yes, what services
+                    </td>
+                    <td>
+                        <input type="text" name="services" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Bullied <br />
+                    </td>
+                    <td>
+                        <input type="radio" name="bullied" value="y"> Yes <br />
+                        <input type="radio" name="notBullied" value="y" checked> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        If yes, was it reported  <br />
+                    </td>
+                    <td>
+                        <input type="radio" name="report" value="y"> Yes <br />
+                        <input type="radio" name="report" value="n"> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Date of report  <br />
+                    </td>
+                    <td>
+                        <input type="date" name="dateOfBully" /> <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Suspended more than three times  <br />
+                    </td>
+                    <td>
+                        <input type="radio" name="adopted" value="y"> Yes <br />
+                        <input type="radio" name="notAdopted" value="n" checked/> No <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Alternative School  <br />
+                    </td>
+                    <td>
+                        <input type="radio" name="schoolYes" value="y"> Yes <br />
+                        <input type="radio" name="schoolNo" value="n" checked/> No <br /> <br />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Alternative School Name<br />
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mattieV" value="Mattie"> Mattie V <br />
+                        <input type="checkbox" name="grandPark" value="Grand" /> Grand Park <br />
+                    </td>
+
                 </tr>
 
             </table>
