@@ -23,17 +23,19 @@
         ClientID <br />
         <input type="text" name="ClientID" value="wg4237"> <!-- this will be randomly generated in the SQL database, pusedocode is on client.cs-->
         <br />
+        <br />
 
         Name <br />
-        <input type="text" name="Name" value="John Smith">
+        <input type="text" name="name" value="John Smith"> <br />
         <br />
         <br>
 
         Caregiver <br>
         <input type="radio" name="caregender" value="Mother"> Mother<br>
         <input type="radio" name="caregender" value="Father"> Father<br>
-        <input type="radio" name="caregender" value="mGrandma">Maternal Grandmoter<br>
-        <input type="radio" name="caregender" value="mGrandpa">Maternal Grandfather <br>
+        <input type="radio" name="caregender" value="mGrandma">Grandmother<br>
+        <input type="radio" name="caregender" value="mGrandpa">Grandfather <br>
+        <input type="radio" name="caregender" value="mGrandpa">Other <br>
         <br>
         <br>
 
@@ -66,70 +68,72 @@
         <br>
         <br>
 
-        Date of Birth <br>
-        <input type="date" name="dob">
-        <br>
-        <br>
+        Date of Birth <br />
+        <input type="number" name="dob" min="2001" max="2099" step="1" value="2001" />
+        <br />
+        <br />
 
-        School <br>
-        <input type="text" name="school" value="Kernan Trail Elementary">
-        <br>
-        <br>
+        School <br />
+        <input type="text" name="school" value="Kernan Trail Elementary" />
+        <br />
+        <br />
 
-        Referral Source <br>
+        Referral Source <br />
         <input type="text" name="referral" />
         <br />
         <br />
 
         Failed a Grade <br />
-        <input type="radio" name="fail" value="y">Yes<br />
-        <input type="radio" name="noFail" value="n" />No <br />
+        <input type="radio" name="fail" value="y"> Yes<br />
+        <input type="radio" name="noFail" value="n" /> No <br />
         <br />
         <br />
         If yes, which grade and how many times
         <input type="text" name="failedGrade" />
-
+        <br />
+        <br />
         Baker Acted <br />
-        <input type="radio" name="baker" value="y">Yes<br />
-        <input type="radio" name="noBaker" value="n" />No <br />
+        <input type="radio" name="baker" value="y"> Yes<br />
+        <input type="radio" name="noBaker" value="n" /> No <br />
         <br />
         <br />
 
         Female-led household? <br />
-        <input type="radio" name="femHouse" value="y" checked>Yes<br />
-        <input type="radio" name="noFemHouse" value="n" />No <br />
+        <input type="radio" name="femHouse" value="y" checked> Yes<br />
+        <input type="radio" name="noFemHouse" value="n" /> No <br />
         <br />
         <br />
 
         Domestic Violence <br />
-        <input type="radio" name="domVio" value="y">Yes<br />
-        <input type="radio" name="noDomVio" value="n" />No <br />
+        <input type="radio" name="domVio" value="y"> Yes<br />
+        <input type="radio" name="noDomVio" value="n" /> No <br />
         <br />
         <br />
 
         Adopted <br />
-        <input type="radio" name="adopted" value="y">Yes<br />
-        <input type="radio" name="notAdopted" value="n" />No <br />
+        <input type="radio" name="adopted" value="y"> Yes<br />
+        <input type="radio" name="notAdopted" value="n" /> No <br />
         <br />
         <br />
 
-        Evicted
-        <input type="radio" name="evicted" value="y">Yes<br />
-        <input type="radio" name="notEvicted" value="n" />No <br />
+        Evicted <br />
+        <input type="radio" name="evicted" value="y"> Yes<br />
+        <input type="radio" name="notEvicted" value="n" /> No <br />
         <br />
         <br />
 
         Incarcarated Parent <br />
-        <input type="radio" name="incarParent" value="y">Yes<br />
-        <input type="radio" name="incarParent" value="n" />No <br />
+        <input type="radio" name="incarParent" value="y"> Yes<br />
+        <input type="radio" name="incarParent" value="n" /> No <br />
         <br />
         <br />
 
-        Asthma
-        <input type="radio" name="asthma" value="y">Yes<br />
-        <input type="radio" name="noAsthma" value="n" />No <br />
+        Asthma <br />
+        <input type="radio" name="asthma" value="y"> Yes<br />
+        <input type="radio" name="noAsthma" value="n" /> No <br />
         <br />
         <br />
 
     </div>
 
+    <a asp-controller="Tracking" asp-action="schoolTracking">Next</a>
