@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace HopePipeline.Models.DbEntities.Reports
 {
-    public class Report
+    public class ReportRow
     {
+         
         public string fName { get; set; }
         public string lName { get; set; }
         public string releField1 { get; set; }

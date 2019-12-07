@@ -7,6 +7,8 @@ namespace HopePipeline.Models
 {
     public class ReportForm
     {
+
+        //This is what is called when one fills out the form
         public string field1 { get; set; }
         public string field2 { get; set; }
         public string field3 { get; set; }
