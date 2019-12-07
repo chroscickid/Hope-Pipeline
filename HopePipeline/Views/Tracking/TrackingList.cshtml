@@ -1,4 +1,5 @@
 ﻿@model HopePipeline.Models.Tracking
+@model IEnumerable<HopePipeline.Models.Tracking>
 @{
     ViewData["Title"] = "Tracking List";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -101,13 +102,19 @@
     </thead>
     <tbody>
 
-
+        @foreach (var item in IEnumerable<HopePipeline.Models.Tracking>)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lName) , @Html.DisplayFor(modelItem => item.fName)
+                </td>
+            </tr>
         <tr>
             <td>
-                placeholder
+                @Html.DisplayFor(modelItem => item.phoneNumber) 
             </td>
             <td>
-                placeholder
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
                 placeholder
@@ -118,7 +125,7 @@
                 <a asp-controller="Referral" asp-action="Delete" asp-route-clientID="placeholder">Delete</a>
             </td>
         </tr>
-        ;
+        };
 
     </tbody>
 </table>

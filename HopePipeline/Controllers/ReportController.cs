@@ -12,8 +12,10 @@ namespace HopePipeline.Controllers
 {
     public class ReportController : Controller
     {
+        //This doesn't actually generate reports! This just calls the form
         public IActionResult GenerateReports()
         {
+            
             return View();
         }
 
@@ -21,7 +23,8 @@ namespace HopePipeline.Controllers
         [HttpPost]
         public IActionResult ViewReports(ReportForm genReport)
         {
-            Tracking track = new Tracking();
+            //We call this so we can
+            Tracking reference = new Tracking();
             var results = new List<Report>();
             string[] texts = new string[] { genReport.field1, genReport.field2, genReport.field3, genReport.field4, genReport.field5 };
             string[] fields = new string[] { genReport.text1, genReport.text2, genReport.text3, genReport.text4, genReport.text5 };
