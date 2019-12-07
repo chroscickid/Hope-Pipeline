@@ -5,14 +5,12 @@
 
 }
 
-<h2>Center for Children's Rights Tracking Form</h2>
+<h2>Center for Children's Rights Tracking Form</h2> 
 
 
 <form asp-controller="Tracking" asp-action="SubmitTracking" method="post">
    
     <div class="form-group">
-      
-        <input type="text" name="Name" class="form-control" />
     </div>
 </form>
 <p>
@@ -21,27 +19,31 @@
         <br>
 
         ClientID <br />
-        <input type="text" name="ClientID" value="wg4237"> <!-- this will be randomly generated in the SQL database, pusedocode is on client.cs-->
+        <input type="text" name="ClientID" value=""> <!-- this will be randomly generated in the SQL database, pusedocode is on client.cs-->
         <br />
         <br />
 
-        Name <br />
-        <input type="text" name="name" value="John Smith"> <br />
+        First Name <br />
+        <input type="text" name="firstName" value=""> <br />
         <br />
-        <br>
+        <br />
+        Last Name <br />
+        <input type="text" name="lastName" value=""> <br />
+        <br />
+        <br />
 
         Caregiver <br>
         <input type="radio" name="caregender" value="Mother"> Mother<br>
         <input type="radio" name="caregender" value="Father"> Father<br>
-        <input type="radio" name="caregender" value="mGrandma">Grandmother<br>
-        <input type="radio" name="caregender" value="mGrandpa">Grandfather <br>
-        <input type="radio" name="caregender" value="mGrandpa">Other <br>
-        <br>
-        <br>
+        <input type="radio" name="caregender" value="mGrandma"> Grandmother<br>
+        <input type="radio" name="caregender" value="mGrandpa"> Grandfather <br>
+        <input type="radio" name="caregender" value="mGrandpa"> Other <br>
+        <br />
+        <br />
 
         Caregiver Name <br>
-        <input type="text" name="careName" value="Barbara Smith"> <br />
-        <br>
+        <input type="text" name="careName" value=""> <br />
+        <br />
 
 
         Gender Identity <br>
@@ -51,8 +53,8 @@
         <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
         <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
         <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
-        <br>
-        <br>
+        <br />
+        <br />
 
         Ethnicity <br>
         <select>
@@ -69,12 +71,12 @@
         <br>
 
         Date of Birth <br />
-        <input type="number" name="dob" min="2001" max="2099" step="1" value="2001" />
+        <input type="date" id="start" name="dob" min="2001-01-01" max="2050-12-31">
         <br />
         <br />
 
         School <br />
-        <input type="text" name="school" value="Kernan Trail Elementary" />
+        <input type="text" name="school" value="" />
         <br />
         <br />
 
@@ -89,7 +91,7 @@
         <br />
         <br />
         If yes, which grade and how many times
-        <input type="text" name="failedGrade" />
+        <input type="text" name="failedGrade" value="" />
         <br />
         <br />
         Baker Acted <br />
@@ -135,5 +137,6 @@
         <br />
 
     </div>
-
+    <br />
+    <br />
     <a asp-controller="Tracking" asp-action="schoolTracking">Next</a>
