@@ -1,27 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<style>
-
-    .jumbotron_{
-        background-color: peru;
-    }
-
+﻿<style>
     
+ .masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url("https://jaxccr.org/wp-content/uploads/2018/06/home-slider-boy-on-bench.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+ button{
+     background-color: navy;
+    color: antiquewhite;
+    align-content: flex-start;
+ }
+body {
+    margin: 0;
+}
+
+.title {
+    font-weight: bolder;
+}
 </style>
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Hello!</h1>
+   <<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+
+                <h1 class="title"><button asp-controller="n" asp-action="formReferralM">Referral Form</button> </h1>
+                <p class="title">Are you a concerned adult? Fill out the form above!</p>
+
+            </div>
+        </div>
     </div>
-</div>
+</header>
 
-    
-        
-   
-
-    
-
-        <h2 class="text-center"><a asp-action="Admin">Admin Log-in</a></h2>
 
 

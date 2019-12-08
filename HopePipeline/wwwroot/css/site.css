@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: aliceblue;
 }
 
 .navbar-right {
@@ -58,3 +59,9 @@ body {
 .navbar-brand {
     padding: 10px 10px;
 }
+
+.btn-primary {
+    color: #003a62;
+    font-size: 200%;
+}
+
