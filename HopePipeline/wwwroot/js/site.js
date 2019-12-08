@@ -7,3 +7,15 @@ $(document).ready(function () {
         "ordering" : true
     });
 });
+
+$(document).ready(function () {
+    $('#trackinglist').DataTable({
+        "ordering": true
+    });
+});
+
+$(document).ready(function () {
+    $('#reportsresultlist').DataTable({
+        "ordering": true
+    });
+});
