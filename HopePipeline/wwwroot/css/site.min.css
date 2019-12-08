@@ -59,3 +59,7 @@ body {
     margin-bottom: 5px;
 }
 
+.subtle {
+    color: grey;
+    font-style: italic;
+}
