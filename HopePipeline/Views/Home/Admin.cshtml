@@ -1,12 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Admin Login";
 }
 
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -44,25 +45,27 @@
 </head>
 <body>
     <div class="container">
-        <h3>Admin Log In</h3>
+        <h3>Administrator Log In</h3>
         <p></p>
-        <form action="/action_page.php">
-
+        @ViewBag.error
+        <form method="post" asp-controller="account" asp-action="login">
             <p></p>
             <p></p>
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="username"><b>Username/Email</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
             <p></p>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
             <p></p>
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="javascript:history.back().style.display='none'" class="cancelbtn" OnClientClick="JavaScript:window.history.back(1);return false;">Cancel </button>
             &nbsp;&nbsp;
-            <input type="submit" value="Log In">
+            @Html.AntiForgeryToken()
+            &nbsp;&nbsp;
+            <input type="submit" value="Login">
             <p></p>
-            <span class="psw">Forgot <a href="#">password?</a></span>
+            <h5><a asp-action="ForgotPassword">Forgot Password?</a></h5>
 
-
+            <p></p>
         </form>
     </div>
     <a asp-controller="Referral" asp-action="RefList">Click here to skip log-in</a>
