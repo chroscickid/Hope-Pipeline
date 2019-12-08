@@ -53,8 +53,7 @@ body {
 
 .navbar-brand > img {
     width: 40%;
+    height: auto;
+    margin-bottom: 5px;
 }
 
-.navbar-brand {
-    padding: 10px 10px;
-}
