@@ -27,7 +27,7 @@ namespace HopePipeline.Controllers
             if (username != null && password != null && username.Equals("ccr") && password.Equals("123"))
             {
                 HttpContext.Session.SetString("username", username);
-                return View("../Home/Referral");
+                return RedirectToAction("RefList","Referral");
             }
             else
             {
