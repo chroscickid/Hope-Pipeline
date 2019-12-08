@@ -71,7 +71,7 @@
   border: 1px solid #ccc;
   border-top: none;
 }
-/* Style the tab content */
+/* Style width of form */
 .t {
 width:30%;
 table-layout:fixed;
@@ -90,7 +90,7 @@ table-layout:fixed;
                 return false;
         }
        
-            function openCity(evt, cityName) {
+            function Information(evt, Specific) {
       var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -100,10 +100,10 @@ table-layout:fixed;
       for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
-          document.getElementById(cityName).style.display = "block";
+          document.getElementById(Specific).style.display = "block";
           evt.currentTarget.className += " active";
         }
-    
+   
 
     </script>
 
@@ -122,10 +122,10 @@ table-layout:fixed;
     <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
     1.1 Login Page -->
              <div class="tab">
-              <button class="tablinks" onclick="openCity(event, 'Demographic Information')">Demographic Information</button>
-             <button class="tablinks" onclick="openCity(event, 'School Information')">School Information</button>
-            <button class="tablinks" onclick="openCity(event, 'CCR')">Center for Children's Rights Information</button>
-             <button class="tablinks" onclick="openCity(event, 'Discipline Information')">Discipline Information</button>
+              <button class="tablinks active" onclick="Information(event, 'Demographic Information')">Demographic Information</button>
+             <button class="tablinks" onclick="Information(event, 'School Information')">School Information</button>
+            <button class="tablinks" onclick="Information(event, 'CCR')">Center for Children's Rights Information</button>
+             <button class="tablinks" onclick="Information(event, 'Discipline Information')">Discipline Information</button>
                                                  
            </div>
     <div>
@@ -135,7 +135,7 @@ table-layout:fixed;
             Demographic Information
         </button>*@
 
-            <div id="Demographic Information" class="tabcontent">
+            <div id="Demographic Information" class="tabcontent" style="display:block">
                 <p>
                     <table id="t01">
                         <tr>
@@ -163,11 +163,11 @@ table-layout:fixed;
                             <td class="t" style="text-align:right"> Guardian's relationship to the youth:</td>
 
                             <td>
-                                <br>  <input type="checkbox" name="Mother" value="Mother" checked>Mother<br>
-                                <input type="checkbox" name="Father" value=" Father">Father<br>
-                                <input type="checkbox" name="Guardian" value="Guardian">Guardian<br>
-                                <input type="checkbox" name="Familymember" value="Family member">Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
-                                <input type="checkbox" name="FosterParent" value="Foster Parent">Foster Parent<br>
+                                <br>  <input type="checkbox" name="Mother" value="Mother" checked> Mother<br>
+                                <input type="checkbox" name="Father" value=" Father"> Father<br>
+                                <input type="checkbox" name="Guardian" value="Guardian"> Guardian<br>
+                                <input type="checkbox" name="Familymember" value="Family member"> Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
+                                <input type="checkbox" name="FosterParent" value="Foster Parent"> Foster Parent<br>
 
                                 Other:<input type="text" name="VariableFM">
                                 <br>
@@ -283,7 +283,16 @@ table-layout:fixed;
                             </td>
 
                         </tr>
-                     
+                        <tr>
+                            <td class="t" style="text-align:right">
+                                Which Parent is Incarcerated:
+                            </td>
+                            <td>
+                                <input type="radio" name="wincarParent" value="Father"> Father<br />
+                                <input type="radio" name="wincarParent" value="Mother" checked /> Mother<br />
+                            </td>
+                        </tr>
+
                         <tr>
                             <td class="t" style="text-align:right">Asthma</td>
 

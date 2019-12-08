@@ -48,11 +48,18 @@
             else document.getElementById('ifYes').style.display = 'none';
 
         }
+        function yesnoCheck1() {
+            if (document.getElementById('yesclick').checked) {
+                document.getElementById('Yes').style.display= 'block';
+            }
+            else document.getElementById('Yes').style.display = 'none';
+
+        }
           function myConfirm() {
-          
+
             var r = confirm("Please Confirm you would like to submit the Referral Form")
               if (r == true) {
-                  
+
                   window.location.href = "confirmationM";
                   return true;
               }
@@ -111,8 +118,16 @@
                 <input type="text"><br>
             </td>
             <td>
-               Gender:<br />
-                <input type="text"><br>
+
+                Gender Identity: <br />
+
+                <input type="radio" name="gender" value="male"> He/Him/His<br>
+                <input type="radio" name="gender" value="female"> She/Her/Hers<br>
+                <input type="radio" name="gender" value="trans*" checked> They/Them/Theirs<br />
+                <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
+                <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
+                <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
+
             </td>
             <td>
                 Date Of Birth:<br />
@@ -189,9 +204,22 @@
     <table id="t01">
 
         <tr>
-            <th>Youth Needs</th>
+            <th colspan="2">Youth Needs</th>
         </tr>
+
         <tr>
+            <td>
+                What issues are currently impacting the youth? Please check all that apply.
+                <br>  <input type="checkbox" name="Failed" value="Failed a grade"> &nbsp;Failed a grade<br>
+                <input type="checkbox" name="Suspended" value="Frequently suspendeds"> &nbsp;Frequently suspended<br>
+                <input type="checkbox" name="Alt" value="In an alternative school setting "> &nbsp;In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
+                <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP"> &nbsp;Has a 504 plan or an IEP<br>
+                <input type="checkbox" name="Notenrolled" value="Not enrolled in school"> &nbsp;Not enrolled in school<br>
+                <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted"> &nbsp;Has a history of being Baker Acted<br>
+                <input type="checkbox" name="Dependent" value="Dependent"> &nbsp;Dependent<br>
+                <input type="checkbox" name="WINS" value="WINS"> &nbsp;WINS<br>
+            </td>
+
             <td>
                 Is this youth a student in a Duval County Public School? <br />
                 <select name="School">
@@ -205,20 +233,44 @@
         </tr>
         <tr>
             <td>
-                What issues are currently impacting the youth? Please check all that apply.
-                <br>  <input type="checkbox" name="Failed" value="Failed a grade"> &nbsp;Failed a grade<br>
-                <input type="checkbox" name="Suspended" value="Frequently suspendeds"> &nbsp;Frequently suspended<br>
-                <input type="checkbox" name="Alt" value="In an alternative school setting "> &nbsp;In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
-                <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP"> &nbsp;Has a 504 plan or an IEP<br>
-                <input type="checkbox" name="Notenrolled" value="Not enrolled in school"> &nbsp;Not enrolled in school<br>
-                <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted"> &nbsp;Has a history of being Baker Acted<br>
-                <input type="checkbox" name="Dependent" value="Dependent"> &nbsp;Dependent<br>
+                What is the youth's grade in school?
+                <br />
+                <select name="Grade">
+                    <option value="Select">Please Select an Option</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+
+
+                </select><br>
+            </td>
+            <td>
+                Is the youth currently attending school?<br />
+                Yes <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="yesclick">&nbsp;&nbsp;
+                No <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="noclick">&nbsp;&nbsp;
+                Maybe <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="nooclick"><br>
+
+                <div id="Yes" style="display:none">
+                    <br />Where is the youth currently attending school?<br />
+                    <input type="text">
+                </div>
             </td>
         </tr>
         <tr>
-            <td>
-                Where is the youth currently attending school?<br />
-                <input type="text">
+            <td colspan="2">
+                Has the youth been arrested?<br />
+                Yes <input type="radio"  name="arrest" >&nbsp;&nbsp;
+                No <input type="radio" name="arrest" >&nbsp;&nbsp;
+                Maybe <input type="radio"  name="arrest" ><br>
             </td>
         </tr>
     </table>
@@ -231,7 +283,13 @@
         <tr>
             <td>
                 Is there anything else you would like us to know about the youth or their family?<br />
-                <input type="text">
+                ​<textarea id="txtArea" rows="5" cols="150" name="moreInfo"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reason for Referral?<br />
+                ​<textarea id="txtArea" rows="5" cols="150" name="reason"></textarea>
             </td>
         </tr>
         <tr>
