@@ -91,6 +91,7 @@
     <input type="text" name="school" value="" />
     <br />
     <br />
+
     Current Grade Level <br />
     <select name="level">
         <option value="K" label="K"></option>
@@ -174,4 +175,18 @@
     </div>
     <br />
     <br />
-    <a asp-controller="Tracking" asp-action="schoolTracking">Next</a>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item active">
+            <a class="page-link" asp-controller="Tracking" asp-action="demoTracking">1 <span class ="sr-only"></span></a>
+            </li>
+
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="schoolTracking">2</a></li>
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="disciplineTracking">3</a></li>
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="ccrTracking">4</a></li>
+        </ul>
+    </nav>
+
+
+
