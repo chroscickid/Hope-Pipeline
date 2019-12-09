@@ -1,8 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "formReferralM";
+   
 }
-
 
 
 
@@ -43,26 +43,26 @@
 
         function yesnoCheck() {
             if (document.getElementById('yesCheck').checked) {
-                document.getElementById('ifYes').style.display= 'block';
+                document.getElementById('ifYes').style.display = 'block';
             }
             else document.getElementById('ifYes').style.display = 'none';
 
         }
         function yesnoCheck1() {
             if (document.getElementById('yesclick').checked) {
-                document.getElementById('Yes').style.display= 'block';
+                document.getElementById('Yes').style.display = 'block';
             }
             else document.getElementById('Yes').style.display = 'none';
 
         }
-          function myConfirm() {
+        function myConfirm() {
 
             var r = confirm("Please Confirm you would like to submit the Referral Form")
-              if (r == true) {
+            if (r == true) {
 
-                  window.location.href = "confirmationM";
-                  return true;
-              }
+                window.location.href = "confirmationM";
+                return true;
+            }
             else
                 return false;
         }
@@ -88,17 +88,17 @@
         </tr>
         <tr>
             <td>
-                Referral Source's First Name:<br /> 
-               <input type="text"><br>
+                Referral Source's First Name:<br />
+                <input type="text"><br>
             </td>
             <td>
                 Referral Source's Last Name:<br />
                 <input type="text"><br>
             </td>
         </tr>
-        <tr >
+        <tr>
             <td colspan="2">
-               Referral Source's Email Address:<br />
+                Referral Source's Email Address:<br />
                 <input type="email"><br>
             </td>
         </tr>
@@ -268,9 +268,9 @@
         <tr>
             <td colspan="2">
                 Has the youth been arrested?<br />
-                Yes <input type="radio"  name="arrest" >&nbsp;&nbsp;
-                No <input type="radio" name="arrest" >&nbsp;&nbsp;
-                Maybe <input type="radio"  name="arrest" ><br>
+                Yes <input type="radio" name="arrest">&nbsp;&nbsp;
+                No <input type="radio" name="arrest">&nbsp;&nbsp;
+                Maybe <input type="radio" name="arrest"><br>
             </td>
         </tr>
     </table>
@@ -315,7 +315,7 @@
     </table><br />
 
 
-    <button type="submit" onclick="myConfirm()" >Submit</button>
+    <button type="submit" onclick="myConfirm()">Submit</button>
 
 
 </body>

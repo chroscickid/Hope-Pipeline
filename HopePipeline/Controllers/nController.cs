@@ -5,25 +5,28 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace HopePipeline.Controllers
 {
     public class nController:Controller
     {
         public IActionResult formReferralM()
         {
+           
             return View();
 
         }
+        
         public IActionResult confirmationM()
         {
             return View();
 
         }
-        public IActionResult contactInfoM(string clientCode)
+        public IActionResult contactInfoM()
         {
-           
 
-            
+            return View();
+
 
         }
         public IActionResult detailReferralM()
