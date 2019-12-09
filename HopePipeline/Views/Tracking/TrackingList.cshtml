@@ -6,92 +6,19 @@
 }
 
 <h2>Tracking</h2>
-<div class="searchbox">
-    <form asp-action="Search" method="post">
-        <div id="part1">
-            <select id="field1" name="field1">
-                <option value="none" selected>None</option>
-                @{
-                    foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <option value="@property.PropertyName">@property.PropertyName</option>
-                    }
-                }
-            </select>
-            <input id="text1" name="text1" />
-            <a onclick="addSearchField(1);">+</a>
-            <br />
-        </div>
-        <div id="part2" style="display:none">
-            <select id="field2" name="field2">
-                <option value="none" selected>None</option>
-                @{
-                    foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <option value="@property.PropertyName">@property.PropertyName</option>
-                    }
-                }
-            </select>
-            <input id="text2" name="text2" />
-            <a onclick="addSearchField(2);">+</a>
-        </div>
-        <div id="part3" style="display:none">
-            <select id="field3" name="field3">
-                <option value="none" selected>None</option>
-                @{
-                    foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <option value="@property.PropertyName">@property.PropertyName</option>
-                    }
-                }
-            </select>
-            <input id="text3" name="text3" />
-            <a onclick="addSearchField(3);">+</a>
-        </div>
-        <div id="part4" style="display:none">
-            <select id="field4" name="field4">
-                <option value="none" selected>None</option>
-                @{
-                    foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <option value="@property.PropertyName">@property.PropertyName</option>
-                    }
-                }
-            </select>
-            <input id="text4" name="text4" />
-            <a onclick="addSearchField(4);">+</a>
-        </div>
-        <div id="part5" style="display:none">
-            <select id="field5" name="field5">
-                <option value="none" selected>None</option>
-                @{
-                    foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <option value="@property.PropertyName">@property.PropertyName</option>
-                    }
-                }
-            </select>
-            <input id="text5" name="text5" />
-        </div>
-        <button type="submit" onclick="">Search</button>
 
 
-
-    </form>
-</div>
-
-
-<table class="table">
+<table class="table" id="tracklist">
     <thead>
         <tr>
             <th>
-                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Name">Name</a>
+                Name
             </th>
             <th>
-                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Date">Phone number</a>
+                Phone number
             </th>
             <th>
-                <a asp-controller="Referral" asp-action="SortList" asp-route-field="Status">Status</a>
+                Status
             </th>
             <th>
                 More Options

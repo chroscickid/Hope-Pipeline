@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HopePipeline.Models.Referral>
+﻿@model List<HopePipeline.Models.DbEntities.Referrals.RefRow>;
 
 @{
     ViewData["Title"] = "Referral List";
@@ -30,10 +30,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.lName) , @Html.DisplayFor(modelItem => item.fName)
+                @Html.DisplayFor(modelItem => item.lname) , @Html.DisplayFor(modelItem => item.fname)
             </td>
             <td>
-               @Html.DisplayFor(modelItem => item.dOB)
+               @Html.DisplayFor(modelItem => item.dob)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.status)
@@ -42,7 +42,7 @@
                 <a asp-controller="Tracking" asp-action="demoTracking">Start Tracking</a> |
                 <a asp-controller="n" asp-action="detailReferralM">Details</a> |
                 <a asp-controller="n" asp-action="contactInfoM">Contact</a> |
-                <a asp-controller="Referral" asp-action="Delete" asp-route-pk="@item.pK">Delete</a>
+                <a asp-controller="Referral" asp-action="Delete" asp-route-pk="@item.clientCode">Delete</a>
             </td>
         </tr>; }
     </tbody>
