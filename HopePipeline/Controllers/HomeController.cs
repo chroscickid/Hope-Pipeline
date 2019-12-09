@@ -29,6 +29,7 @@ namespace HopePipeline.Controllers
           
         public IActionResult Index()
         {
+            ViewBag.Message = "HomePage";
             return View();
         }
        
