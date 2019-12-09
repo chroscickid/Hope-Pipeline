@@ -1,40 +1,77 @@
-﻿<style>
-    
- .masthead {
-  height: 100vh;
-  min-height: 500px;
-  background-image: url("https://jaxccr.org/wp-content/uploads/2018/06/home-slider-boy-on-bench.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+﻿@{
+    ViewData["Title"] = "Homepage";
 }
 
- button{
-     background-color: navy;
-    color: antiquewhite;
-    align-content: flex-start;
- }
-body {
-    margin: 0;
-}
+<style>
 
-.title {
-    font-weight: bolder;
-}
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero-image {
+        background-image: url('/images/person-sitting-on-bench-under-tree-12801621.jpg');
+        width: 100%;
+        height: 100vh;
+        background-color: #cccccc;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button2 {
+        background-color: #003A62;
+    }
+    /* Blue */
 </style>
 
-   <<header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12 text-center">
 
-                <h1 class="title"><button asp-controller="n" asp-action="formReferralM">Referral Form</button> </h1>
-                <p class="title">Are you a concerned adult? Fill out the form above!</p>
 
-            </div>
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:50px; color:#000000">The Hope Pipeline Project</h1>
+            <br />
+            <br />
+
+            <button class="button button2" value="Referral Form" onclick="location.href='@Url.Action("formReferralM", "n")'"> Referral Form </button>
+
+            <br />
+            <br />
+            <button class="button button2" value="Administrator Login" onclick="location.href='@Url.Action("LogIn", "Account")'">Administrator Login</button>
+
         </div>
     </div>
-</header>
+
+
+
+</body>
+
+
 
 
 

@@ -29,6 +29,7 @@ namespace HopePipeline.Controllers
           
         public IActionResult Index()
         {
+            ViewBag.Message = "HomePage";
             return View();
         }
        
@@ -40,13 +41,7 @@ namespace HopePipeline.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
+     
            
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
