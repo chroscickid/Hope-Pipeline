@@ -13,7 +13,7 @@ namespace HopePipeline.Models.DbEntities.Referrals
         public string status { get; set; }
         public string phone { get; set; }
 
-        public string clientCode { get; set; }
+        public int clientCode { get; set; }
 
     }
 }
