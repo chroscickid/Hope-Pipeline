@@ -11,70 +11,172 @@
 
 <form method="post">
     <div class="form-group">
+        <script type="text/javascript">
+
+            function yesnoCheck(checkedfield,fieldtohide)
+            {
+                if (document.getElementById(checkedfield).checked)
+                {
+                    document.getElementById(fieldtohide).style.display = 'block';
+                }
+
+                else document.getElementById(fieldtohide).style.display = 'none';
+            }
+        </script>
     </div>
 </form>
 
-<div>
 
     School Information <br />
     <br />
     <br />
 
+    School at time of Referral<br />
+    <input type="text" name="schoolRef" /><br />
+    <br />
+    <br />
 
-    Has an IEP/504 Plan<br />
-    <input type="radio" name="emo" value="emo"> Emotional/Behavioral Disability<br />
-    <input type="radio" name="gifted" value="gifted" /> Gifted<br />
-    <input type="radio" name="intellectual" value="intell"> Intellectual Disability<br />
-    <input type="radio" name="language" value="lang" /> Language Impairment<br />
-    <input type="radio" name="otherHealth" value="otherHealth" /> Other Health Impairment<br />
-    <input type="radio" name="specificLearning" value="specificLearning"> Specific Learning Disability<br />
-    <input type="radio" name="speech" value="speech" /> Speech Impairment<br />
-    <input type="radio" name="other" value="other"> Other <br />
+    Current Reading Level<br />
+    <select id="readingLevel" name="readingLevel">
+        <option value="Other" label="Other"></option>
+        <option value="K" label="K"></option>
+        <option value="1" label="1"></option>
+        <option value="2" label="2"></option>
+        <option value="3" label="3"></option>
+        <option value="4" label="4"></option>
+        <option value="5" label="5"></option>
+        <option value="6" label="6"></option>
+        <option value="7" label="7"></option>
+        <option value="8" label="8"></option>
+        <option value="9" label="9"></option>
+        <option value="10" label="10"></option>
+        <option value="11" label="11"></option>
+        <option value="12" label="12"></option>
+    </select>
+
     <br />
     <br />
+
+    Current Math Level<br />
+    <select id="mathLevel" name="mathLevel">
+        <option value="Other" label="Other"></option>
+        <option value="K" label="K"></option>
+        <option value="1" label="1"></option>
+        <option value="2" label="2"></option>
+        <option value="3" label="3"></option>
+        <option value="4" label="4"></option>
+        <option value="5" label="5"></option>
+        <option value="6" label="6"></option>
+        <option value="7" label="7"></option>
+        <option value="8" label="8"></option>
+        <option value="9" label="9"></option>
+        <option value="10" label="10"></option>
+        <option value="11" label="11"></option>
+        <option value="12" label="12"></option>
+    </select>
+    <br />
+    <br />
+
+    <div>
+        Does the youth have an IEP/504 Plan? <br />
+        <input type="radio" onclick="javascript: yesnoCheck('yes','ifYesIEP/504');" name="IEP/504" id="yes" value="y"> Yes<br />
+        <input type="radio" onclick="javascript: yesnoCheck();" name="IEP/504" id="no" value="n" /> No <br />
+        <br />
+        <br />
+
+        <div id="ifYesIEP/504" style="display:none">
+            Primary IEP/504 Plan<br />
+            <input type="radio" name="plan" id="emo" value="emo"> Emotional/Behavioral Disability<br />
+            <input type="radio" name="plan" id="gifted" value="gifted" /> Gifted<br />
+            <input type="radio" name="plan" id="intellectual" value="intell"> Intellectual Disability<br />
+            <input type="radio" name="plan" id="language" value="lang" /> Language Impairment<br />
+            <input type="radio" name="plan" id="otherHealth" value="otherHealth" /> Other Health Impairment<br />
+            <input type="radio" name="plan" id="specificLearning" value="specificLearning"> Specific Learning Disability<br />
+            <input type="radio" name="plan" id="speech" value="speech" /> Speech Impairment<br />
+            <input type="radio" name="plan" id="other" value="other"> Other <br />
+            <br />
+            <br />
+
+            Secondary IEP/504 Plan<br />
+            <input type="radio" name="plan" id="none" value="none"> None<br />
+            <input type="radio" name="plan" id="emo" value="emo"> Emotional/Behavioral Disability<br />
+            <input type="radio" name="plan" id="gifted" value="gifted" /> Gifted<br />
+            <input type="radio" name="plan" id="intellectual" value="intell"> Intellectual Disability<br />
+            <input type="radio" name="plan" id="language" value="lang" /> Language Impairment<br />
+            <input type="radio" name="plan" id="otherHealth" value="otherHealth" /> Other Health Impairment<br />
+            <input type="radio" name="plan" id="specificLearning" value="specificLearning"> Specific Learning Disability<br />
+            <input type="radio" name="plan" id="speech" value="speech" /> Speech Impairment<br />
+            <input type="radio" name="plan" id="other" value="other"> Other <br />
+            <br />
+            <br />
+        </div>
+
+        Failed a Grade <br />
+        Yes <input type="radio" onclick="javascript: yesnoCheck('failedGrade','ifYesFailedGrade');" name="grade" id="failedGrade" value="yes" /> &nbsp;
+        No  <input type="radio" onclick="javascript: yesnoCheck();" name="grade" id="nofailedGrade" value="no" />  &nbsp;
+        <br />
+        <br />
+
+        <div id="ifYesFailedGrade" style="display:none">
+            If yes, which grade and how many times?<br />
+            <input type="text" name="failedGrade" />
+            <br />
+            <br />
+        </div>
+    </div>
 
     In Pride <br />
-    <input type="radio" name="inPride" value="y"> Yes<br />
-    <input type="radio" name="notInPride" value="n" /> No <br />
+    <input type="radio" name="pride" id="inPride" value="y"> Yes<br />
+    <input type="radio" name="pride" id="notInPride" value="n" /> No <br />
     <br />
     <br />
 
     New FBA <br />
-    <input type="radio" name="newFBA" value="y"> Yes<br />
-    <input type="radio" name="noNewFBA" value="n" /> No <br />
+    <input type="radio" name="FBA" id="newFBA" value="y"> Yes<br />
+    <input type="radio" name="FBA" id="noNewFBA" value="n" /> No <br />
     <br />
     <br />
 
     Addititonal Accomodations Gained <br />
-    <input type="radio" name="accomGained" value="y"> Yes<br />
-    <input type="radio" name="noaccomGained" value="n" /> No <br />
+    <input type="radio" name="accom" value="y"> Yes<br />
+    <input type="radio" name="accom" value="n" /> No <br />
+    <input type="radio" name="accom" value="other" /> Other <br />
     <br />
     <br />
 
-    Additional Compensatory Services <br />
-    <input type="radio" name="compServices" value="y"> Yes<br />
-    <input type="radio" name="noCompServices" value="y"> No<br />
-    <br />
-    <br />
-    If yes, what services
-    <input type="text" name="services" />
-    <br />
-    <br />
+    <div>
+        Additional Compensatory Services <br />
+        <input type="radio" onclick="javascript: yesnoCheck('additional','ifYesComp');" name="compServices" id="additional" value="y"> Yes<br />
+        <input type="radio" onclick="javascript: yesnoCheck();" name="noCompServices" id="nocomp" value="n"> No<br />
+        <br />
+        <br />
 
-    Bullied <br />
-    <input type="radio" name="bullied" value="y"> Yes <br />
-    <input type="radio" name="notBullied" value="y"> No <br />
-    <br />
-    <br />
+        <div id="ifYesComp" style="display:none">
+            If yes, what services?
+            <input type="text" name="services" />
+            <br />
+            <br />
+        </div>
+    </div>
 
-    If yes, was it reported <br />
-    <input type="radio" name="report" value="y"> Yes <br />
-    <input type="radio" name="report" value="n"> No <br />
-    <br />
+    <div>
+        Bullied <br />
+        <input type="radio" onclick="javascript: yesnoCheck('bullied','ifYesBullied');" name="bullied" id="bullied" value="y"> Yes <br />
+        <input type="radio" onclick="javascript: yesnoCheck();" name="bullied" id="notBullied" value="n"> No <br />
+        <br />
+        <br />
 
-    Date of report <br />
-    <input type="date" name="dateOfBully" /> <br />
-    <br />
-    <br />
-    <a asp-controller="Tracking" asp-action="ccrTracking">Next</a>
-</div>
+        <div id="ifYesBullied" style="display:none">
+            If yes, was it reported? <br />
+            <input type="radio" name="report" value="y"> Yes <br />
+            <input type="radio" name="report" value="n"> No <br />
+            <br />
+            <!-- Need to fix the report date automatically showing-->
+            Date of report <br />
+            <input type="date" id="dateofBully" name="dateOfBully" min="2001-01-01" max="2050-12-31"> <br />
+            <br />
+            <br />
+        </div>
+
+        <a asp-controller="Tracking" asp-action="ccrTracking">Next</a>
+    </div>

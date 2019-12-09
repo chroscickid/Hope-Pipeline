@@ -10,6 +10,17 @@
 
 <form  method="post">
     <div class="form-group">
+        <script type="text/javascript">
+            function yesnoCheck(checkedfield,fieldtohide)
+            {
+                if (document.getElementById(checkedfield).checked)
+                {
+                    document.getElementById(fieldtohide).style.display = 'block';
+                }
+
+                else document.getElementById(fieldtohide).style.display = 'none';
+            }
+        </script>
     </div>
 </form>
 <p>
@@ -21,38 +32,94 @@
         <br />
 
         Level of Service Provided <br />
-        <input type="radio" name="none" value="n"> None<br />
-        <input type="radio" name="infoEdu" value="info" /> Information/Education<br />
-        <input type="radio" name="serviceAdvice" value="service"> Brief Service/Advice<br />
-        <input type="radio" name="full" value="full" /> Full<br />
+        <input type="radio" name="lvlServices" id="none" value="n"> None<br />
+        <input type="radio" name="lvlServices" id="infoEdu" value="info" /> Information/Education<br />
+        <input type="radio" name="lvlServices" id="serviceAdvice" value="service"> Brief Service/Advice<br />
+        <input type="radio" name="lvlServices" id="full" value="full" /> Full<br />
         <br />
         <br />
 
 
-        Referral Date <br>
-        <input type="date" name="dob">
+        Referral Date and Time <br>
+        <input type="datetime-local" id="refdate"
+               name="refdate" value="2019-12-08T19:30"
+               min="2000-06-07T00:00" max="2060-06-14T00:00">
         <br>
         <br>
 
         Intake Date <br>
-        <input type="date" name="dob">
+        <input type="date" id="intdate" name="intdate" min="2005-01-01" max="2050-12-31">
         <br>
         <br>
 
         Reason for Nonengagement <br />
-        <input type="radio" name="contact" value="n"> Unable to Contact<br />
-        <input type="radio" name="intake" value="info" /> Unable to Complete Intake<br />
-        <input type="radio" name="declined" value="service"> Family Declined Services<br />
+        <input type="radio" name="noneng" id="contact" value="n"> Unable to Contact<br />
+        <input type="radio" name="noneng" id="intake" value="info" /> Unable to Complete Intake<br />
+        <input type="radio" name="noneng" id="declined" value="service"> Family Declined Services<br />
         <br />
         <br />
 
-        Case open/close status <br />
-        <input type="radio" name="Open" value="o"> Open<br />
-        <input type="radio" name="closed" value="c" /> Closed<br />
-        <input type="radio" name="nonEngageClose" value="nec"> Closed due to nonengagement<br />
+        Case Status <br />
+        <input type="radio" name="openclose" id="openclose" value="o"> Open<br />
+        <input type="radio" name="openclose" id="close" value="c" /> Closed<br />
+        <input type="radio" name="openclose" id="nonEngageClose" value="nec"> Closed due to nonengagement<br />
         <br />
         <br />
 
+        Legal Advocacy Taken <br />
+        <input type="radio" name="legaladv" id="yes" value="yes"> Yes<br />
+        <input type="radio" name="legaladv" id="no" value="no" /> No<br />
+        <br />
+        <br />
+
+        Remedy Resolution <br />
+        <input type="radio" name="remres" id="yes" value="yes"> Yes<br />
+        <input type="radio" name="remres" id="no" value="no" /> No<br />
+        <br />
+        <br />
+
+        Re-arrest while Being Represented <br />
+        <input type="radio" name="rearr" id="yes" value="yes"> Yes<br />
+        <input type="radio" name="rearr" id="no" value="no" /> No<br />
+        <br />
+        <br />
+
+        School at time of Case Closure <br />
+        <input type="text" name="school" id="school" /> <br />
+        <br />
+        <br />
+
+        Email of First Referral Source<br />
+        <input type="text" name="referralemail" id="referralemail" /> <br />
+        <br />
+        <br />
+
+        <div>
+            Is this the first referral? <br />
+            Yes <input type="radio" onclick="javascript: yesnoCheck();" name="ref" id="refOne" value="yes"> <br />
+            No <input type="radio" onclick="javascript: yesnoCheck('notRef','ifNoReferral');" name="ref" id="notRef" value="no" /> <br />
+            <br />
+            <br />
+
+            <div id="ifNoReferral" style="display:none" />
+            How many times have they been referred?<br />
+            <select name="suspended">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4+">4+</option>
+            </select>
+            <br />
+            <br />
+        </div>
+        Advocacy at Court? <br />
+        <input type="radio" name="advCourt" id="yes" value="yes"> Yes <br />
+        <input type="radio" name="advCourt" id="no" value="no" /> No <br />
+        <br />
+        <br />
+
+        Advocacy at Staffing?<br />
+        <input type="radio" name="advStaffing" id="yes" value="yes"> Yes<br />
+        <input type="radio" name="advStaffing" id="no" value="no" /> No<br />
         <br />
         <br />
 
