@@ -30,7 +30,7 @@ $(document).ready(function () {
         "ordering" : true
     });
     $(document).ready(function () {
-        $('#trackinglist').DataTable({
+        $('#tracklist').DataTable({
             "ordering": true
         });
     });

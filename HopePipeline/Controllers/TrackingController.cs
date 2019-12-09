@@ -47,18 +47,18 @@ namespace HopePipeline.Controllers
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
 
-            string query = "select clientFirst, clientLast, clientCode from dbo.client";
+            string query = "SELECT clientLast, clientFirst, dbo.ccr.ccrStatus, dbo.client.clientCode FROM dbo.client INNER JOIN dbo.ccr ON dbo.client.clientCode = dbo.ccr.clientCode";
             command = new SqlCommand(query, cnn);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 //We push information from the query into a row and onto the list of rows
-                TrackingRow row = new TrackingRow { fname = reader.GetString(0), lname = reader.GetString(1), clientCode = reader.GetString(3) };
+                TrackingRow row = new TrackingRow { lname = reader.GetString(0), fname = reader.GetString(1), status = reader.GetString(2), clientCode = reader.GetString(3) };
                 results.Add(row);
             }
             reader.Close();
 
-            return View("RefList", results);
+            return View("TrackingList", results);
         }
 
         [HttpPost]
