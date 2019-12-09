@@ -18,9 +18,26 @@ namespace HopePipeline.Controllers
             return View();
 
         }
-        public IActionResult contactInfoM()
+        public IActionResult contactInfoM(string clientCode)
         {
-            return View();
+
+            List<object> myModel = new List<object>();
+            ViewData["Message"] = "Contact Information for clients.";
+
+            var list = from r in db.client
+                       where (r.clientCode == clientCode)
+                       select r;
+            var list2 = from r in db.caregiver
+                        where (r.clientCode == clientCode)
+                        select r;
+            var list3 = from r in db.referral
+                        where (r.clientCode == clientCode)
+                        select r;
+
+            myModel.Add(list.ToList());
+            myModel.Add(list2.ToList());
+            myModel.Add(list3.ToList());
+            return View(myModel);
 
         }
         public IActionResult detailReferralM()
