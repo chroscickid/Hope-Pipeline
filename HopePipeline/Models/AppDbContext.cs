@@ -8,19 +8,19 @@
 //{
 //    public class AppDbContext : DbContext
 //    {
-//       // public AppDbContext() { }
+//        // public AppDbContext() { }
 //        public AppDbContext(DbContextOptions<AppDbContext> options)
 //             : base(options)
-//        { 
+//        {
 
 //        }
-//        public DbSet<referralBrandi> referralBrandi{ get; set; }
+//        public DbSet<referralBrandi> referralBrandi { get; set; }
 //        public DbSet<filesReferralBrandi> filesReferralBrandi { get; set; }
 //        public DbSet<trackingReferral> trackingReferral { get; set; }
-       
+
 //        public object Configuration { get; internal set; }
-         
-   
+
+
 //    }
-   
+
 //}

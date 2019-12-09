@@ -20,6 +20,7 @@
 //using Microsoft.Extensions.Hosting;
 //using System.ComponentModel;
 //using System.Dynamic;
+//using Microsoft.EntityFrameworkCore;
 
 //namespace HopePipeline.Controllers
 //{
@@ -32,14 +33,16 @@
 
 
 //        public bController(AppDbContext _db, IHostingEnvironment _hostingEnvironment)
-//        { db = _db;
+//        {
+//            db = _db;
 
 
-//            hostingEnvironment = _hostingEnvironment; }
+//            hostingEnvironment = _hostingEnvironment;
+//        }
 
 
 
-        
+
 
 //        public IActionResult IndexA()
 //        {
@@ -62,7 +65,8 @@
 //                    here = 1;
 
 //                }
-//                else {
+//                else
+//                {
 //                    here = maxorder + 1;
 //                }
 //                ViewBag.PKvalue = here;
@@ -89,16 +93,16 @@
 //            }
 //        }
 
-    
+
 //        [HttpPost]
 //        [ValidateAntiForgeryToken]
 
 //        public ActionResult formReferralBLD(string Mother, string Father, string Guardian, string Familymember, string FosterParent, string VariableFM, string Failed,
-//            string Suspended, string Alt, string Plan, string Notenrolled, string Hxbaker, string Meeting, string meetingtime,
+//            string Suspended, string Alt, string Plan, string Notenrolled, string Hxbaker, string Dependent, string Meeting, string meetingtime,
 //            string School, string Reach, string primaryKey, string status, string dateInput, IFormFile[] file,
 //               referralBrandi referral)
 
-        
+
 
 //        {
 //            if (ModelState.IsValid)
@@ -107,7 +111,7 @@
 //                referral.pK = Convert.ToInt32(primaryKey);
 //                referral.status = status;
 
-                
+
 //                string answer = null;
 //                if (Mother != null)
 //                { answer = Mother + "," + " "; }
@@ -123,7 +127,7 @@
 //                { answer = answer + VariableFM + "," + " "; }
 //                referral.guardianRelationship = answer;
 
-                
+
 //                string answer1 = null;
 //                if (Failed != null)
 //                { answer1 = Failed + "," + " "; }
@@ -137,6 +141,8 @@
 //                { answer1 = answer1 + Notenrolled + "," + " "; }
 //                if (Hxbaker != null)
 //                { answer1 = answer1 + Hxbaker + "," + " "; }
+//                if (Dependent != null)
+//                { answer1 = answer1 + Dependent + "," + " "; }
 //                referral.issues = answer1;
 
 //                referral.youthInSchool = School;
@@ -147,7 +153,7 @@
 
 //                referral.communication = Reach;
 
-                
+
 //                db.referralBrandi.Add(referral);
 
 
@@ -177,21 +183,23 @@
 
 //                    {
 //                        string unqiueFileName = null;
-                        
+
 //                        string webRootPath = hostingEnvironment.ContentRootPath;
-                        
+
 //                        string uploadsFolder = Path.Combine(webRootPath, "wwwroot\\images");
-                        
-//                        unqiueFileName = Guid.NewGuid().ToString() + "_" + files.FileName;
-                       
+//                        string strPath = files.FileName;
+//                        string filename = Path.GetFileName(strPath);
+//                        unqiueFileName = Guid.NewGuid().ToString() + "_" + filename ;
+
 //                        string filePath = Path.Combine(uploadsFolder, unqiueFileName);
 //                        using (FileStream fs = System.IO.File.Create(filePath))
-//                        { files.CopyTo(fs);
+//                        {
+//                            files.CopyTo(fs);
 //                            fs.Flush();
 //                        }
-                        
-                        
-               
+
+
+
 
 //                        int numbe = 0;
 
@@ -206,7 +214,7 @@
 //                            referralfile.file = files.FileName;
 //                            referralfile.fileCode = filePath;
 //                            referralfile.fileNameY = "/images/" + unqiueFileName;
-                          
+
 //                            db.filesReferralBrandi.Add(referralfile);
 
 //                            db.SaveChanges();
@@ -225,13 +233,13 @@
 //                            referralfile.file = files.FileName;
 //                            referralfile.fileCode = filePath;
 //                            referralfile.fileNameY = "/images/" + unqiueFileName;
-                           
+
 //                            db.filesReferralBrandi.Add(referralfile);
 
 //                            db.SaveChanges();
 
 //                        }
-                     
+
 
 //                    }
 //                }
@@ -257,15 +265,15 @@
 //            SmtpServer.Port = 587;
 //            SmtpServer.Credentials = new System.Net.NetworkCredential("hopepipeline@gmail.com", "ReferralInfo22");
 //            SmtpServer.EnableSsl = true;
-           
+
 //            SmtpServer.Send(mail);
 //            return;
 //        }
 
-     
+
 //        public IActionResult ConfirmationReBLD(string emailaddress, int Id)
 //        {
-            
+
 
 //            MailMessage mail = new MailMessage();
 //            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -286,11 +294,11 @@
 //            SmtpServer.Port = 587;
 //            SmtpServer.Credentials = new System.Net.NetworkCredential("hopepipeline@gmail.com", "ReferralInfo22");
 //            SmtpServer.EnableSsl = true;
-           
+
 //            SmtpServer.Send(mail);
-//            return RedirectToAction("Index", "Home");
+//            return RedirectToAction("IndexA", "b");
 //        }
-    
+
 //        public ViewResult ConfirmationRe1(referralBrandi referral)
 //        {
 //            int Id = referral.pK;
@@ -303,7 +311,8 @@
 //            ViewData["message"] = "Your Referral for " + FirstName + " " + LastName + " has been submitted as of " + Date;
 //            ViewBag.two = "We look forward to helping " + FirstName + " " + LastName + ",";
 //            ViewBag.number = Id;
-//            return View("ConfirmationReBLD", new { Id }); }
+//            return View("ConfirmationReBLD", new { Id });
+//        }
 
 
 //        public ActionResult listReferralBLD()
@@ -311,7 +320,7 @@
 //            ViewData["Message"] = "Your application description page.";
 
 
-    
+
 //            return View(db.referralBrandi.ToList());
 
 
@@ -323,11 +332,11 @@
 //        {
 //            ViewData["Message"] = "Your application description page.";
 
-            
-          
+
+
 //            referralBrandi referral = db.referralBrandi.Find(pK);
-         
-          
+
+
 
 
 //            return View(referral);
@@ -339,15 +348,15 @@
 //        {
 //            List<object> myModel = new List<object>();
 //            ViewData["Message"] = "Detail of Referral information for clients.";
-         
-//            var list =from r in db.referralBrandi
-//                        where(r.pK ==pK)
-//                        select r;
-//              var list2 = from r in db.filesReferralBrandi
-//                        where(r.pK ==pK)
+
+//            var list = from r in db.referralBrandi
+//                       where (r.pK == pK)
+//                       select r;
+//            var list2 = from r in db.filesReferralBrandi
+//                        where (r.pK == pK)
 //                        select r;
 
-         
+
 //            myModel.Add(list.ToList());
 //            myModel.Add(list2.ToList());
 
@@ -358,22 +367,22 @@
 //            ViewData["Message"] = "Manage Tracking Information.";
 
 
-         
+
 
 //            return View(db.trackingReferral.ToList());
 //        }
 //        public ActionResult detailTrackingBLD(int pK)
 //        {
 //            List<object> myModel = new List<object>();
-//            ViewData["Message"] = "Detail of Referral information for clients.";
-           
+//            ViewData["Message"] = "Detail of Tracking information for clients.";
+
 //            var list = from r in db.referralBrandi
 //                       where (r.pK == pK)
 //                       select r;
 //            var list2 = from r in db.trackingReferral
 //                        where (r.pK == pK)
 //                        select r;
-  
+
 
 
 //            myModel.Add(list.ToList());
@@ -382,5 +391,7 @@
 //            return View(myModel);
 //        }
 
-//    }
+       
+          
+//        }
 //    }

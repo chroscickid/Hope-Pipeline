@@ -41,9 +41,10 @@
 
                 @Html.ActionLink("Details", "detailTrackingBLD", "b", new { pK = item.pK })|
 
-                @Html.ActionLink("Meeting Notes", "ContactInfo", "b", new { pK = item.pK })
+                @Html.ActionLink("Edit", "editTrackingBLD", "b", new { pK = item.pK })
             </td>
         </tr>
     }
 
-</table>*@
+</table>
+<a asp-action="IndexA" asp-controller="b">Back to Homepage</a>*@

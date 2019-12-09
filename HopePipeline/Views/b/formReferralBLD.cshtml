@@ -43,6 +43,27 @@
             color: white;
         }
     </style>
+    <script type="text/javascript">
+
+        function yesnoCheck() {
+            if (document.getElementById('yesCheck').checked) {
+                document.getElementById('ifYes').style.display = 'block';
+            }
+            else document.getElementById('ifYes').style.display = 'none';
+
+        }
+        function myConfirm() {
+          
+            var r = confirm("Please Confirm you would like to submit the Referral Form")
+            if (r == true)
+                return true;
+            else
+                return false;
+        }
+   
+    </script>
+
+
 </head>
 <body>
 
@@ -77,19 +98,31 @@
     <table id="t01">
 
         <tr>
-            <th>Referral for Educational Advocacy</th>
+            <th colspan="2">Referral for Educational Advocacy</th>
+        </tr>
+        <tr>
+            <td>
+                Referral Source's First Name:
+                @Html.EditorFor(model => model.referralfname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referralfname, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                Referral Source's Last Name:
+                @Html.EditorFor(model => model.referrallname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.referrallname, "", new { @class = "text-danger" })
+            </td>
         </tr>
 
         <tr>
-            <td>
-                Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            <td colspan="2">
+               Referral Source's Email Address: @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </td>
         </tr>
     </table>
     <table id="t01">
         <tr>
-            <th colspan="3">Youth and Family Basic Information</th>
+            <th colspan="4">Youth and Family Basic Information</th>
         </tr>
         <tr>
             <td>
@@ -102,6 +135,9 @@
                 Last Name:
                 @Html.EditorFor(model => model.lName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.lName, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                Gender:Need to add this
             </td>
 
             <td>
@@ -119,7 +155,7 @@
                 @Html.ValidationMessageFor(model => model.guardianName, "", new { @class = "text-danger" })
             </td>
 
-            <td>
+            <td colspan="2">
                 What is the primary caretaker's relationship to the youth?(please select all that apply)
 
                 <br>  <input type="checkbox" name="Mother" value="Mother">Mother<br>
@@ -144,7 +180,7 @@
         </tr>
 
         <tr>
-            <td>
+            <td colspan="2">
                 Parent/Guardian's email address:
                 @Html.EditorFor(model => model.guardianEmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.guardianEmail, "", new { @class = "text-danger" })
@@ -159,19 +195,20 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                Does the youth have any upcoming meetings scheduled with their school? 	<select name="Meeting">
-                    <option value="Select">Please Select an Option</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                    <option value="Maybe">Maybe</option>
+            <td colspan="4">
+                Does the youth have any upcoming meetings scheduled with their school?<br />
+                Yes <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="yesCheck">&nbsp;&nbsp;
+                No <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="noCheck">&nbsp;&nbsp;
+                Maybe <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="nooCheck"><br>
 
-                </select><br>
-                If yes, what is the date and time of the meeting?<br>
-                Date: @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })<br>
+ <div id="ifYes" style="display:none">
+          If yes, what is the date and time of the meeting?<br>
 
-                Time:<input type="time" name="meetingtime">
+            Date: @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })<br>
+
+              Time:<input type="time" name="meetingtime">
+               </div>
             </td>
         </tr>
     </table>
@@ -200,6 +237,7 @@
                 <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP">Has a 504 plan or an IEP<br>
                 <input type="checkbox" name="Notenrolled" value="Not enrolled in school">Not enrolled in school<br>
                 <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted">Has a history of being Baker Acted<br>
+                <input type="checkbox" name="Dependent" value="Dependent">Dependent<br>
 
             </td>
         </tr>
@@ -247,7 +285,7 @@
     </table><br />
 
 
-    <button type="submit" name="submit" value="Submit">Submit</button>
+    <button type="submit" name="submit" value="Submit" onclick="myConfirm()">Submit</button>
 
 }
 </body>

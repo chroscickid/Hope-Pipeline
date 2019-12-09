@@ -28,7 +28,7 @@ namespace HopePipeline
         {
            
             //services.AddDbContextPool<Models.AppDbContext>(
-            //    options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+              //options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddMvc();
             services.Configure<CookiePolicyOptions>(options =>
             {

@@ -100,10 +100,20 @@
     </table>
     <table id="t01">
         <tr>
-            <th> Referral Souce for Contact</th>
+            <th colspan= "2"> Referral Souce for Contact</th>
+        </tr>
+     <tr>
+            <td>
+                Referral Source First Name: RSF Name
+
+            </td>
+            <td>
+                Referral Source Last Name: RSL Name
+
+            </td>
         </tr>
         <tr>
-            <td>
+            <td colspan= "2">
                 Referral Source E-mail Address:  @Html.DisplayFor(model => model.email)
 
             </td>
@@ -119,6 +129,6 @@
 
 <p>
 
-    @Html.ActionLink("Back to List", "Index", "Home")
+    @Html.ActionLink("Back to List", "listReferralBLD", "b")
 </p>*@
 

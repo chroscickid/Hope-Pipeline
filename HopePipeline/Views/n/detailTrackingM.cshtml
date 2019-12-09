@@ -8,7 +8,7 @@
     <style>
 
         table {
-            width: auto;
+            width: 100%;
         }
 
         table, th, td {
@@ -18,7 +18,7 @@
 
         th, td {
             padding: 11px;
-            text-align: right;
+            text-align: left;
         }
 
         table#t01 tr:nth-child(even) {
@@ -37,554 +37,441 @@
         td:first-child {
             font-weight: bold
         }
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #ddd;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #ccc;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        /* Style width of form */
+        .t {
+            width: 30%;
+            table-layout: fixed;
+        }
     </style>
+    <script>
+        function Information(evt, Specific) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(Specific).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
 </head>
 <h2>Detail of Client Tracking Information</h2>
+<div class="tab">
+    <button class="tablinks active" onclick="Information(event, 'Demographic Information')">Demographic Information</button>
+    <button class="tablinks" onclick="Information(event, 'School Information')">School Information</button>
+    <button class="tablinks" onclick="Information(event, 'CCR')">Center for Children's Rights Information</button>
+    <button class="tablinks" onclick="Information(event, 'Discipline Information')">Discipline Information</button>
 
-<div>
-    <h4>Detail</h4>
-    <hr />
+</div>
+
+
+
+
+<hr />
+<div id="Demographic Information" class="tabcontent" style="display:block">
     <table id="t01">
 
-       
+
+        <tr>
+            <td class="t" style="text-align:right">
+                Client Code:
+            </td>
+
+            <td>
+                12251
+            </td>
+        </tr>
+
+
+        <tr>
+            <td class="t" style="text-align:right">
+                First Name:
+            </td>
+
+            <td>
+                jill
+            </td>
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">
+                Last Name:
+            </td>
+
+            <td>
+                pan
+            </td>
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">
+                Guardian's relationship to the youth:
+            </td>
+
+            <td>
+                Father
+            </td>
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">
+                Guardian's Name:
+            </td>
+
+            <td>
+                Teal
+            </td>
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right">Gender Identity: </td>
+
+            <td>
+                He/Him/His
+            </td>
+
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">Ethnicity: </td>
+
+            <td>
+                Hispanic
+            </td>
+
+        </tr>
+
+        <tr>
+            
+            <td class="t" style="text-align:right">
+                Date of Birth:
+            </td>
+
+            <td>
+                12/5/1425
+            </td>
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right">Referral Source's First Name:</td>
+
+            <td> Roger</td>
+
+
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">Referral Source's Last Name:</td>
+
+            <td> Pan</td>
+
+
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right">Baker Acted</td>
+
+            <td>
+                No
+            </td>
+
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right">Female-led household?</td>
+
+            <td>
+                Yes
+            </td>
+
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right"> Adopted </td>
+
+            <td>
+                No
+            </td>
+
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">Evicted</td>
+
+            <td>
+                Yes
+            </td>
+
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right"> Incarcarated Parent</td>
+
+            <td>
+                Yes
+            </td>
+
+        </tr>
+        <tr>
+            <td class="t" style="text-align:right">
+                Which Parent is Incarcerated:
+            </td>
+            <td style="text-align:left">
+                N/A
+            </td>
+        </tr>
+
+        <tr>
+            <td class="t" style="text-align:right">Asthma</td>
+
+            <td>
+                No
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+
+
+<div id="School Information" class="tabcontent">
+    <p>
+        <table id="t01">
             <tr>
+                <td class="t" style="text-align:right">
+                    School
+                </td>
                 <td>
-                    Client Code:
+                    Kernan Trail Elementary
                 </td>
 
-                <td style="text-align:left">
-                   12251
-                </td>
-            </tr>
-        
-       
-            <tr>
-                <td>
-                    First Name:
-                </td>
-
-                <td style="text-align:left">
-                 jill
-                </td>
             </tr>
             <tr>
+                <td class="t" style="text-align:right">
+                    Failed a Grade
+                </td>
                 <td>
-                    Last Name:
-                </td>
-
-                <td style="text-align:left">
-                    pan
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Guardian Name:
-                </td>
-
-                <td style="text-align:left">
-                    Teal
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Guardian's Relationship to Youth:
-                </td>
-
-                <td style="text-align:left">
-                   Father
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Date of Birth:
-                </td>
-
-                <td style="text-align:left">
-                   12/5/1425
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    School:
-                </td>
-
-                <td style="text-align:left">
-                   Tyler HighSchool
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral Date:
-                </td>
-
-                <td style="text-align:left">
-                    12/5/5204
-                </td>
-            </tr>
-
-        
-            <tr>
-                <td>
-                    Gender Identity:
-                </td>
-
-                <td style="text-align:left">
-                 female
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Ethnicity:
-                </td>
-                <td style="text-align:left">
-                   Hispanic
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    School:
-                </td>
-                <td style="text-align:left">
-                   Tyler Highschool
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Grade Level:
-                </td>
-                <td style="text-align:left">
-                    12th
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral Source:
-                </td>
-                <td style="text-align:left">
-                   Haley
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Did they Fail a Grade?
-                </td>
-                <td style="text-align:left">
-                    5th
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    How many times have they Failed a Grade:
-                </td>
-                <td style="text-align:left">
-                   3                </td>
-            </tr>
-            <tr>
-                <td>
-                    Have they been Baker Acted:
-                </td>
-                <td style="text-align:left">
                     No
                 </td>
+
             </tr>
             <tr>
-                <td>
-                    Are they in a Female led Household:
+                <td class="t" style="text-align:right">
+                    If yes, which grade and how many times
                 </td>
-                <td style="text-align:left">
+                <td>
+                    N/A
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Has an IEP/504 Plan<br />
+                </td>
+                <td>
+                    Gifted
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    In Pride
+                </td>
+                <td>
                     Yes
                 </td>
+
             </tr>
             <tr>
+                <td class="t" style="text-align:right">
+                    New FBA
+                </td>
                 <td>
-                    If, No why is the household not considered Female led:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Domestic Violence History:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Incarcerated Parent:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Which Parent is Incarcerated:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Do they have asthma:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Level of Svc/Type of Representation:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Intake Date:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Reason for nonengagement:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Open/Close Statue:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Legal Advocacy Taken:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Remedy/Resolution:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Re-arrest while represented?
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    School at time of closure:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral 1:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral 2:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral 3:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral 4:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Referral 5:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Re-arrested during advocacy:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    (Re-arrested)Advocacy at court?
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    ( Re-arrested) Advocacy at staffing:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Has an IEP/504:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Which IEP or 504's:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Current Reading Level:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Current Math Level:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Current IEP Services:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    In Pride?
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    New FBA?
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Additional IEP Services Gained:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Atditional Accommodations Gained:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Any atditional comp?
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    How much addittional comp:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bullied:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Was Bullying Reported:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bullying Report Date:
+                    No
                 </td>
 
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Addititonal Accomodations Gained
+                </td>
+                <td>
+                    Yes
+                </td>
 
-                <td style="text-align:left">
-                    N/A
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    Additional Compensatory Services <br />
                 </td>
+                <td>
+                    No
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    If yes, what services
+                </td>
+                <td>
+                    Services
+                </td>
+
             </tr>
             <tr>
+                <td class="t" style="text-align:right">
+                    Bullied <br />
+                </td>
                 <td>
-                    Suspended more than 2 times:
+                    No
                 </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
+
             </tr>
             <tr>
-                <td>
-                    Suspended more than 2 times, how many:
+                <td class="t" style="text-align:right">
+                    If yes, was it reported  <br />
                 </td>
-                <td style="text-align:left">
+                <td>
                     N/A
                 </td>
+
             </tr>
             <tr>
-                <td>
-                    In an Alternative School:
+                <td class="t" style="text-align:right">
+                    Date of report  <br />
                 </td>
-                <td style="text-align:left">
+                <td>
                     N/A
                 </td>
+
             </tr>
-            <tr>
-                <td>
-                    What Alternative School:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    When was youth in the Alternative School:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    How many times was youth in Alt School:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    How many Days owed:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Other legal issues:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total Days of ISS/OSS:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total Days of Discipline:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total Days of Discipline since Intake:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total OSS since Intake:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    JJ Outcome:
-                </td>
-                <td style="text-align:left">
-                    N/A
-                </td>
-            </tr>
-        }
-    </table>
+        </table>
+    </p>
 </div>
+
+
+<div id="CCR" class="tabcontent">
+    <p>
+        <table id="t01">
+            <tr>
+
+                <td class="t" style="text-align:right">Level of Service Provided</td>
+                <td>
+                    Information/Education
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right"> Date Referral Input:</td>
+
+                <td>12/31/2019</td>
+
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Intake Date</td>
+
+                <td>
+                    12/31/2019
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Reason for Nonengagement</td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    Case open/close status
+                </td>
+                <td>
+                    Open
+                </td>
+
+            </tr>
+
+        </table>
+    </p>
+</div>
+
+<div id="Discipline Information" class="tabcontent">
+    <p>
+        <table id="t01">
+            <tr>
+                <td class="t" style="text-align:right">
+                    Suspended more than three times  <br />
+                </td>
+                <td>
+                    No
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Alternative School  <br />
+                </td>
+                <td>
+                   No
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Alternative School Name<br />
+                </td>
+                <td>
+                    N/A
+                </td>
+
+            </tr>
+
+        </table>
+    </p>
+</div>
+
 <div>
+    <a asp-controller="n" asp-action="EditTrackingM">Edit</a><br />
     <a asp-action="Index" asp-controller="Home">Back to List</a>
 </div>
 
