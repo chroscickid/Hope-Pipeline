@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace HopePipeline.Models
 {
-    public class Account
+    public class ForgotAccount
     {
+        public string email { get; set; }
     }
 }
