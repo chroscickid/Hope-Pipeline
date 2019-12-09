@@ -14,15 +14,15 @@ namespace HopePipeline.Controllers
         public ReferralRepository repository;
         public ReferralController(ReferralRepository repo)
         {
-            repository = repo;            
+            repository = repo;
         }
 
-      //  public ViewResult RefList() => View(repository.Referrals);
-         public IActionResult RefList()
+        //  public ViewResult RefList() => View(repository.Referrals);
+        public IActionResult RefList()
         {
             var results = new List<RefRow>();
             string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            
+
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
@@ -34,9 +34,9 @@ namespace HopePipeline.Controllers
 
             while (reader.Read())
             {
-                
+
                 //We push information from the query into a row and onto the list of rows
-                RefRow row = new RefRow { fname = reader.GetString(0), lname = reader.GetString(1), dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"), clientCode = reader.GetInt32(3)};
+                RefRow row = new RefRow { fname = reader.GetString(0), lname = reader.GetString(1), dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"), clientCode = reader.GetInt32(3) };
                 results.Add(row);
             }
             reader.Close();
@@ -60,7 +60,7 @@ namespace HopePipeline.Controllers
             return View("RefList");
         }
 
-        
+
 
 
         /*public IActionResult Details(int det)
@@ -74,7 +74,7 @@ namespace HopePipeline.Controllers
             return View();
         }
 
-  
-        
+
+
     }
 }
