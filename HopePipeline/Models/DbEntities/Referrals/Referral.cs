@@ -35,6 +35,8 @@ namespace HopePipeline.Models
 
         public string meeting { get; set; }
 
+        public int bakerxhistory { get; set; }
+
 
 
 

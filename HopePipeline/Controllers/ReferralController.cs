@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HopePipeline.Models;
+using System.Data.SqlClient;
 
 namespace HopePipeline.Controllers
 {
@@ -17,24 +18,23 @@ namespace HopePipeline.Controllers
 
         public ViewResult RefList() => View(repository.Referrals);
 
-        public IActionResult SortList(string field)
+        public ViewResult Delete(int pk)
         {
-            var list = repository.Referrals;
-            //var tist = list.ToArray;
-           switch (field)
-            {
-                case "Name":
-                    IEnumerable<Referral> sort = list.OrderBy(Referral => Referral.lName);
-                    return RefList();
-                case "Date":
-                    return RefList();
-                case "Status":
-                    return RefList();
-                default:
-                    return RefList();
-            }
+            string connectionString = "placeholder";
+            SqlConnection cnn;
+            cnn = new SqlConnection(connectionString);
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            cnn.Open();
+            string query = "DELETE from [referral table] WHERE [PK] = " + pk + ";";
+            command = new SqlCommand(query, cnn);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Close();
 
+            return View("RefList");
         }
+
+        
 
 
         /*public IActionResult Details(int det)
@@ -47,6 +47,8 @@ namespace HopePipeline.Controllers
         {
             return View();
         }
+
+  
         
     }
 }
