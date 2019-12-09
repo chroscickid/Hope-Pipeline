@@ -8,7 +8,7 @@
 <h2 id="hey">Generate Reports</h2>
 <div class="center-block">
     <form asp-controller="Report" asp-action="ViewReports" method="post">
-        <div id="part1">
+        <p>
             <select id="field1" name="field1">
                     <option value="none" selected>None</option>
                     <option value="Name">Name</option>
@@ -50,8 +50,10 @@
             <input id="text1" name="text1" />
             <a onclick="addSearchField(1);">+</a>
             <br />
-        </div>
-        <div id="part2" style="display:none">
+        </p>
+
+
+        <p>
             <select id="field2" name="field2">
                 <option value="none" selected>None</option>
                 <option value="Name">Name</option>
@@ -92,8 +94,9 @@
             </select>
             <input id="text2" name="text2" />
             <a onclick="addSearchField(2);">+</a>
-        </div>
-        <div id="part3" style="display:none">
+        </p>
+
+        <p>
             <select id="field3" name="field3">
                 <option value="none" selected>None</option>
                 <option value="none" selected>None</option>
@@ -135,8 +138,9 @@
             </select>
             <input id="text3" name="text3" />
             <a onclick="addSearchField(3);">+</a>
-        </div>
-        <div id="part4" style="display:none">
+        </p>
+
+        <p>
             <select id="field4" name="field4">
                 <option value="none" selected>None</option>
                 <option value="Name">Name</option>
@@ -177,8 +181,9 @@
             </select>
             <input id="text4" name="text4" />
             <a onclick="addSearchField(4);">+</a>
-        </div>
-        <div id="part5" style="display:none">
+        </p>
+
+        <p>
             <select id="field5" name="field5">
                 <option value="none" selected>None</option>
                 <option value="Name">Name</option>
@@ -218,13 +223,13 @@
                 <option value="secondLegal">secondLegal</option>
             </select>
             <input id="text5" name="text5" />
-        </div>
+        </p>
         <button type="submit" onclick="">Generate Reports</button>
 
 
 
     </form>
-    </div>
+    
 
 
     <a asp-controller="Report" asp-action="ExportDb">Click here to export to Excel</a>

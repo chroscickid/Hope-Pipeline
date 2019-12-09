@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HopePipeline.Models;
 using System.Data.SqlClient;
-using JsonFx.Serialization;
 using HopePipeline.Models.DbEntities.Reports;
 
 namespace HopePipeline.Controllers
