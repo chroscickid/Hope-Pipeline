@@ -5,131 +5,188 @@
 
 }
 
-<h2>Center for Children's Rights Tracking Form</h2>
+<h2> Center for Children's Rights Tracking Form </h2> 
 
 
 <form asp-controller="Tracking" asp-action="SubmitTracking" method="post">
-   
+
     <div class="form-group">
-      
-        <input type="text" name="Name" class="form-control" />
-    </div>
-</form>
+    <script type="text/javascript">
+
+    function yesnoCheck(checkedfield,fieldtohide)
+    {
+        if (document.getElementById(checkedfield).checked)
+        {
+            document.getElementById(fieldtohide).style.display = 'block';
+        }
+
+        else document.getElementById(fieldtohide).style.display = 'none';
+    }
+        </script>
+        </div >
+        </form >
+
 <p>
+    Demographic Information
+    <br>
+    <br>
+
+    ClientID <br />
+    <input type="text" name="ClientID" value=""> <!-- this will be randomly generated in the SQL database, pusedocode is on client.cs-->
+    <br />
+    <br />
+
+    First Name <br />
+    <input type="text" name="firstName" value=""> <br />
+    <br />
+    <br />
+    Last Name <br />
+    <input type="text" name="lastName" value=""> <br />
+    <br />
+    <br />
+
+    Caregiver <br>
+    <input type="radio" name="caregender" value="Mother"> Mother<br>
+    <input type="radio" name="caregender" value="Father"> Father<br>
+    <input type="radio" name="caregender" value="mGrandma"> Grandmother<br>
+    <input type="radio" name="caregender" value="mGrandpa"> Grandfather <br>
+    <input type="radio" name="caregender" value="mGrandpa"> Other <br>
+    <br />
+    <br />
+
+    Caregiver Name <br>
+    <input type="text" name="careName" value=""> <br />
+    <br />
+
+
+    Gender Identity <br>
+    <input type="radio" name="gender" value="male"> He/Him/His<br>
+    <input type="radio" name="gender" value="female"> She/Her/Hers<br>
+    <input type="radio" name="gender" value="trans*"> They/Them/Theirs<br />
+    <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
+    <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
+    <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
+    <br />
+    <br />
+
+    Ethnicity <br>
+    <select>
+        <option value="nhWhite">Non Hispanic White</option>
+        <option value="hispanic">Hispanic</option>
+        <option value="natAm">Native American</option>
+        <option value="jewish">Jewish</option>
+        <option value="black">Black</option>
+        <option value="multi">Multiple Ethnicities</option>
+        <option value="notListed">Ethnicity Not Listed</option>
+    </select>
+    <br>
+    <br>
+
+    Date of Birth <br />
+    <input type="date" id="start" name="dob" min="2001-01-01" max="2050-12-31">
+    <br />
+    <br />
+
+    School <br />
+    <input type="text" name="school" value="" />
+    <br />
+    <br />
+
+    Current Grade Level <br />
+    <select name="level">
+        <option value="K" label="K"></option>
+        <option value="1" label="1"></option>
+        <option value="2" label="2"></option>
+        <option value="3" label="3"></option>
+        <option value="4" label="4"></option>
+        <option value="5" label="5"></option>
+        <option value="6" label="6"></option>
+        <option value="7" label="7"></option>
+        <option value="8" label="8"></option>
+        <option value="9" label="9"></option>
+        <option value="10" label="10"></option>
+        <option value="11" label="11"></option>
+        <option value="12" label="12"></option>
+    </select>
+    <br />
+    <br />
+
+    Referral Source <br />
+    <input type="text" name="referral" />
+    <br />
+    <br />
+
     <div>
-        Demographic Information <br>
-        <br>
-
-        ClientID <br />
-        <input type="text" name="ClientID" value="wg4237"> <!-- this will be randomly generated in the SQL database, pusedocode is on client.cs-->
-        <br />
-
-        Name <br />
-        <input type="text" name="Name" value="John Smith">
-        <br />
-        <br>
-
-        Caregiver <br>
-        <input type="radio" name="caregender" value="Mother"> Mother<br>
-        <input type="radio" name="caregender" value="Father"> Father<br>
-        <input type="radio" name="caregender" value="mGrandma">Maternal Grandmoter<br>
-        <input type="radio" name="caregender" value="mGrandpa">Maternal Grandfather <br>
-        <br>
-        <br>
-
-        Caregiver Name <br>
-        <input type="text" name="careName" value="Barbara Smith"> <br />
-        <br>
-
-
-        Gender Identity <br>
-        <input type="radio" name="gender" value="male"> He/Him/His<br>
-        <input type="radio" name="gender" value="female"> She/Her/Hers<br>
-        <input type="radio" name="gender" value="trans*"> They/Them/Theirs<br />
-        <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
-        <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
-        <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
-        <br>
-        <br>
-
-        Ethnicity <br>
-        <select>
-            <option value="nhWhite">Non Hispanic White</option>
-            <option value="hispanic">Hispanic</option>
-            <option value="natAm">Native American</option>
-            <option value="jewish">Jewish</option>
-            <option value="black">Black</option>
-            <option value="multi">Multiple Ethnicities</option>
-            <option value="notListed">Ethnicity Not Listed</option>
-
-        </select>
-        <br>
-        <br>
-
-        Date of Birth <br>
-        <input type="date" name="dob">
-        <br>
-        <br>
-
-        School <br>
-        <input type="text" name="school" value="Kernan Trail Elementary">
-        <br>
-        <br>
-
-        Referral Source <br>
-        <input type="text" name="referral" />
-        <br />
-        <br />
-
         Failed a Grade <br />
-        <input type="radio" name="fail" value="y">Yes<br />
-        <input type="radio" name="noFail" value="n" />No <br />
+        Yes <input type="radio" onclick="javascript: yesnoCheck('failedGrade','ifYesFailedGrade');" name="grade" id="failedGrade" value="yes" /> &nbsp;
+        No  <input type="radio" onclick="javascript: yesnoCheck();" name="grade" id="nofailedGrade" value="no" />  &nbsp;
         <br />
         <br />
-        If yes, which grade and how many times
-        <input type="text" name="failedGrade" />
+
+        <div id="ifYesFailedGrade" style="display:none">
+            If yes, which grade and how many times?<br />
+            <input type="text" name="failedGrade" />
+            <br />
+            <br />
+        </div>
 
         Baker Acted <br />
-        <input type="radio" name="baker" value="y">Yes<br />
-        <input type="radio" name="noBaker" value="n" />No <br />
+        <input type="radio" name="baker" value="y"> Yes<br />
+        <input type="radio" name="baker" value="n" /> No <br />
         <br />
         <br />
 
         Female-led household? <br />
-        <input type="radio" name="femHouse" value="y" checked>Yes<br />
-        <input type="radio" name="noFemHouse" value="n" />No <br />
+        <input type="radio" name="femHouse" value="y" checked> Yes<br />
+        <input type="radio" name="femHouse" value="n" /> No <br />
         <br />
         <br />
 
         Domestic Violence <br />
-        <input type="radio" name="domVio" value="y">Yes<br />
-        <input type="radio" name="noDomVio" value="n" />No <br />
+        <input type="radio" name="domVio" value="y"> Yes<br />
+        <input type="radio" name="domVio" value="n" /> No <br />
         <br />
         <br />
 
         Adopted <br />
-        <input type="radio" name="adopted" value="y">Yes<br />
-        <input type="radio" name="notAdopted" value="n" />No <br />
+        <input type="radio" name="adopt" , value="y"> Yes<br />
+        <input type="radio" name="adopt" value="n" /> No <br />
         <br />
         <br />
 
-        Evicted
-        <input type="radio" name="evicted" value="y">Yes<br />
-        <input type="radio" name="notEvicted" value="n" />No <br />
+        Evicted <br />
+        <input type="radio" name="homeev" value="y"> Yes<br />
+        <input type="radio" name="homeev" value="n" /> No <br />
         <br />
         <br />
 
         Incarcarated Parent <br />
-        <input type="radio" name="incarParent" value="y">Yes<br />
-        <input type="radio" name="incarParent" value="n" />No <br />
+        <input type="radio" name="incarParent" value="y"> Yes<br />
+        <input type="radio" name="incarParent" value="n" /> No <br />
         <br />
         <br />
 
-        Asthma
-        <input type="radio" name="asthma" value="y">Yes<br />
-        <input type="radio" name="noAsthma" value="n" />No <br />
+        Asthma <br />
+        <input type="radio" name="asthma" value="y"> Yes<br />
+        <input type="radio" name="asthma" value="n" /> No <br />
         <br />
         <br />
 
     </div>
+    <br />
+    <br />
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item active">
+            <a class="page-link" asp-controller="Tracking" asp-action="demoTracking">1 <span class ="sr-only"></span></a>
+            </li>
+
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="schoolTracking">2</a></li>
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="disciplineTracking">3</a></li>
+            <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="ccrTracking">4</a></li>
+        </ul>
+    </nav>
+
+
 

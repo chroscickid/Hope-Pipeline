@@ -8,27 +8,122 @@
 <h2>Center for Children's Rights Tracking Form</h2>
 
 
-<form method="post">
-   
-    <div class="form-group">
-        <input type="text" name="Name" class="form-control" />
-    </div>
-</form>
-<p>
 
+    <form method="post">
+        <div class="form-group">
+        <script type="text/javascript">
 
-    <div>
+            function yesnoCheck(checkedfield,fieldtohide)
+            {
+                if (document.getElementById(checkedfield).checked)
+                {
+                    document.getElementById(fieldtohide).style.display = 'block';
+                }
 
-        Discipline <br />
+                else document.getElementById(fieldtohide).style.display = 'none';
+            }
+            </script>
+          </div>
+        </form>
 
-        Suspeneded more than 2 (two) times<br />
-        <input type="radio" name="adopted" value="y">Yes<br />
-        <input type="radio" name="notAdopted" value="n" />No <br />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
-    </div>
-    
+        <h6> Discipline </h6> <br />
+            <div>
+                <div>
+                    Suspended more than three times in a year? <br />
+                    Yes <input type="radio" onclick="javascript: yesnoCheck('suspended','ifYesSuspended');" name="suspend" id="suspended" value="yes"> &nbsp;
+                    No <input type="radio" onclick="javascript: yesnoCheck();" name="suspend" id="notSuspended" value="no" />  &nbsp;
+                    <br />
+                    <br />
 
-</p>
+                    <div id="ifYesSuspended" style="display:none" />
+                    If yes, how many times?<br />
+                    <select name="suspended">
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">7</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10+">10+</option>
+                    </select>
+                    <br />
+                    <br />
+                </div>
+
+                Total Days of ISS <br />
+                <input type="text" id="ISS" name="totalISS" value=""> <br />
+
+                Total Days of OSS <br />
+                <input type="text"  id="OSS" name="totalOSS" value=""> <br />
+                <br />
+                <br />
+
+                Total Days since Intake <br />
+                <input type="text" id="dateintake" name="intake" value=""> <br />
+                <br />
+                <br />
+
+                <div>
+                    Alternative School <br />
+                    Yes <input type="radio" onclick="javascript: yesnoCheck('altSchool','ifYesSchool');" name="altSchool" id="altSchool" value="yes"> &nbsp;
+                    No <input type="radio" onclick="javascript: yesnoCheck();" name="altSchool" id="notAlt" value="no" /> &nbsp;
+                    <br />
+                    <br />
+
+                    <div id="ifYesSchool" style="display:none" />
+                    If yes, which school?<br />
+                    <input type="radio" name="yesSchool" id="Mattie" value="yes"> Mattie V  <br />
+                    <input type="radio" name="yesSchool" id="Grand" value="no" /> Grand Park <br />
+                    <br />
+                    <br />
+
+                    How many times was the youth in an alternative school?<br />
+                    <select name="altSchool">
+                        <option value="1" id="1">1</option>
+                        <option value="2" id="2">2</option>
+                        <option value="3+" id="3">3+</option>
+                    </select>
+                    <br />
+                    <br />
+
+                    How many days owed?<br />
+                    <input type="text" name="daysOwed" value=""> <br />
+                    <br />
+                    <br />
+                </div>
+
+                Juvenile Justice Outcome <br />
+                <input type="text" c name="outcome" value=""> <br />
+                <br />
+                <br />
+
+                Other legal issues?<br />
+                <select name="legal">
+                    <option value="education" id="edu">Education</option>
+                    <option value="juvenilejustice" id="juv">Juvenile Justice</option>
+                    <option value="dependency" id="dependency">Dependency</option>
+                    <option value="bakeract" id="edu">Baker Act</option>
+                    <option value="familylaw" id="famlaw">Family Law</option>
+                    <option value="immigration" id="immig">Immigration</option>
+                    <option value="publicbenefits" id="publicben">Public Benefits</option>
+                    <option value="housing" id="housing">Housing</option>
+                    <option value="other" id="other">Other</option>
+                </select>
+
+                <br />
+                <br />
+                            
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="demoTracking">1</a></li>
+                        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="schoolTracking">2</a></li>
+                        <li class="page-item active">
+                        <a class="page-link" asp-controller="Tracking" asp-action="disciplineTracking">3<span class="sr-only"></span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="ccrTracking">4</a></li>
+                    </ul>
+                </nav>
+
+                <button type="submit">Submit</button>
+            </div>
 
