@@ -16,7 +16,7 @@ namespace HopePipeline.Models
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 
-        public int pK { get; set; }
+        public int clientCode { get; set; }
 
         public string fName { get; set; }
 
@@ -26,24 +26,21 @@ namespace HopePipeline.Models
         public DateTime? dOB { get; set; }
 
         public string guardianName { get; set; }
-
+        
         public string guardianRelationship { get; set; }
 
         public string address { get; set; }
 
-
+        public string gender { get; set; }
         public string guardianEmail { get; set; }
 
 
         public string guardianPhone { get; set; }
 
-        public string meeting { get; set; }
+        public int meeting { get; set; }
 
-
-
-
-
-        public string youthInSchool { get; set; }
+        public int youthInDuvalSchool { get; set; }
+        public int youthInSchool { get; set; }
         public string issues { get; set; }
 
         public string currentSchool { get; set; }
@@ -53,25 +50,27 @@ namespace HopePipeline.Models
         public string communication { get; set; }
 
         public string zip { get; set; }
-
+        public string grade { get; set; }
 
         public string status { get; set; }
 
-
+        public int arrest { get; set; }
+        public string school { get; set; }
         public Nullable<System.DateTime> dateInput { get; set; }
         [DataType(DataType.Date)]
         public DateTime? date { get; set; }
 
         public string email { get; set; }
 
-        public string time { get; set; }
+        public string Reach { get; set; }
+        public string moreInfo { get; set; }
+        public string reason { get; set; }
+
 
         public string referralfname { get; set; }
         public string referrallname { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<filesReferralBrandi> filesReferralBrandi { get; set; }
-        public virtual ICollection<trackingReferral> trackingReferral { get; set; }
+        
 
     }
 }

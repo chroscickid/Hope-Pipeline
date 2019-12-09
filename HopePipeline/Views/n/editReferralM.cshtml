@@ -1,4 +1,4 @@
-﻿
+﻿@model HopePipeline.Models.referralBrandi;
 @{
     ViewData["Title"] = "editReferralM";
 }
@@ -40,35 +40,35 @@
             color: white;
         }
         /* Style width of form */
-.t {
-width:30%;
-table-layout:fixed;
-}
+        .t {
+            width: 30%;
+            table-layout: fixed;
+        }
     </style>
     <script>
-    function editConfirm() {
+        function editConfirm() {
 
-    var r = confirm("Please Confirm you would like to Submit your changes")
-    if (r == true) {
+            var r = confirm("Please Confirm you would like to Submit your changes")
+            if (r == true) {
 
-   window.location.href = "detailReferralM";
-  return true;
-    }
-    else
-    return false;
+                window.location.href = "detailReferralM";
+                return true;
+            }
+            else
+                return false;
         }
 
 
-function yesnoCheck() {
+        function yesnoCheck() {
             if (document.getElementById('yesCheck').checked) {
-                document.getElementById('ifYes').style.display= 'block';
+                document.getElementById('ifYes').style.display = 'block';
             }
             else document.getElementById('ifYes').style.display = 'none';
 
         }
-         function yesnoCheck1() {
+        function yesnoCheck1() {
             if (document.getElementById('yesclick').checked) {
-                document.getElementById('Yes').style.display= 'block';
+                document.getElementById('Yes').style.display = 'block';
             }
             else document.getElementById('Yes').style.display = 'none';
 
@@ -77,7 +77,7 @@ function yesnoCheck() {
 
 
     </script>
-   
+
 
 </head>
 <body>
@@ -272,7 +272,7 @@ function yesnoCheck() {
                     </td>
                 </tr>
 
-              
+
                 <tr>
                     <td class="t" style="text-align:right">
                         Has the youth been arrested?<br />
@@ -294,11 +294,12 @@ function yesnoCheck() {
                 <tr>
                     <td class="t" style="text-align:right">
                         Reason for Referral?<br />
-                    </td><td>
+                    </td>
+                    <td>
                         ​<textarea id="txtArea" rows="5" cols="75" name="reason" placeholder="We are having a hard time finding permanent housing"></textarea>
                     </td>
                 </tr>
-               
+
                 <tr>
                     <td class="t" style="text-align:right"> Best way to Communicate with youth:</td>
 
@@ -367,7 +368,7 @@ function yesnoCheck() {
 
             </table>
             <br />
-            <input type = "button" onclick="editConfirm()" value="Save Changes"/>
+            <input type="button" onclick="editConfirm()" value="Save Changes" />
             &nbsp;  &nbsp;  &nbsp;  &nbsp;
             <input type="reset"><br /><br /><br />
             <a asp-action="Index" asp-controller="Home">Back to List</a>
@@ -376,7 +377,7 @@ function yesnoCheck() {
 
         <p id="demo"></p>
     </div>
- 
+
 
 </body>
 </html>

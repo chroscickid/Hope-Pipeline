@@ -1,4 +1,4 @@
-﻿
+﻿@model HopePipeline.Models.referralBrandi;
 @{
     ViewData["Title"] = "detailReferralM";
 }
@@ -6,9 +6,9 @@
 
 <head>
     <script>
-            function myFunction() {
-                document.getElementById("demo").innerHTML = "Downloading File:" ;
-            }
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Downloading File:";
+        }
 
     </script>
     <style>
@@ -39,10 +39,11 @@
             background-color: #005199;
             color: white;
         }
+
         .t {
-        width:30%;
-        table-layout:fixed;
-            }
+            width: 30%;
+            table-layout: fixed;
+        }
     </style>
 </head>
 <h2>Referral </h2>
@@ -54,14 +55,14 @@
     <table id="t01">
         <tr>
             <td class="t" style="text-align:right"> First Name:</td>
-
-            <td>FirstName</td>
+         
+        <td>@Html.DisplayFor(model => model.fName);</td>
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Last Name: </td>
 
-            <td> LastName</td>
+            <td> @Html.DisplayFor(model => model.lName);</td>
 
         </tr>
 
@@ -69,37 +70,37 @@
             <td class="t" style="text-align:right"> Gender Identity:  </td>
 
             <td>
-                Gender
+                @Html.DisplayFor(model => model.gender);
             </td>
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Date of Birth:</td>
 
-            <td> Date of Birth</td>
+            <td> @Html.DisplayFor(model => model.dOB);</td>
 
         </tr>
         <tr>
             <td class="t" style="text-align:right">   Guardian's Name:</td>
 
-            <td> guardianName</td>
+            <td> @Html.DisplayFor(model => model.guardianName);</td>
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Guardian's relationship to the youth:</td>
 
-            <td> guardianRelationship</td>
+            <td> @Html.DisplayFor(model => model.guardianRelationship);</td>
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Street Address:</td>
 
 
-            <td> address</td>
+            <td> @Html.DisplayFor(model => model.address);</td>
 
         </tr>
         <tr>
-            <td class="t" style="text-align:right"> Zip Code</td>
+            <td class="t" style="text-align:right"> @Html.DisplayFor(model => model.zip);</td>
 
             <td> zip</td>
 
@@ -107,14 +108,14 @@
         <tr>
             <td class="t" style="text-align:right"> Parent/Guardian's Email:</td>
 
-            <td>guardianEmail</td>
+            <td>@Html.DisplayFor(model => model.guardianEmail);</td>
 
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Parent/Guardian's Phone Number:</td>
 
-            <td> guardianPhone</td>
+            <td>@Html.DisplayFor(model => model.guardianPhone);</td>
 
 
         </tr>
@@ -124,23 +125,19 @@
 
             <td>
 
-                Y/NMeeting<br />
+                @Html.DisplayFor(model => model.meeting);<br />
             </td>
         <tr>
             <td class="t" style="text-align:right">Date of Youth's Meeting:</td>
-            <td>date</td>
+            <td>@Html.DisplayFor(model => model.date);</td>
         </tr>
-       
-        <tr>
-            <td class="t" style="text-align:right">Time of Youth's Meeting:</td>
-            <td>time</td>
 
-        </tr>
-                  
+        
+
         <tr>
             <td class="t" style="text-align:right"> Issues which are currently impacting the Youth:</td>
 
-            <td>issues</td>
+            <td>@Html.DisplayFor(model => model.issues);</td>
 
 
         </tr>
@@ -150,7 +147,7 @@
             </td>
 
             <td>
-                Y/Npublic school
+                @Html.DisplayFor(model => model.youthInDuvalSchool);
             </td>
         </tr>
         <tr>
@@ -160,7 +157,7 @@
 
 
             <td>
-                Grade<br />
+                @Html.DisplayFor(model => model.grade);<br />
             </td>
         </tr>
         <tr>
@@ -168,13 +165,13 @@
                 Is the the youth currently attending school?<br />
             </td>
             <td>
-                IsSchool
+                @Html.DisplayFor(model => model.youthInSchool);
             </td>
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Where is the youth currently attending school?</td>
 
-            <td> currentSchool</td>
+            <td> @Html.DisplayFor(model => model.currentSchool);</td>
         </tr>
 
         <tr>
@@ -182,7 +179,7 @@
                 Has the youth been arrested?<br />
             </td>
             <td>
-                YNarrest
+                @Html.DisplayFor(model => model.arrest);
             </td>
         </tr>
         <tr>
@@ -190,7 +187,7 @@
                 Is there anything else you would like us to know about the youth or their family?<br />
             </td>
             <td>
-                ​We struggling with communication issues
+                @Html.DisplayFor(model => model.otherInfo);
             </td>
         </tr>
 
@@ -199,21 +196,21 @@
                 Reason for Referral?<br />
             </td>
             <td>
-                We are having a hard time finding permanent housing
+                @Html.DisplayFor(model => model.reason);
             </td>
         </tr>
-        
+
         <tr>
             <td class="t" style="text-align:right"> Best way to Communicate with youth:</td>
 
-            <td> communication</td>
+            <td> @Html.DisplayFor(model => model.Reach);</td>
 
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Status:</td>
 
-            <td> status</td>
+            <td> @Html.DisplayFor(model => model.status);</td>
 
 
         </tr>
@@ -222,28 +219,28 @@
         <tr>
             <td class="t" style="text-align:right"> Date Referral Input:</td>
 
-            <td>dateInput</td>
+            <td>@Html.DisplayFor(model => model.dateInput);</td>
 
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Referral Source's First Name:</td>
 
-            <td>RSFirst Name</td>
+            <td>@Html.DisplayFor(model => model.referralfname);</td>
 
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Referral Source's Last Name:</td>
 
-            <td>RSLast Name</td>
+            <td>@Html.DisplayFor(model => model.referrallname);</td>
 
 
         </tr>
         <tr>
             <td class="t" style="text-align:right"> Referral Source's Email for youth:</td>
 
-            <td> email</td>
+            <td> @Html.DisplayFor(model => model.email);</td>
 
 
         </tr>
