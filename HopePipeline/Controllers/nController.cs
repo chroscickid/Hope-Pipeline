@@ -61,11 +61,11 @@ namespace HopePipeline.Controllers
         }
         public IActionResult contactInfoM(int clientCode)
         {
-            string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            //string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
             
-            SqlConnection cnn;
+          /*  SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -83,7 +83,7 @@ namespace HopePipeline.Controllers
             }
             reader.Close();
 
-            cnn.Close();
+            cnn.Close();*/
             return View();
 
 
