@@ -75,24 +75,44 @@ namespace HopePipeline.Controllers
         {
             string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-
-            
+            //var client= new Contact();
+            List<Contact> clientl = new List<Contact>();
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
 
-            string query = "SELECT * FROM refform WHERE clientCode = " + clientCode + ";";
+            string query = "SELECT fname, lname, guardianName, guardianRelationship, guardianPhone, strAddress, zip FROM refform WHERE clientCode= " + clientCode + ";";
+            
             command = new SqlCommand(query, cnn);
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Close();
+            
+            //SqlDataReader reader = command.ExecuteReader();
+            using (SqlDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                {
+
+                    //We push information from the query into a row and onto the list of rows
+                    //Contact pop = new Contact { fname = reader.GetString(0), lname = reader.GetString(1), guardianName = reader.GetString(2), relationship = reader.GetString(3), phone = reader.GetString(4), address = reader.GetString(5), zip = reader.GetString(6) };
+                    Contact client = new Contact();
+                    client.fname = Convert.ToString(dataReader["fname"]);
+                    client.lname = Convert.ToString(dataReader["lname"]);
+                    client.guardianName = Convert.ToString(dataReader["guardianName"]);
+                    client.relationship = Convert.ToString(dataReader["guardianRelationship"]);
+                    client.phone = Convert.ToString(dataReader["guardianPhone"]);
+                    client.address = Convert.ToString(dataReader["strAddress"]);
+                    client.zip = Convert.ToString(dataReader["zip"]);
+                    clientl.Add(client);
+
+
+                   // client = pop;
+                }
+            }
+            
 
             cnn.Close();
-            return View();
-
-
-
+            return View(clientl);
 
         }
         public IActionResult detailReferralM(int clientCode)
@@ -108,7 +128,7 @@ namespace HopePipeline.Controllers
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
 
-            string query = "SELECT * FROM refform WHERE clientCode = " + clientCode + ";";
+            string query = "SELECT fname, lname, guardianName, guardianRelationship, guardianPhone, strAddress, zip FROM refform WHERE clientCode = " + clientCode + ";";
             command = new SqlCommand(query, cnn);
             SqlDataReader reader = command.ExecuteReader();
             reader.Close();

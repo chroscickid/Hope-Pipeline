@@ -1,4 +1,4 @@
-﻿@model HopePipeline.Models.DbEntities.Referrals.Contact;
+﻿@model  List<HopePipeline.Models.DbEntities.Referrals.Contact>;
 @{
     ViewData["Title"] = "contactInfoM";
 }
@@ -52,72 +52,76 @@
     <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
     1.1 Login Page -->
     <p></p>
-    <table id="t01">
+    @foreach (var item in Model)
+    {
+        <table id="t01">
+           
 
-        <tr>
-            <th> Client: @Html.DisplayFor(model => model.fname) &nbsp; @Html.DisplayFor(model => model.lname)</th>
-        </tr>
+                <tr>
+                    <th> Client:@Html.DisplayFor(modelItem => item.lname),&nbsp; @Html.DisplayFor(modelItem => item.fname)</th>
+                </tr>
 
-        <tr>
-            <!-- is their a reason you don't ask for first and last name???? -->
-            <td>Primary Caretaker's Name:&nbsp; @Html.DisplayFor(model => model.guardianName)</td>
-        </tr>
-        <tr>
-            <td>
-                Primary Caretaker's Relationship:&nbsp; @Html.DisplayFor(model => model.relationship)
+                <tr>
+                    <!-- is their a reason you don't ask for first and last name???? -->
+                    <td>Primary Caretaker's Name:&nbsp; @Html.DisplayFor(modelItem => item.guardianName)</td>
+                </tr>
+                <tr>
+                    <td>
+                        Primary Caretaker's Relationship:&nbsp; @Html.DisplayFor(modelItem => item.relationship)
 
-            </td>
+                    </td>
 
-        </tr>
-        <tr>
-            <td>Parent/Guardian Phone Number: @Html.DisplayFor(model => model.phone)</td>
-        </tr>
-        <tr>
-            <td>Parent/Guardian's E-mail Address: @Html.DisplayFor(model => model.email)</td>
+                </tr>
+                <tr>
+                    <td>Parent/Guardian Phone Number: @Html.DisplayFor(modelItem => item.phone)</td>
+                </tr>
+                <tr>
+                    <td>Parent/Guardian's E-mail Address:@Html.DisplayFor(modelItem => item.email)</td>
 
-        </tr>
-        <tr>
-            <td>
-                Street Address: @Html.DisplayFor(model => model.address)<br><br>
-                Zip Code: @Html.DisplayFor(model => model.zip)
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>
-                What is the best way to communicate with the youth/family: @Html.DisplayFor(model => model.reach)
-
-            </td>
-        </tr>
+                </tr>
+                <tr>
+                    <td>
+                        Street Address: @Html.DisplayFor(modelItem => item.address)<br><br>
+                        Zip Code: @Html.DisplayFor(modelItem => item.zip)
+                    </td>
+                </tr>
 
 
-    </table>
-    <table id="t01">
-        <tr>
-            <th colspan="2"> Referral Souce for Contact</th>
-        </tr>
-        <tr>
-            <td>
-                Referral Source First Name: @Html.DisplayFor(model => model.rfname)
+                <tr>
+                    <td>
+                        What is the best way to communicate with the youth/family: @Html.DisplayFor(modelItem => item.reach)
 
-            </td>
-            <td>
-                Referral Source Last Name: @Html.DisplayFor(model => model.rlname)
-
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                Referral Source E-mail Address:  @Html.DisplayFor(model => model.remail)
-
-            </td>
-
-        </tr>
-    </table>
+                    </td>
+                </tr>
 
 
-</body>
+            </table>
+            <table id="t01">
+                <tr>
+                    <th colspan="2"> Referral Souce for Contact</th>
+                </tr>
+                <tr>
+                    <td>
+                        Referral Source First Name: @Html.DisplayFor(modelItem => item.rfname)
+
+                    </td>
+                    <td>
+                        Referral Source Last Name: @Html.DisplayFor(modelItem => item.rlname)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Referral Source E-mail Address:  @Html.DisplayFor(modelItem => item.remail)
+
+                    </td>
+
+                </tr>
+            </table>
+        }
+            
+
+        </body>
 </html>
 
 
