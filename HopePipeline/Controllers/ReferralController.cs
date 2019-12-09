@@ -41,6 +41,7 @@ namespace HopePipeline.Controllers
                 results.Add(row);
             }
             reader.Close();
+            cnn.Close();
 
             return View("RefList", results);
         }

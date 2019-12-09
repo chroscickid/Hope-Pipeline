@@ -35,32 +35,20 @@ namespace HopePipeline.Controllers
         [HttpPost]
         public IActionResult submitform(referralBrandi form)
         {
-            //COnnect to the DB
             string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
-            SqlCommand command = cnn.CreateCommand();
-            //SqlDataAdapter adapter = new SqlDataAdapter();
-            //cnn.Open();
-            command.CommandText = "INSERT INTO refform(clientCode, fname, lname, dob, guardianName, guardianRelationship," +
-                " strAddress, gender, guardianEmail, guardianPhone, meeting, youthInDuvalSchool, youthInSchool, issues, currentSchool," +
-                "otherInfo, communication, zip, grade, currStatus, arrest, school, dateInput, meetingDate, email, reach, moreInfo, reason," +
-                " referralfname, referrallname) VALUES " +
-                "('" + form.clientCode + "','" + form.fName + "','" + form.lName + "','" + form.dOB + "','" + form.guardianName + "','" + form.guardianRelationship +
-                "','" + form.address + "','" + form.gender + "','" + form.guardianEmail + "','" + form.guardianPhone + "','" + form.meeting + "','" + form.youthInDuvalSchool + "','"
-                + form.youthInSchool + "','" + form.issues + "','" + form.currentSchool + "','" + 
-            form.otherInfo + "','" + form.communication + "','" + form.zip + "','" + form.grade + "','" + form.status + "','" + form.arrest + "','"
-            + form.school + "','" + form.dateInput + "','" + form.date + "','" + form.email + "','" + form.Reach + "','" + form.moreInfo + "','" + form.reason + "','" + 
-            form.referralfname + "','" + form.referrallname + "')";
-
-
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
+            string query = "INSERT INTO dbo.refform VALUES ('" + form.clientCode + "', '" + form.fName + "', '" + form.lName + "', '" + form.dOB + "', '" + form.guardianName + "', '" + form.guardianRelationship + "', '" + form.address + "', '" + form.gender + "', '" + form.guardianEmail + "', '" + form.guardianPhone + "', '" + form.meeting + "', '" + form.youthInDuvalSchool + "', '" + form.youthInSchool + "', '" + form.issues + "', '" + form.currentSchool + "', '" + form.otherInfo + "', '" + form.communication + "', '" + form.zip + "', '" + form.grade + "', '" + form.status + "', '" + form.arrest + "', '" + form.school + "', '" + form.dateInput + "', '" + form.date + "', '" + form.email + "', '" + form.Reach + "', '" + form.moreInfo + "', '" + form.referralfname + "', '" + form.referrallname + "')";
+            command = new SqlCommand(query, cnn);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Close();
 
-             command.ExecuteNonQuery();
-            // SqlCommand command = new SqlCommand(query, cnn);
-            cnn.Close();
-            
+            //COnnect to the DB
+              
            
       
             return RedirectToAction("Index","Home");
@@ -83,9 +71,16 @@ namespace HopePipeline.Controllers
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
 
-            string query = "SELECT * FROM refform WHERE clientCode = " + clientCode + ";";
+            string query = "SELECT fname, lname, guardianName, guardianRelationship, guardianPhone, strAddress, zip FROM refform WHERE clientCode = " + clientCode + ";";
             command = new SqlCommand(query, cnn);
             SqlDataReader reader = command.ExecuteReader();
+            reader.Close();
+            while (reader.Read())
+            {
+
+                //We push information from the query into a row and onto the list of rows
+                RefRow row = new RefRow { fname = reader.GetString(0), lname = reader.GetString(1), dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"), clientCode = reader.GetInt32(3) };
+            }
             reader.Close();
 
             cnn.Close();
