@@ -4,139 +4,225 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
+<style type="text/css">
+    .form-style-9 {
+        max-width: 1000px;
+        background: #FAFAFA;
+        padding: 60px;
+        margin: 50px auto;
+        box-shadow: /*1px 1px 25px rgba(0, 0, 0, 0.35)*/;
+        border-radius: 10px;
+        border: 6px solid #305A72;
+    }
+
+        .form-style-9 ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+            .form-style-9 ul li {
+                display: block;
+                margin-bottom: 10px;
+                min-height: 35px;
+            }
+
+                .form-style-9 ul li .field-style {
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    padding: 8px;
+                    outline: none;
+                    border: 1px solid #B0CFE0;
+                    -webkit-transition: all 0.30s ease-in-out;
+                    -moz-transition: all 0.30s ease-in-out;
+                    /*-ms-transition: all 0.30s ease-in-out;*/
+                    -o-transition: all 0.30s ease-in-out;
+                }
+
+                    .form-style-9 ul li .field-style:focus {
+                        box-shadow: 0 0 5px #B0CFE0;
+                        border: 1px solid #B0CFE0;
+                    }
+
+                .form-style-9 ul li .field-split {
+                    width: 49%;
+                }
+
+                .form-style-9 ul li .field-full {
+                    width: 100%;
+                }
+
+                .form-style-9 ul li input.align-left {
+                    float: left;
+                }
+
+                .form-style-9 ul li input.align-right {
+                    float: right;
+                }
+
+                .form-style-9 ul li textarea {
+                    width: 100%;
+                    height: 100px;
+                }
+
+                .form-style-9 ul li input[type="button"],
+                .form-style-9 ul li input[type="submit"] {
+                    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+                    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+                    box-shadow: inset 0px 1px 0px 0px #3985B1;
+                    background-color: #216288;
+                    border: 1px solid #17445E;
+                    display: inline-block;
+                    cursor: pointer;
+                    color: #FFFFFF;
+                    padding: 8px 18px;
+                    text-decoration: none;
+                    font: 12px Arial, Helvetica, sans-serif;
+                }
+
+                    .form-style-9 ul li input[type="button"]:hover,
+                    .form-style-9 ul li input[type="submit"]:hover {
+                        background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+                        background-color: #28739E;
+                    }
+</style>
 
 <h2>Center for Children's Rights Tracking Form</h2>
 
+<form asp-controller="Tracking" method="post" asp-action="SubmitTracking" class="form-style-9">
 
-<form  method="post">
-    <div class="form-group">
-        <script type="text/javascript">
-            function yesnoCheck(checkedfield,fieldtohide)
-            {
-                if (document.getElementById(checkedfield).checked)
-                {
-                    document.getElementById(fieldtohide).style.display = 'block';
-                }
-
-                else document.getElementById(fieldtohide).style.display = 'none';
-            }
-        </script>
-    </div>
-</form>
-<p>
-
-    <div>
-
-        Center for Children's Rights Information
-        <br />
-        <br />
-
-        Level of Service Provided <br />
-        <input type="radio" name="lvlServices" id="none" value="n"> None<br />
-        <input type="radio" name="lvlServices" id="infoEdu" value="info" /> Information/Education<br />
-        <input type="radio" name="lvlServices" id="serviceAdvice" value="service"> Brief Service/Advice<br />
-        <input type="radio" name="lvlServices" id="full" value="full" /> Full<br />
-        <br />
-        <br />
-
-
-        Referral Date and Time <br />
-        <input type="datetime-local" id="refdate" 
-               name="refdate" value="2019-12-08T19:30"
-               min="2000-06-07T00:00" max="2060-06-14T00:00">
-        <br />
-        <br />
-
-        Intake Date <br />
-        <input type="date" id="intdate" name="intdate" min="2005-01-01" max="2050-12-31">
-        <br />
-        <br />
-        Reason for Nonengagement <br />
-        <input type="radio" name="noneng" id="contact" value="n"> Unable to Contact<br />
-        <input type="radio" name="noneng" id="intake" value="info"> Unable to Complete Intake<br />
-        <input type="radio" name="noneng" id="declined" value="service"> Family Declined Services<br />
-        <br />
-        <br />
-
-        Case Status <br />
-        <input type="radio" name="openclose" id="openclose" value="o"> Open<br />
-        <input type="radio" name="openclose" id="close" value="c" /> Closed<br />
-        <input type="radio" name="openclose" id="nonEngageClose" value="nec"> Closed due to nonengagement<br />
-      
-        <br />
-        <br />
-
-        Legal Advocacy Taken <br />
-        <input type="radio" name="legaladv" id="yes" value="yes"> Yes<br />
-        <input type="radio" name="legaladv" id="no" value="no" /> No<br />
-        <br />
-        <br />
-
-        Remedy Resolution <br />
-        <input type="radio" name="remres" id="yes" value="yes"> Yes<br />
-        <input type="radio" name="remres" id="no" value="no" /> No<br />
-        <br />
-        <br />
-
-        Re-arrest while Being Represented <br />
-        <input type="radio" name="rearr" id="yes" value="yes"> Yes<br />
-        <input type="radio" name="rearr" id="no" value="no" /> No<br />
-        <br />
-        <br />
-
-        School at time of Case Closure <br />
-        <input type="text" name="school" id="school" /> <br />
-        <br />
-        <br />
-
-        Email of First Referral Source<br />
-        <input type="text" name="referralemail" id="referralemail" /> <br />
-        <br />
-        <br />
-
-        <div>
-            Is this the first referral? <br />
-            Yes <input type="radio" onclick="javascript: yesnoCheck();" name="ref" id="refOne" value="yes"> <br />
-            No <input type="radio" onclick="javascript: yesnoCheck('notRef','ifNoReferral');" name="ref" id="notRef" value="no" /> <br />
+    <h2> Center for Children's Rights Information</h2>
             <br />
-            <br />
+            <ul>
+                <li>
 
-            <div id="ifNoReferral" style="display:none" />
-            How many times have they been referred?<br />
-            <select name="suspended">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4+">4+</option>
-            </select>
-            <br />
-            <br />
-        </div>
-
-        Advocacy at Court? <br />
-        <input type="radio" name="advCourt" id="yes" value="yes"> Yes <br />
-        <input type="radio" name="advCourt" id="no" value="no" /> No <br />
-        <br />
-        <br />
-
-        Advocacy at Staffing?<br />
-        <input type="radio" name="advStaffing" id="yes" value="yes"> Yes<br />
-        <input type="radio" name="advStaffing" id="no" value="no" /> No<br />
-        <br />
-        <br />
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br />
-        <br />
-
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="demoTracking">1</a></li>
-                <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="schoolTracking">2</a></li>
-                <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="disciplineTracking">3</a></li>
-                <li class="page-item active">
-                    <a class="page-link" asp-controller="Tracking" asp-action="ccrTracking">4<span class="sr-only"></span></a>
+                    Referral Date and Time <br />
+                    <input type="datetime-local" class="field-style field-full align-none" id="refdate"
+                           name="refdate" value="2019-12-08T19:30"
+                           min="2000-06-07T00:00" max="2060-06-14T00:00">
+                    <br />
                 </li>
-            </ul>
-        </nav>
 
-    </div>
+                <li>
+                    Intake Date <br />
+                    <input type="date" id="intdate" class="field-style field-full align-none" name="intdate" min="2005-01-01" max="2050-12-31">
+                    <br />
+                </li>
+
+                <li>
+                    School at time of Case Closure <br />
+                    <input type="text" class="field-style field-full align-none" name="school" id="school" /> <br />
+                </li>
+
+                <li>
+                    Email of First Referral Source<br />
+                    <input type="text" name="referralemail" class="field-style field-full align-none" id="referralemail" /> <br />
+                </li>
+
+                <li>
+                    Level of Service Provided <br />
+                    <input type="radio" name="lvlServices" id="none" value="n"> None<br />
+                    <input type="radio" name="lvlServices" id="infoEdu" value="info" /> Information/Education<br />
+                    <input type="radio" name="lvlServices" id="serviceAdvice" value="service"> Brief Service/Advice<br />
+                    <input type="radio" name="lvlServices" id="full" value="full" /> Full<br />
+                    <br />
+                </li>
+
+                <li>
+                    Reason for Nonengagement <br />
+                    <input type="radio" name="noneng" id="contact" value="n"> Unable to Contact<br />
+                    <input type="radio" name="noneng" id="intake" value="info"> Unable to Complete Intake<br />
+                    <input type="radio" name="noneng" id="declined" value="service"> Family Declined Services<br />
+                    <br />
+                </li>
+
+                <li>
+                    Case Status <br />
+                    <input type="radio" name="openclose" id="openclose" value="o"> Open<br />
+                    <input type="radio" name="openclose" id="close" value="c" /> Closed<br />
+                    <input type="radio" name="openclose" id="nonEngageClose" value="nec"> Closed due to nonengagement<br />
+                </li>
+
+                <li>
+                    Legal Advocacy Taken <br />
+                    <input type="radio" name="legaladv" id="yes" value="yes"> Yes<br />
+                    <input type="radio" name="legaladv" id="no" value="no" /> No<br />
+                </li>
+
+                <li>
+                    Remedy Resolution <br />
+                    <input type="radio" name="remres" id="yes" value="yes"> Yes<br />
+                    <input type="radio" name="remres" id="no" value="no" /> No<br />
+                </li>
+
+                <li>
+                    Re-arrest while Being Represented <br />
+                    <input type="radio" name="rearr" id="yes" value="yes"> Yes<br />
+                    <input type="radio" name="rearr" id="no" value="no" /> No<br />
+                </li>
+
+                <li>
+                    <div>
+                        Is this the first referral? <br />
+                        <input type="radio" onclick="javascript: yesnoCheck();" name="ref" id="refOne" value="yes"> Yes <br />
+                        <input type="radio" onclick="javascript: yesnoCheck('notRef','ifNoReferral');" name="ref" id="notRef" value="no" /> No<br />
+                        <br />
+
+                        <div id="ifNoReferral" class="field-style field-full align-none" style="display:none" />
+                        How many times have they been referred?<br />
+                        <select name="suspended">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4+">4+</option>
+                        </select>
+                        <br />
+                    </div>
+                </li>
+
+                <li>
+                    Advocacy at Court? <br />
+                    <input type="radio" name="advCourt" id="yes" value="yes"> Yes <br />
+                    <input type="radio" name="advCourt" id="no" value="no" /> No <br />
+                </li>
+
+                <li>
+                    Advocacy at Staffing?<br />
+                    <input type="radio" name="advStaffing" id="yes" value="yes"> Yes<br />
+                    <input type="radio" name="advStaffing" id="no" value="no" /> No<br />
+                </li>
+
+            </ul>
+
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <script type="text/javascript">
+
+                    function yesnoCheck(checkedfield, fieldtohide) {
+                        if (document.getElementById(checkedfield).checked) {
+                            document.getElementById(fieldtohide).style.display = 'block';
+                        }
+
+                        else document.getElementById(fieldtohide).style.display = 'none';
+                    }
+                </script>
+            </div>
+</form>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="demoTracking">1</a></li>
+        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="schoolTracking">2</a></li>
+        <li class="page-item"><a class="page-link" asp-controller="Tracking" asp-action="disciplineTracking">3</a></li>
+        <li class="page-item active">
+            <a class="page-link" asp-controller="Tracking" asp-action="ccrTracking">4<span class="sr-only"></span></a>
+        </li>
+    </ul>
+</nav>
+
+        </div>
