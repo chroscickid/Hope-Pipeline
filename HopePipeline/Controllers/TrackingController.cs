@@ -40,7 +40,7 @@ namespace HopePipeline.Controllers
         public ViewResult TrackingList()
         {
             var results = new List<TrackingRow>();
-            string connectionString = "Server=tcp:iscrew.database.windows.net,1433;Initial Catalog=HopePipeline1;Persist Security Info=False;User ID=user;Password=pAssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;

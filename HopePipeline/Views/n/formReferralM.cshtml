@@ -56,6 +56,37 @@
 
         }
           function myConfirm() {
+           var array = []
+            var checkboxes = document.querySelectorAll('input[name=array]:checked')
+              alert(checkboxes);
+            for (var i = 0; i < checkboxes.length; i++) {
+            array.push(checkboxes[i].value)
+             }
+
+              var input = document.getElementById("input");
+              var array3 = document.getElementById("array3").value;
+              alert(array3);
+              if (input.checked) {
+                  //for (var i = 0; i < array3.length; i++)
+                  { array.push(array3) }
+              }
+             
+              alert(array);
+
+              document.getElementById("guardRe").value = array;
+
+
+
+               var array1 = []
+            var checkboxes1 = document.querySelectorAll('input[name=array1]:checked')
+
+            for (var i = 0; i < checkboxes1.length; i++) {
+            array1.push(checkboxes1[i].value)
+             }
+          
+              document.getElementById("issues0").value = array1;
+
+
 
             var r = confirm("Please Confirm you would like to submit the Referral Form")
               if (r == true) {
@@ -66,11 +97,20 @@
             else
                 return false;
         }
+        function afunction() {
+            if (!document.getElementById('input').checked) {
+                document.getElementById('array3').setAttribute('disabled', 'disabled');
+                
+            }
+         else document.getElementById('array3').removeAttribute('disabled'); 
+
+        }
+
     </script>
 </head>
 <body>
    
-    <input type="hidden" id="custId" name="custId" value="here">
+
  
     <!-- Decision after login by authorized user -->
 
@@ -82,6 +122,7 @@
     1.1 Login Page -->
     <form asp-action="submitform" asp-controller="n" method="post">
         <input type="hidden" name="clientCode" asp-for="clientCode" value="@ViewBag.Tessage">
+        <input type="hidden" name="dateInput" asp-for="dateInput" value="@ViewBag.Bessage">
         <p></p>
         <table id="t01">
 
@@ -143,20 +184,25 @@
                     Primary Caretaker's Name:<br />
                     <input type="text" name="guardianName" asp-for="guardianName">
                 </td>
-
+                
                 <td colspan="2">
-                    What is the primary caretaker's relationship to the youth? (please select all that apply)
+                    <div id="checks">
+                        What is the primary caretaker's relationship to the youth? (please select all that apply)
 
-                    <br>  <input type="checkbox" name="Mother" value="Mother" asp-for="guardianRelationship"> &nbsp;Mother<br>
-                    <input type="checkbox" name="Father" value=" Father" asp-for="guardianRelationship"> &nbsp;Father<br>
-                    <input type="checkbox" name="Guardian" value="Guardian" asp-for="guardianRelationship"> &nbsp;Guardian<br>
-                    <input type="checkbox" name="Familymember" value="Family member" asp-for="guardianRelationship"> &nbsp;Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
-                    <input type="checkbox" name="FosterParent" value="Foster Parent" asp-for="guardianRelationship"> &nbsp;Foster Parent<br>
+                        <br>  <input type="checkbox" name="array" value="Mother"> &nbsp;Mother<br>
+                        <input type="checkbox" name="array" value=" Father"> &nbsp;Father<br>
+                        <input type="checkbox" name="array" value="Guardian"> &nbsp;Guardian<br>
+                        <input type="checkbox" name="array" value="Family member"> &nbsp;Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
+                        <input type="checkbox" name="array" value="Foster Parent"> &nbsp;Foster Parent<br>
 
-                    &nbsp;Other: &nbsp;<input type="text" name="VariableFM" asp-for="guardianRelationship">
-                    <br>
+                        &nbsp;<input type="checkbox" id="input" name="input1" value="Other" onclick="afunction()">&nbsp;Other: &nbsp;<input type="text" name="array" id="array3" disabled>
+
+                        <input type="hidden" id="guardRe" name="guardianRelationship" asp-for="guardianRelationship">
+                        <br>
+                    </div>
+                  
                 </td>
-
+               
 
                 <td>
                     Street Address:<br />
@@ -194,7 +240,7 @@
                     <div id="ifYes" style="display:none">
                         If yes, what is the date and time of the meeting?<br>
                         Date:<br />
-                        <input type="date" asp-for="dateInput"><br>
+                        <input type="date" asp-for="date"><br>
 
 
                     </div>
@@ -210,20 +256,25 @@
 
             <tr>
                 <td>
-                    What issues are currently impacting the youth? Please check all that apply.
-                    <br>  <input type="checkbox" name="Failed" value="Failed a grade" asp-for="issues"> &nbsp;Failed a grade<br>
-                    <input type="checkbox" name="Suspended" value="Frequently suspendeds" asp-for="issues"> &nbsp;Frequently suspended<br>
-                    <input type="checkbox" name="Alt" value="In an alternative school setting " asp-for="issues"> &nbsp;In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
-                    <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP" asp-for="issues"> &nbsp;Has a 504 plan or an IEP<br>
-                    <input type="checkbox" name="Notenrolled" value="Not enrolled in school" asp-for="issues"> &nbsp;Not enrolled in school<br>
-                    <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted" asp-for="issues"> &nbsp;Has a history of being Baker Acted<br>
-                    <input type="checkbox" name="Dependent" value="Dependent" asp-for="issues"> &nbsp;Dependent<br>
-                    <input type="checkbox" name="WINS" value="WINS" asp-for="issues"> &nbsp;WINS<br>
+                    <div id="checks1">
+                        What issues are currently impacting the youth? Please check all that apply.
+                        <br>  <input type="checkbox" name="array1" value="Failed a grade" > &nbsp;Failed a grade<br>
+                        <input type="checkbox" name="array1" value="Frequently suspended" > &nbsp;Frequently suspended<br>
+                        <input type="checkbox" name="array1" value="In an alternative school setting " > &nbsp;In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
+                        <input type="checkbox" name="array1" value="Has a 504 plan or an IEP" > &nbsp;Has a 504 plan or an IEP<br>
+                        <input type="checkbox" name="array1" value="Not enrolled in school"> &nbsp;Not enrolled in school<br>
+                        <input type="checkbox" name="array1" value="Has a history of being Baker Acted" > &nbsp;Has a history of being Baker Acted<br>
+                        <input type="checkbox" name="array1" value="Dependent"> &nbsp;Dependent<br>
+                        <input type="checkbox" name="array1" value="WINS" > &nbsp;WINS<br>
+
+
+                        <input type="hidden" id="issues0" name="issues" asp-for="issues">
+                    </div>
                 </td>
 
                 <td>
                     Is this youth a student in a Duval County Public School? <br />
-                    <select name="School" asp-for="youthInDuvalSchool">
+                    <select name="youthInDuvalSchool" asp-for="youthInDuvalSchool">
                         <option value="Select">Please Select an Option</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
@@ -237,7 +288,7 @@
                     What is the youth's grade in school?
                     <br />
                     <select name="Grade" asp-for="grade">
-                        <option value="Select">Please Select an Option</option>
+                        <option value="N/A">Please Select an Option</option>
                         <option value="1st">1st</option>
                         <option value="2nd">2nd</option>
                         <option value="3rd">3rd</option>
@@ -256,13 +307,13 @@
                 </td>
                 <td>
                     Is the youth currently attending school?<br />
-                    Yes <input type="radio" value="1" onclick="javascript:yesnoCheck1();" name="attend" id="yesclick" asp-for="youthInSchool">&nbsp;&nbsp;
-                    No <input type="radio" value="0" onclick="javascript:yesnoCheck1();" name="attend" id="noclick" asp-for="youthInSchool">&nbsp;&nbsp;
-                    Maybe <input type="radio" value="2" onclick="javascript:yesnoCheck1();" name="attend" id="nooclick" asp-for="youthInSchool"><br>
+                    Yes <input type="radio" value="1" onclick="javascript:yesnoCheck1();" name="youthInSchool" id="yesclick" asp-for="youthInSchool">&nbsp;&nbsp;
+                    No <input type="radio" value="0" onclick="javascript:yesnoCheck1();" name="youthInSchool" id="noclick" asp-for="youthInSchool">&nbsp;&nbsp;
+                    Maybe <input type="radio" value="2" onclick="javascript:yesnoCheck1();" name="youthInSchool" id="nooclick" asp-for="youthInSchool"><br>
 
                     <div id="Yes" style="display:none">
                         <br />Where is the youth currently attending school?<br />
-                        <input type="text" asp-for="school">
+                        <input type="text" name="school" asp-for="school">
                     </div>
                 </td>
             </tr>
@@ -315,7 +366,7 @@
         </table><br />
 
 
-        <button type="submit" onclick="myConfirm()">Submit</button>
+        <button type="submit"  onclick="myConfirm()">Submit</button>
     </form>
 
 </body>

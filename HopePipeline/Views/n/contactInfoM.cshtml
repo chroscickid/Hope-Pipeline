@@ -1,6 +1,7 @@
 ﻿@model  List<HopePipeline.Models.DbEntities.Referrals.Contact>;
 @{
     ViewData["Title"] = "contactInfoM";
+
 }
 
 
@@ -27,18 +28,18 @@
 
         table#t01 tr:nth-child(even) {
             background-color: #e6f3ff;
-            font-size: 25px;
+            
         }
 
         table#t01 tr:nth-child(odd) {
             background-color: #fff;
-            font-size: 25px;
+          
         }
 
         table#t01 th {
             background-color: #005199;
             color: white;
-            font-size: 30px;
+           
         }
     </style>
 </head>
@@ -56,9 +57,9 @@
     {
         <table id="t01">
            
-
+         
                 <tr>
-                    <th> Client:@Html.DisplayFor(modelItem => item.lname),&nbsp; @Html.DisplayFor(modelItem => item.fname)</th>
+                    <th> Client:&nbsp;@Html.DisplayFor(modelItem => item.lname),&nbsp; @Html.DisplayFor(modelItem => item.fname)</th>
                 </tr>
 
                 <tr>
@@ -76,7 +77,7 @@
                     <td>Parent/Guardian Phone Number: @Html.DisplayFor(modelItem => item.phone)</td>
                 </tr>
                 <tr>
-                    <td>Parent/Guardian's E-mail Address:@Html.DisplayFor(modelItem => item.email)</td>
+                    <td>Parent/Guardian's E-mail Address: @Html.DisplayFor(modelItem => item.email)</td>
 
                 </tr>
                 <tr>
