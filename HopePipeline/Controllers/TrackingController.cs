@@ -5,32 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HopePipeline.Models;
 using System.Data.SqlClient;
+using HopePipeline.Models.DbEntities;
 using HopePipeline.Models.DbEntities.Tracking;
 
 namespace HopePipeline.Controllers
 {
     public class TrackingController : Controller
     {
-        public IActionResult demoTracking()
+        public ViewResult TrackingForm(string clientCode)
         {
+            //do black magic to get a model using the client code
             return View();
         }
-
-        public ViewResult ccrTracking()
-        {
-            return View();
-        }
-
-        public ViewResult schoolTracking()
-        {
-            return View();
-        }
-
-        public ViewResult disciplineTracking()
-        {
-            return View();
-        }
-
+      
         [HttpPost]
         public IActionResult SubmitTracking()
         {
@@ -65,9 +52,9 @@ namespace HopePipeline.Controllers
 
       
         [HttpPost]
-        public IActionResult Search(Tracking model)
+        public IActionResult Search(TrackingForm model)
         {
-            string retur = model.Name;
+            string retur = model.firstName;
             return Content(retur);
         }
 

@@ -21,6 +21,5 @@ namespace HopePipeline.Models
         public string text4 { get; set; }
         public string text5 { get; set; }
 
-        public Tracking Tracking { get; set; }
     }
 }

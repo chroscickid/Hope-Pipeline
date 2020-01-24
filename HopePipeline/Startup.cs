@@ -37,7 +37,7 @@ namespace HopePipeline
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<ReferralRepository,FakeReferralRepo>();
+            //services.AddTransient<ReferralRepository>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
