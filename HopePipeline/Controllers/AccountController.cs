@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-
+using SendGrid;
+using SendGrid.Helpers.Mail;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HopePipeline.Controllers
 {
     [Route("account")]
-    public class AccountController : Controller
+    public class  AccountController : Controller
     {
 
         [HttpGet]
