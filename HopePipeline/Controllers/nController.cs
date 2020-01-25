@@ -170,10 +170,12 @@ namespace HopePipeline.Controllers
                         { client.lName = "N/A"; }
 
 
-                    int space1 = Convert.ToString(dataReader["dob"]).IndexOf(' ');
+                   
                     if (Convert.ToString(dataReader["dob"]).Length > 10)
                       
-                    { client.dOB = Convert.ToString(dataReader["dob"]).Substring(0, space1); }
+                    {
+                        //int space1 = Convert.ToString(dataReader["dob"]).IndexOf(' ');
+                        client.dOB = Convert.ToString(dataReader["dob"]).Substring(0, 10); }
 
                     if (client.dOB == " " || client.dOB == "null" || client.dOB == "" || Convert.ToString(dataReader["dob"]).Length < 10)
                     { client.dOB = "N/A"; }
@@ -199,86 +201,48 @@ namespace HopePipeline.Controllers
                     client.guardianPhone = Convert.ToString(dataReader["guardianPhone"]);
                     if (client.guardianPhone == " " || client.guardianPhone == "null" || client.guardianPhone == "")
                     { client.guardianPhone = "N/A"; }
-                    string meetingnull;
-                    int meeting;
-                    var meet = Convert.ToString(dataReader["meeting"]);
 
+
+
+                   client.meeting= Convert.ToString(dataReader["meeting"]);
+                    var gar = Int32.TryParse(client.meeting, out int meet);
+                    if (client.meeting == "1")
+                    { client.meeting = "Yes"; }
+                    if (client.meeting == "2")
+                    {client.meeting = "Maybe"; }
+                     if (client.meeting == "0")
+                    { client.meeting = "No"; }
+                    if (client.meeting == "")
+                    { client.meeting = "N/A"; }
+                    else
+                    { client.meeting = client.meeting; }
                    
-                    var t = int.TryParse(meet, out meeting);
                   
-                  
-                    if (meeting == 1)
-                    {
-                        meetingnull = meeting.ToString();
-                        meetingnull = "Yes";
-                    }
-                    if (meeting == 2)
-                    {
-                        meetingnull = meeting.ToString();
-                        meetingnull = "Maybe";
-                    }
-                    else {
-                        meetingnull = meeting.ToString();
-                        meetingnull = "No";
-                    }
-                    client.meeting = meetingnull;
-
-                    string youthInDuvalSchoolnull;
-                    int youthInDuvalSchool;
-                    var youth = Convert.ToString(dataReader["youthInDuvalSchool"]);
-
-
-                    var g = int.TryParse(youth, out youthInDuvalSchool);
-
-
-                    if (youthInDuvalSchool == 1)
-                    {
-                        youthInDuvalSchoolnull = youthInDuvalSchool.ToString();
-                        youthInDuvalSchoolnull = "Yes";
-                    }
-                    if (youthInDuvalSchool == 2)
-                    {
-                        youthInDuvalSchoolnull = youthInDuvalSchool.ToString();
-                        youthInDuvalSchoolnull = "Maybe";
-                    }
+                    client.youthInDuvalSchool = Convert.ToString(dataReader["youthInDuvalSchool"]);
+                    var gart = Int32.TryParse(client.youthInDuvalSchool, out int tss);
+                    if (client.youthInDuvalSchool == "1")
+                    { client.youthInDuvalSchool = "Yes"; }
+                    if (client.youthInDuvalSchool == "2")
+                    { client.youthInDuvalSchool = "Maybe"; }
+                    if (client.youthInDuvalSchool == "0")
+                    { client.youthInDuvalSchool = "No"; }
+                    if (client.youthInDuvalSchool == "")
+                    { client.youthInDuvalSchool = "N/A"; }
                     else
-                    {
-                        youthInDuvalSchoolnull = youthInDuvalSchool.ToString();
-                        youthInDuvalSchoolnull = "No";
-                    }
-                    client.youthInDuvalSchool = youthInDuvalSchoolnull;
+                    { client.youthInDuvalSchool = client.youthInDuvalSchool; }
 
-                   // client.youthInDuvalSchool = Convert.ToInt32(dataReader["youthInDuvalSchool"]);
-
-
-             
-                    
-
-                    string youthInSchoolnull;
-                    int youthInSchool;
-                    var youthSchool = Convert.ToString(dataReader["youthInSchool"]);
-
-
-                    var f = int.TryParse(youthSchool, out youthInSchool);
-
-
-                    if (youthInSchool == 1)
-                    {
-                        youthInSchoolnull = youthInSchool.ToString();
-                        youthInSchoolnull = "Yes";
-                    }
-                    if (youthInSchool == 2)
-                    {
-                        youthInSchoolnull = youthInSchool.ToString();
-                        youthInSchoolnull = "Maybe";
-                    }
+                    client.youthInSchool = Convert.ToString(dataReader["youthInSchool"]);
+                    var garth = Int32.TryParse(client.youthInSchool, out int tsss);
+                    if (client.youthInSchool == "1")
+                    { client.youthInSchool = "Yes"; }
+                    if (client.youthInSchool == "2")
+                    { client.youthInSchool = "Maybe"; }
+                    if (client.youthInSchool == "0")
+                    { client.youthInSchool = "No"; }
+                    if (client.youthInSchool == "")
+                    { client.youthInSchool = "N/A"; }
                     else
-                    {
-                        youthInSchoolnull = youthInSchool.ToString();
-                        youthInSchoolnull = "No";
-                    }
-                    client.youthInSchool = youthInSchoolnull;
-                   // client.youthInSchool = Convert.ToInt32(dataReader["youthInSchool"]);
+                    { client.youthInSchool = client.youthInSchool; }
 
                     client.issues = Convert.ToString(dataReader["issues"]);
                     if (client.issues == " " || client.issues == "null" || client.issues == "")
@@ -303,32 +267,19 @@ namespace HopePipeline.Controllers
                     if (client.status == " " || client.status == "null" || client.status == "")
                     { client.status = "N/A"; }
 
-                    string arrestnull;
-                    int arrest;
-                    var arrestrec = Convert.ToString(dataReader["arrest"]);
-
-
-                    var r = int.TryParse(arrestrec, out arrest);
-
-
-                    if (arrest == 1)
-                    {
-                        arrestnull = arrest.ToString();
-                        arrestnull = "Yes";
-                    }
-                    if (arrest == 2)
-                    {
-                        arrestnull = arrest.ToString();
-                        arrestnull = "Maybe";
-                    }
+                   
+                    client.arrest = Convert.ToString(dataReader["arrest"]);
+                    var garthy = Int32.TryParse(client.arrest, out int tssss);
+                    if (client.arrest == "1")
+                    { client.arrest = "Yes"; }
+                    if (client.arrest == "2")
+                    { client.arrest = "Maybe"; }
+                    if (client.arrest == "0")
+                    { client.arrest = "No"; }
+                    if (client.arrest == "")
+                    { client.arrest = "N/A"; }
                     else
-                    {
-                        arrestnull = arrest.ToString();
-                        arrestnull = "No";
-                    }
-                    client.arrest = arrestnull;
-                   // client.arrest = Convert.ToInt32(dataReader["arrest"]);
-
+                    { client.arrest = client.arrest; }
 
 
                     client.school= Convert.ToString(dataReader["school"]);

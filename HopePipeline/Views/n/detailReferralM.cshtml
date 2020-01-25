@@ -125,9 +125,7 @@
             <tr>
                 <td class="t" style="text-align:right"> Does the youth have a meeting?</td>
 
-                <td>
-
-                    @Html.DisplayFor(modelItem => item.meeting)<br />
+                <td>@Html.DisplayFor(modelItem => item.meeting)<br />
                 </td>
             <tr>
                 <td class="t" style="text-align:right">Date of Youth's Meeting:</td>
@@ -173,7 +171,7 @@
             <tr>
                 <td class="t" style="text-align:right"> Where is the youth currently attending school?</td>
 
-                <td> @Html.DisplayFor(modelItem => item.currentSchool)</td>
+                <td> @Html.DisplayFor(modelItem => item.school)</td>
             </tr>
 
             <tr>
@@ -267,5 +265,5 @@
     </div>
 <div>
     <a asp-controller="n" asp-action="editReferralM">Edit</a><br />
-    <a asp-action="Index" asp-controller="Home">Back to List</a>
+    <a asp-action="RefList" asp-controller="Referral">Back to List</a>
 </div>
