@@ -12,6 +12,8 @@ namespace HopePipeline.Controllers
 {
     public class TrackingController : Controller
     {
+        public string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
         public ViewResult TrackingForm(string clientCode)
         {
             //do black magic to get a model using the client code
@@ -27,7 +29,6 @@ namespace HopePipeline.Controllers
         public ViewResult TrackingList()
         {
             var results = new List<TrackingRow>();
-            string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
