@@ -21,6 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="SendGrid.Net40" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
 
   <ItemGroup>
     <Folder Include="FIles\" />
+    <Folder Include="fonts\" />
     <Folder Include="wwwroot\files\" />
   </ItemGroup>
 

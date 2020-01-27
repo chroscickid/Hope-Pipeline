@@ -38,9 +38,6 @@ namespace HopePipeline.Models
         public int bakerxhistory { get; set; }
 
 
-
-
-
         public string youthInSchool { get; set; }
         public string issues { get; set; }
         //done
