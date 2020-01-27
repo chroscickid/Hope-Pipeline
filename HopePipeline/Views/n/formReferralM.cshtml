@@ -58,20 +58,20 @@
           function myConfirm() {
            var array = []
             var checkboxes = document.querySelectorAll('input[name=array]:checked')
-              alert(checkboxes);
+             // alert(checkboxes);
             for (var i = 0; i < checkboxes.length; i++) {
             array.push(checkboxes[i].value)
              }
 
               var input = document.getElementById("input");
               var array3 = document.getElementById("array3").value;
-              alert(array3);
+              //alert(array3);
               if (input.checked) {
                   //for (var i = 0; i < array3.length; i++)
                   { array.push(array3) }
               }
              
-              alert(array);
+              //alert(array);
 
               document.getElementById("guardRe").value = array;
 
