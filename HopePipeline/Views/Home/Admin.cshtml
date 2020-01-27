@@ -1,7 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Admin Login";
-}
-
+﻿@model HopePipeline.Models.DbEntities.Login.Account;
+@{
+        ViewData["Title"] = "Admin Login";
+    }
 
 <!DOCTYPE html>
 <html>
@@ -48,14 +48,14 @@
         <h3>Administrator Log In</h3>
         <p></p>
         @ViewBag.error
-        <form method="post" asp-controller="Referral" asp-action="RefList">
+        <form method="post" asp-controller="Account" asp-action="Verify">
             <p></p>
             <p></p>
             <label for="username"><b>Username/Email</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="text" placeholder="Enter Username" name="username" required="" asp-for="username">
             <p></p>
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <label for="pass"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pass" required="" asp-for="pass">
             <p></p>
             <button type="button" onclick="javascript:history.back().style.display='none'" class="cancelbtn" OnClientClick="JavaScript:window.history.back(1);return false;">Cancel </button>
             &nbsp;&nbsp;
