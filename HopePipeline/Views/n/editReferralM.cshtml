@@ -98,13 +98,13 @@
                 <tr>
                     <td class="t" style="text-align:right"> First Name:</td>
 
-                    <td> <input type="text" value="Bryan"></td>
+                    <td> <input type="text" value="Bryan" asp-for="fName"></td>
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Last Name: </td>
 
-                    <td><input type="text" value="Brice"></td>
+                    <td><input type="text" value="Brice" asp-for="lName"></td>
 
                 </tr>
 
@@ -113,12 +113,12 @@
                     <td class="t" style="text-align:right"> Gender Identity:  </td>
 
                     <td>
-                        <input type="radio" name="gender" value="male"> He/Him/His<br>
-                        <input type="radio" name="gender" value="female"> She/Her/Hers<br>
-                        <input type="radio" name="gender" value="trans*" checked> They/Them/Theirs<br />
-                        <input type="radio" name="gender" value="nonbinaryF"> She/They<br>
-                        <input type="radio" name="gender" value="nonbinaryM"> He/They<br>
-                        <input type="radio" name="gender" value="neutral"> Zie/Zir/Zirs<br />
+                        <input type="radio" name="gender" value="male" asp-for="gender"> He/Him/His<br>
+                        <input type="radio" name="gender" value="female" asp-for="gender"> She/Her/Hers<br>
+                        <input type="radio" name="gender" value="trans*" asp-for="gender"> They/Them/Theirs<br />
+                        <input type="radio" name="gender" value="nonbinaryF" asp-for="gender"> She/They<br>
+                        <input type="radio" name="gender" value="nonbinaryM" asp-for="gender"> He/They<br>
+                        <input type="radio" name="gender" value="neutral" asp-for="gender"> Zie/Zir/Zirs<br />
                     </td>
 
                 </tr>
@@ -127,26 +127,26 @@
                 <tr>
                     <td class="t" style="text-align:right"> Date of Birth:</td>
 
-                    <td> <input type="date" value="2008-12-31"></td>
+                    <td> <input type="date" value="2008-12-31" asp-for="dOB"></td>
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right">   Guardian's Name:</td>
 
-                    <td><input type="text" value="Victoria"></td>
+                    <td><input type="text" value="Victoria" asp-for="guardianName"></td>
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right">  Guardian's relationship to the youth:</td>
 
                     <td>
-                        <br>  <input type="checkbox" name="Mother" value="Mother" checked> Mother<br>
-                        <input type="checkbox" name="Father" value=" Father"> Father<br>
-                        <input type="checkbox" name="Guardian" value="Guardian"> Guardian<br>
-                        <input type="checkbox" name="Familymember" value="Family member"> Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
-                        <input type="checkbox" name="FosterParent" value="Foster Parent"> Foster Parent<br>
+                        <br>  <input type="checkbox" name="Mother" value="Mother" asp-for="guardianRelationship"> Mother<br>
+                        <input type="checkbox" name="Father" value=" Father" asp-for="guardianRelationship"> Father<br>
+                        <input type="checkbox" name="Guardian" value="Guardian" asp-for="guardianRelationship"> Guardian<br>
+                        <input type="checkbox" name="Familymember" value="Family member" asp-for="guardianRelationship"> Family member(aunt, uncle, grandmother, grandfather, great grandparent, sibiling, cousin, etc)<br>
+                        <input type="checkbox" name="FosterParent" value="Foster Parent" asp-for="guardianRelationship"> Foster Parent<br>
 
-                        Other:<input type="text" name="VariableFM">
+                        Other:<input type="text" name="VariableFM" asp-for="guardianRelationship">
                         <br>
                     </td>
 
@@ -155,26 +155,26 @@
                     <td class="t" style="text-align:right"> Street Address:</td>
 
 
-                    <td> <input type="text" value="12 House St."></td>
+                    <td> <input type="text" value="12 House St." asp-for="address"></td>
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right">  Zip Code</td>
 
-                    <td><input type="text" value="12541"></td>
+                    <td><input type="text" value="12541" asp-for="zip"></td>
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Parent/Guardian's Email:</td>
 
-                    <td>  <input type="email" value="toria@gmail.com"></td>
+                    <td>  <input type="email" value="toria@gmail.com" asp-for="guardianEmail"></td>
 
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Parent/Guardian Phone Number:</td>
 
-                    <td><input type="text" value="912-584-4125"></td>
+                    <td><input type="text" value="912-584-4125" asp-for="guardianPhone"></td>
 
 
                 </tr>
@@ -184,13 +184,13 @@
 
                     <td>
 
-                        Yes <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="yesCheck">&nbsp;&nbsp;
-                        No <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="noCheck">&nbsp;&nbsp;
-                        Maybe <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="nooCheck"><br>
+                        Yes <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="yesCheck" asp-for="meeting">&nbsp;&nbsp;
+                        No <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="noCheck" asp-for="meeting">&nbsp;&nbsp;
+                        Maybe <input type="radio" onclick="javascript:yesnoCheck();" name="Meeting" id="nooCheck" asp-for="meeting"><br>
 
                         <div id="ifYes" style="display:none">
-                            <br />Date of Youth's Meeting:&nbsp;<br /><input type="date" value="2019-12-31"><br /><br />
-                            Time of Youth's Meeting:&nbsp;<br /><input type="time" name="meetingtime" value="10:53:05"><br />
+                            <br />Date of Youth's Meeting:&nbsp;<br /><input type="date" value="2019-12-31" asp-for="date"><br /><br />
+                            
                         </div>
                     </td>
 
@@ -201,14 +201,14 @@
                     <td class="t" style="text-align:right"> Issues which are currently impacting the Youth:</td>
 
                     <td>
-                        <br>  <input type="checkbox" name="Failed" value="Failed a grade"> Failed a grade<br>
-                        <input type="checkbox" name="Suspended" value="Frequently suspendeds"> Frequently suspended<br>
-                        <input type="checkbox" name="Alt" value="In an alternative school setting " checked> In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
-                        <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP"> Has a 504 plan or an IEP<br>
-                        <input type="checkbox" name="Notenrolled" value="Not enrolled in school"> Not enrolled in school<br>
-                        <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted"> Has a history of being Baker Acted<br>
-                        <input type="checkbox" name="Dependent" value="Dependent"> Dependent<br>
-                        <input type="checkbox" name="WINS" value="WINS">&nbsp;WINS<br>
+                        <br>  <input type="checkbox" name="Failed" value="Failed a grade" asp-for="issues"> Failed a grade<br>
+                        <input type="checkbox" name="Suspended" value="Frequently suspendeds" asp-for="issues"> Frequently suspended<br>
+                        <input type="checkbox" name="Alt" value="In an alternative school setting " asp-for="issues"> In an alternative school setting (Mattie V., Grand Park, AMI, Pace, etc)<br>
+                        <input type="checkbox" name="Plan" value="Has a 504 plan or an IEP" asp-for="issues"> Has a 504 plan or an IEP<br>
+                        <input type="checkbox" name="Notenrolled" value="Not enrolled in school" asp-for="issues"> Not enrolled in school<br>
+                        <input type="checkbox" name="Hxbaker" value="Has a history of being Baker Acted" asp-for="issues"> Has a history of being Baker Acted<br>
+                        <input type="checkbox" name="Dependent" value="Dependent" asp-for="issues"> Dependent<br>
+                        <input type="checkbox" name="WINS" value="WINS" asp-for="issues">&nbsp;WINS<br>
                     </td>
 
 
@@ -219,7 +219,7 @@
                         Is this youth a student in a Duval County Public School? <br />
                     </td>
                     <td>
-                        <select name="School">
+                        <select name="school" asp-for="youthInDuvalSchool">
                             <option value="Select">Please Select an Option</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
@@ -236,7 +236,7 @@
                         <br />
                     </td>
                     <td>
-                        <select name="Grade">
+                        <select name="Grade" asp-for="grade">
                             <option value="Select">Please Select an Option</option>
                             <option value="1st">1st</option>
                             <option value="2nd">2nd</option>
@@ -261,13 +261,13 @@
                         Is the the youth currently attending school?<br />
                     </td>
                     <td>
-                        Yes <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="yesclick">&nbsp;&nbsp;
-                        No <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="noclick" checked>&nbsp;&nbsp;
-                        Maybe <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="nooclick"><br>
+                        Yes <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="yesclick" asp-for="youthInSchool">&nbsp;&nbsp;
+                        No <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="noclick" asp-for="youthInSchool">&nbsp;&nbsp;
+                        Maybe <input type="radio" onclick="javascript:yesnoCheck1();" name="attend" id="nooclick" asp-for="youthInSchool"><br>
 
                         <div id="Yes" style="display:none">
                             <br />Where is the youth currently attending school?<br />
-                            <input type="text">
+                            <input type="text" asp-for="school">
                         </div>
                     </td>
                 </tr>
@@ -278,9 +278,9 @@
                         Has the youth been arrested?<br />
                     </td>
                     <td>
-                        Yes <input type="radio" name="arrest">&nbsp;&nbsp;
-                        No <input type="radio" name="arrest">&nbsp;&nbsp;
-                        Maybe <input type="radio" name="arrest"><br>
+                        Yes <input type="radio" name="arrest" asp-for="arrest">&nbsp;&nbsp;
+                        No <input type="radio" name="arrest" asp-for="arrest">&nbsp;&nbsp;
+                        Maybe <input type="radio" name="arrest" asp-for="arrest"><br>
                     </td>
                 </tr>
                 <tr>
@@ -288,7 +288,7 @@
                         Is there anything else you would like us to know about the youth or their family?<br />
                     </td>
                     <td>
-                        ​<textarea id="txtArea" rows="5" cols="75" name="moreInfo" placeholder="We struggling with communication issues"></textarea>
+                        ​<textarea id="txtArea" rows="5" cols="75" name="moreInfo" asp-for="moreInfo"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -296,7 +296,7 @@
                         Reason for Referral?<br />
                     </td>
                     <td>
-                        ​<textarea id="txtArea" rows="5" cols="75" name="reason" placeholder="We are having a hard time finding permanent housing"></textarea>
+                        ​<textarea id="txtArea" rows="5" cols="75" name="reason" asp-for="reason"></textarea>
                     </td>
                 </tr>
 
@@ -304,10 +304,10 @@
                     <td class="t" style="text-align:right"> Best way to Communicate with youth:</td>
 
                     <td>
-                        <input type="radio" name="Reach" value="Phone" checked>Phone
-                        <input type="radio" name="Reach" value="Email">Email
-                        <input type="radio" name="Reach" value="Text">Text
-                        <input type="radio" name="1"> Other:<input type="text" name="Reach"><br>
+                        <input type="radio" name="Reach" value="Phone" asp-for="Reach">Phone
+                        <input type="radio" name="Reach" value="Email" asp-for="Reach">Email
+                        <input type="radio" name="Reach" value="Text" asp-for="Reach">Text
+                        
                     </td>
 
 
@@ -318,9 +318,9 @@
                     <td>
 
 
-                        <input type="radio" name="Status" value="Open" checked>Open
-                        <input type="radio" name="Status" value="Closed">Closed
-                        <input type="radio" name="Status" value="Non-Engagement">Closed Non-Engagement
+                        <input type="radio" name="Status" value="Open" asp-for="status">Open
+                        <input type="radio" name="Status" value="Closed" asp-for="status">Closed
+                        <input type="radio" name="Status" value="Non-Engagement" asp-for="status">Closed Non-Engagement
                         <br>
                     </td>
 
@@ -331,28 +331,28 @@
                 <tr>
                     <td class="t" style="text-align:right">  Date Referral Input:</td>
 
-                    <td><input type="date" value="2019-12-31"></td>
+                    <td><input type="date" value="2019-12-31" asp-for="dateInput"></td>
 
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Referral Source's First Name:</td>
 
-                    <td> <input type="text" value="Roger"></td>
+                    <td> <input type="text" value="Roger" asp-for="referralfname"></td>
 
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Referral Source's Last Name:</td>
 
-                    <td> <input type="text" value="Pan"></td>
+                    <td> <input type="text" value="Pan" asp-for="referrallname"></td>
 
 
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right"> Referral Source's Email for youth:</td>
 
-                    <td> <input type="email" value="RogerP@gmail.com"></td>
+                    <td> <input type="email" value="RogerP@gmail.com" asp-for="email"></td>
 
 
                 </tr>
@@ -371,7 +371,7 @@
             <input type="button" onclick="editConfirm()" value="Save Changes" />
             &nbsp;  &nbsp;  &nbsp;  &nbsp;
             <input type="reset"><br /><br /><br />
-            <a asp-action="Index" asp-controller="Home">Back to List</a>
+            <a asp-action="RefList" asp-controller="Referral">Back to List</a>
 
         </form>
 
