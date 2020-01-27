@@ -131,7 +131,7 @@
 
         switch (id) {
             case "1":
-                page1.style.display = "form-style-9";
+                page1.style.display = "initial";
                 page2.style.display = "none";
                 page3.style.display = "none";
                 page4.style.display = "none";
@@ -608,6 +608,7 @@
                 </select>
             </li>
         </ul>
+        </div>
 
 
     <div id="page4">
@@ -719,20 +720,22 @@
             </li>
 
         </ul>
+        
 
 
 
         <button type="submit" class="btn btn-primary">Submit</button>
         <br />
         <br />
+        </div>
 
        
 </form>
 
-
+<div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li id="butt1" class="page-item active">
+            <li id="butt1" class="page-item">
                 <a onclick="pagination(this.id)" id="1" class="page-link">Demographics (1)<span class="sr-only"></span></a>
             </li>
 
@@ -741,6 +744,7 @@
             <li id="butt4" class="page-item"><a class="page-link" onclick="pagination(this.id)" id="4">CCR (4)</a></li>
         </ul>
     </nav>
+    </div>
 
 
 
