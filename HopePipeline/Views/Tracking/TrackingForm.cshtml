@@ -1,4 +1,4 @@
-﻿@model HopePipeline.Models.DbEntities.TrackingForm;
+﻿@model HopePipeline.Models.DbEntities.Tracking.TrackingForm;
 @{
     ViewData["Title"] = "StartIntake";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -163,11 +163,14 @@
 
 
 <form asp-controller="Tracking" asp-action="SubmitTracking" class="form-style-9" method="post" >
+    @{ 
+        var refMove = Model.referralBrandi;
+    }
     <div id="page1">
         <h3>Demographic Information</h3>
         <ul>
             <li>
-                <input asp-for="ClientID" type="hidden" name="ClientID" class="field-style field-full align-none" placeholder="Client ID" value="poopy" />
+                <input asp-for="ClientID" type="hidden" name="ClientID" class="field-style field-full align-none" placeholder="Client ID" value="@refMove.clientCode" />
             </li>
 
             <li>
@@ -176,15 +179,15 @@
             </li>
 
             <li>
-                <input asp-for="firstName" type="text" name="firstName" class="field-style field-split align-left" placeholder="First Name"/>
-                <input asp-for="lastName" type="text" name="lastName" class="field-style field-split align-right" placeholder="Last Name"/>
+                <input asp-for="firstName" type="text" name="firstName" class="field-style field-split align-left" placeholder="First Name" value="@refMove.fName"/>
+                <input asp-for="lastName" type="text" name="lastName" class="field-style field-split align-right" placeholder="Last Name" value="@refMove.lName"/>
                 <br />
             </li>
 
 
             <li>
                 Date of Birth <br />
-                <input asp-for="dob" type="date" name="dob" min="2001-01-01" max="2050-12-31" class="field-style field-full align-none" value="" placeholder="Date of Birth" > <br />
+                <input asp-for="dob" type="date" name="dob" min="2001-01-01" max="2050-12-31" class="field-style field-full align-none"  placeholder="Date of Birth" value="@refMove.dOB"> <br />
             </li>
 
             <li>
@@ -212,7 +215,7 @@
 
             <li>
                 School <br>
-                <input asp-for="school" type="text" class="field-style field-full align-none" name="school" value="" placeholder="Name of School" />
+                <input asp-for="school" type="text" class="field-style field-full align-none" name="school" value="@refMove.school" placeholder="Name of School" />
             </li>
 
             <li>
@@ -276,7 +279,7 @@
 
             <li>
                 Caregiver Info <br />
-                <input asp-for="careName" asptype="text" name="careName" class="field-style field-full align-none" value="" placeholder="Caregiver Name"> <br />
+                <input asp-for="careName" asptype="text" name="careName" class="field-style field-full align-none"  placeholder="Caregiver First Name" value="@refMove.guardianName">
                 <input asp-for="careGender" type="radio" name="caregender" value="Mother"> Mother
                 <br>
                 <input asp-for="careGender" type="radio" name="caregender" value="Father"> Father
@@ -350,7 +353,7 @@
             <li>
                 School at time of Referral
                 <br />
-                <input asp-for="schoolRef" type="text" class="field-style field-full align-none" name="schoolRef" />
+                <input asp-for="schoolRef" type="text" class="field-style field-full align-none" name="schoolRef" value="@refMove.school"/>
                 <br />
             </li>
 
@@ -618,7 +621,7 @@
 
                 Referral Date and Time <br />
                 <input asp-for="referralDate" type="datetime-local" class="field-style field-full align-none" id="refdate"
-                       name="refdate" value="2019-12-08T19:30"
+                       name="refdate" value="@refMove.dateInput"
                        min="2000-06-07T00:00" max="2060-06-14T00:00">
                 <br />
             </li>

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace HopePipeline.Models.DbEntities
+
+namespace HopePipeline.Models.DbEntities.Tracking
 {
     public class TrackingForm
     {
+        public HopePipeline.Models.referralBrandi referralBrandi {get; set;}
         public int ClientID { get; set; }
         public string referralSource { get; set; }
 
@@ -39,6 +44,8 @@ namespace HopePipeline.Models.DbEntities
         public string iepplan2 { get; set; }
         public string inPride { get; set; }
         public string newFBA { get; set; }
+
+        [Column("stageAddAccom")]        
         public string accomGained { get; set; }
         public string compService { get; set; }
         public string services { get; set; }

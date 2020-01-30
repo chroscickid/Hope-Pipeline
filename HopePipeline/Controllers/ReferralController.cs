@@ -40,7 +40,11 @@ namespace HopePipeline.Controllers
             {
 
                 //We push information from the query into a row and onto the list of rows
-                RefRow row = new RefRow { fname = reader.GetString(0), lname = reader.GetString(1), dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"), clientCode = reader.GetInt32(3) };
+                RefRow row = new RefRow {
+                    fname = reader.GetString(reader.GetOrdinal("fname")),
+                    lname = reader.GetString(1),
+                    dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"),
+                    clientCode = reader.GetInt32(3) };
                 results.Add(row);
             }
             reader.Close();

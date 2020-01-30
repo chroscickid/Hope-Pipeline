@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace HopePipeline.Models.DbEntities.Referrals
 {
@@ -20,6 +21,7 @@ namespace HopePipeline.Models.DbEntities.Referrals
 
     public class RefRow
     {
+        [Key]
         public string fname { get; set; }
         public string lname { get; set; }
         public string dob { get; set; }
