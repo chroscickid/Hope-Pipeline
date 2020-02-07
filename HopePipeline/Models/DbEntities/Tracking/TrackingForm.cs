@@ -15,50 +15,57 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public int ClientID { get; set; }
         public string referralSource { get; set; }
 
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string dob { get; set; }
-        public string gender { get; set; }
-        public string ethnicity { get; set; }
+        public string clientFirstName { get; set; }
+        public string clientLastName { get; set; }
+        public string clientDOB { get; set; }
+        public string clientGender { get; set; }
+        public string clientEthnicity { get; set; }
         public string school { get; set; }
         public string currentGrade { get; set; }
 
         public string careGender { get; set; }
-        public string careName { get; set; }
+        public string careFirstName { get; set; }
+        public string careLastName { get; set; }
+        public string careEthnicity { get; set; }
+        public string carePhone { get; set; }
         public string schoolRef { get; set; }
         public string readingLevel { get; set; }
         public string mathLevel { get; set; }
-        public string failCount { get; set; }
+        public int failCount { get; set; }
         public string failedGrade { get; set; }
         public string whichGradeFailed { get; set; }
         public string howManyTimes { get; set; }
-        public string baker { get; set; }
-        public string femHouse { get; set; }
-        public string domVio { get; set; }
-        public string adopted { get; set; }
-        public string evicted { get; set; }
-        public string incarParent { get; set; }
-        public string asthma { get; set; }
+        public int baker { get; set; }
+        public int femHouse { get; set; }
+        public int marchman { get; set; }
+        public int domVio { get; set; }
+        public int adopted { get; set; }
+        public int evicted { get; set; }
+        public int incarParent { get; set; }
+        public int asthma { get; set; }
+        public int publicAssistance { get; set; }
         public string iep { get; set; }
         public string iepplan1 { get; set; }
         public string iepplan2 { get; set; }
         public string inPride { get; set; }
         public string newFBA { get; set; }
 
-        [Column("stageAddAccom")]        
-        public string accomGained { get; set; }
-        public string compService { get; set; }
-        public string services { get; set; }
-        public string bullied { get; set; }
-        public string report { get; set; }
+        //Accomodations       
+        public int accomGained { get; set; }
+        public int compService { get; set; }
+        public string ifWhatServices { get; set; }
+
+
+        public int bullied { get; set; }
+        public int bullyReport { get; set; }
         public string dateofBully { get; set; }
         public string suspended { get; set; }
         public string suspendCount { get; set; }
-        public string altSchool { get; set; }
+        public int altSchool { get; set; }
         public string altSchoolName { get; set; }
         public string dateOfAlt { get; set; }
-        public string timesInAlt { get; set; }
-        public string daysOwed { get; set; }
+        public int timesInAlt { get; set; }
+        public int daysOwed { get; set; }
         public string justiceOutcome { get; set; }
         public string otherLegal { get; set; }
         public string firstLegal { get; set; }
@@ -69,14 +76,16 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public string emailOfFirstReferralSource { get; set; }
         public string levelOfServiceProvided { get; set; }
         public string nonEngagementReason { get; set; }
-        public string caseStatus { get; set; }
-        public string legalAdvocacy { get; set; }
-        public string remedyResolution { get; set; }
-        public string rearrestWhileRepresented { get; set; }
+        public int caseStatus { get; set; }
+        public int legalAdvocacy { get; set; }
+        public string legalAdvoTaken { get; set; }
+        public int rearrestAdvocacy { get; set; }
+        public int remedyResolution { get; set; }
+        public int rearrestWhileRepresented { get; set; }
         public string firstReferral { get; set; }
         public string referralCount { get; set; }
-        public string courtAdvocacy { get; set; }
-        public string staffAdvocacy { get; set; }
+        public int courtAdvocacy { get; set; }
+        public int staffAdvocacy { get; set; }
 
         
     }

@@ -14,7 +14,7 @@ namespace HopePipeline.Controllers
     {
         public string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-        public ViewResult TrackingForm(string clientCode)
+        public ViewResult TrackingForm(int clientCode)
         {
             TrackingForm newF = new TrackingForm();
             var relRef = new referralBrandi();
@@ -23,6 +23,7 @@ namespace HopePipeline.Controllers
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
+            newF.ClientID = clientCode;
 
             string query = "select * from dbo.refform where clientCode = " + clientCode;
             command = new SqlCommand(query, cnn);
@@ -70,9 +71,61 @@ namespace HopePipeline.Controllers
         }
       
         [HttpPost]
-        public IActionResult SubmitTracking()
+        public IActionResult SubmitTracking(TrackingForm sub)
         {
-            return View();
+            int id = sub.ClientID;
+            SqlConnection cnn = new SqlConnection(connectionString);
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            cnn.Open();
+            List<string> qs = new List<String>();
+
+            qs.Add("INSERT INTO dbo.demographics VALUES (" + id + ")");
+
+            qs.Add("INSERT INTO dbo.accomodations VALUES (" + sub.accomGained + "," + sub.compService + ",'" + sub.ifWhatServices + "'," + id + ")");
+            qs.Add("INSERT INTO dbo.advocacy VALUES (" + sub.rearrestAdvocacy + "," + sub.courtAdvocacy + "," + sub.staffAdvocacy + "," + sub.legalAdvocacy + ",'" + sub.legalAdvoTaken + "'," + id + ")");
+            qs.Add("INSERT INTO dbo.altSchool VALUES (" + sub.altSchool + ",'" + sub.altSchoolName + "','" + sub.dateOfAlt + "'," + sub.timesInAlt + "," + sub.daysOwed + "," +  id + ")");
+            qs.Add("INSERT INTO dbo.bully VALUES (" + sub.bullied + "," + sub.bullyReport + ",'" + sub.dateofBully + "'," + id + ")");
+            qs.Add("INSERT INTO dbo.caregiver VALUES ('" + sub.careFirstName + "','" + sub.careLastName + "','" + sub.careGender + "','" + sub.careEthnicity + "'," + "'careRelationship'" + "," + id + ")");
+            
+            qs.Add("INSERT dbo.ccr VALUES ('" + sub.levelOfServiceProvided + "'," + sub.caseStatus + "," + sub.remedyResolution + "," + sub.rearrestWhileRepresented + ",'" + sub.schoolAtClosure + "'," + id + ")");
+            //dependency?
+           
+            qs.Add("INSERT INTO dbo.client VALUES ('" + sub.clientLastName + "','" + sub.clientFirstName + "','" + 0 + "','" + sub.clientGender + "','" + sub.clientEthnicity + "','" + sub.clientDOB + "'," + id + ",'" + sub.carePhone + "')");
+            //comptime
+            qs.Add("INSERT INTO dbo.comp VALUES (" + sub.compService + ",'" + sub.ifWhatServices + "'," + id + ")");
+            //Make sure this is asking about the right services
+            //AddService?
+            //Servicesgained
+            /*qs[8] = "INSERT INTO dbo.currentStatus VALUES (" + sub.readingLevel + "," + sub.mathLevel + "," + "sub.services" + "," + sub.inPride + "," + sub.newFBA + "," + 0 + "," + "servicesGained" + "," + id + ")";
+            //There's just straight up nothing in here yo
+            qs[10] = "INSERT INTO dbo.failed VALUES (" + sub.failedGrade + "," + sub.whichGradeFailed + "," + sub.failCount + "," + id + ")";
+            qs[11] = "INSERT INTO dbo.health VALUES (" + sub.baker + "," + sub.marchman + "," + sub.asthma + "," + id + ")";
+            qs[12] = "INSERT INTO dbo.household VALUES (" + sub.femHouse + "," + sub.domVio + "," + sub.adopted + "," + sub.evicted + "," + sub.incarParent + "," + sub.publicAssistance + "," + id + ")";
+            //addIEP?
+            qs[13] = "INSERT INTO dbo.iep VALUES (" + sub.iep + "," + sub.iepplan1 + "," + sub.iepplan2 + "," + "0" + "," + id + ")";
+            //otherLegal should be in the db?
+            qs[14] = "INSERT INTO dbo.legal VALUES (" + sub.firstLegal + "," + sub.secondLegal + "," + id + ")";
+            //Lili is going to rework the meetings table soon so I'm not even going to bother
+            qs[15] = "";
+            ///dbo.referral. Not sure what's going on here
+            qs[16] = "";
+            //Entire suspension section needs to be reworked
+            //suspendedThrice, numSuspensions, totalDaysSuspended,ISS,OSS,daysofDiscipline,DisciplineSinceINtake,clientCode
+            qs[17] = "";*/
+
+
+            foreach(string query in qs)
+            {
+                command = new SqlCommand(query, cnn);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Close();
+            }
+            
+          cnn.Close();
+
+           
+            return RedirectToAction("TrackingList");
         }
 
         public ViewResult TrackingList()
@@ -104,7 +157,7 @@ namespace HopePipeline.Controllers
         [HttpPost]
         public IActionResult Search(TrackingForm model)
         {
-            string retur = model.firstName;
+            string retur = model.clientFirstName;
             return Content(retur);
         }
 

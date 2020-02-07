@@ -11,6 +11,8 @@ namespace HopePipeline.Controllers
 {
     public class ReportController : Controller
     {
+        public string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
         //This doesn't actually generate reports! This just calls the form
         public IActionResult GenerateReports()
         {            
@@ -22,7 +24,6 @@ namespace HopePipeline.Controllers
         public IActionResult ViewReports(ReportForm genReport)
         {
             var results = new List<ReportRow>();
-            string connectionString = "Data Source=iscrew.database.windows.net;Initial Catalog=HopePipeline;User ID=user;Password=pAssw0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;

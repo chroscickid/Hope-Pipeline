@@ -47,7 +47,7 @@ namespace HopePipeline.Controllers
             // con.Open();
             //com.Connection = con;
             // com.CommandText = "select * from dbo.account where username='"+acc.username+"' and pass='"+acc.pass+"'";
-             string query = "select * from dbo.account where username='" + acc.username + "' and pass='" + acc.pass + "'";
+             string query = "select * from dbo.account where email='" + acc.username + "' and pass='" + acc.pass + "'";
             //string query = "SELECT* FROM dbo.account WHERE username = 'username' AND password = 'password'";
 
             command = new SqlCommand(query, con);
