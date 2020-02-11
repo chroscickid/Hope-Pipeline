@@ -32,9 +32,9 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public string readingLevel { get; set; }
         public string mathLevel { get; set; }
         public int failCount { get; set; }
-        public string failedGrade { get; set; }
-        public string whichGradeFailed { get; set; }
-        public string howManyTimes { get; set; }
+        public int failedGrade { get; set; }
+        public int whichGradeFailed { get; set; }
+        public int howManyTimes { get; set; }
         public int baker { get; set; }
         public int femHouse { get; set; }
         public int marchman { get; set; }
@@ -44,11 +44,11 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public int incarParent { get; set; }
         public int asthma { get; set; }
         public int publicAssistance { get; set; }
-        public string iep { get; set; }
+        public int iep { get; set; }
         public string iepplan1 { get; set; }
         public string iepplan2 { get; set; }
-        public string inPride { get; set; }
-        public string newFBA { get; set; }
+        public int inPride { get; set; }
+        public int newFBA { get; set; }
 
         //Accomodations       
         public int accomGained { get; set; }
@@ -59,8 +59,10 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public int bullied { get; set; }
         public int bullyReport { get; set; }
         public string dateofBully { get; set; }
-        public string suspended { get; set; }
-        public string suspendCount { get; set; }
+        public int suspended { get; set; }
+        public int suspendCount { get; set; }
+        public int iss { get; set; }
+        public int oss { get; set; }
         public int altSchool { get; set; }
         public string altSchoolName { get; set; }
         public string dateOfAlt { get; set; }
@@ -82,7 +84,7 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public int rearrestAdvocacy { get; set; }
         public int remedyResolution { get; set; }
         public int rearrestWhileRepresented { get; set; }
-        public string firstReferral { get; set; }
+        public int firstReferral { get; set; }
         public string referralCount { get; set; }
         public int courtAdvocacy { get; set; }
         public int staffAdvocacy { get; set; }
