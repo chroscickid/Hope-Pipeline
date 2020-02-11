@@ -1,4 +1,4 @@
-﻿
+﻿@model List<HopePipeline.Models.DbEntities.Referrals.trackingDetail>;
 @{
     ViewData["Title"] = "detailTrackingM";
 }
@@ -111,159 +111,246 @@
 <hr />
 <div id="Demographic Information" class="tabcontent" style="display:block">
     <table id="t01">
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    Client Code:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientID)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Referral Source:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.referralname)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    First Name:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientFirstName)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Last Name:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientLastName)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Date of Birth:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientDOB)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Gender Identity:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientGender)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Ethnicity:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientEthnicity)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    School:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.schoola)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Current Grade:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.grade)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Failed a Grade:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.failedGrade)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    If yes, which grade?
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.whichGradeFailed)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    How many times?
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.howManyTimes)
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:left;" colspan="2">
+                    <h2><b>Caregiver Info</b></h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">
+                    Caregivers First Name:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.careFirstName)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">Caregivers Last Name: </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.careLastName)
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Caregivers Relationship: </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.careRelation)
+                </td>
+
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Caregivers Ethnicity: </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.careEthnicity)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="t" style="text-align:right">
+                    Caregivers Phone Number:
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.guardianPhone)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="t" style="text-align:right">Baker Acted:</td>
+
+                <td> @Html.DisplayFor(modelItem => item.baker)</td>
 
 
-        <tr>
-            <td class="t" style="text-align:right">
-                Client Code:
-            </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Marchman Acted:</td>
 
-            <td>
-                12251
-            </td>
-        </tr>
+                <td> @Html.DisplayFor(modelItem => item.marchman)</td>
 
 
-        <tr>
-            <td class="t" style="text-align:right">
-                First Name:
-            </td>
+            </tr>
 
-            <td>
-                jill
-            </td>
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                Last Name:
-            </td>
+            <tr>
+                <td class="t" style="text-align:right">Female-led Household:</td>
 
-            <td>
-                pan
-            </td>
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                Guardian's relationship to the youth:
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.femHouse)
+                </td>
 
-            <td>
-                Father
-            </td>
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                Guardian's Name:
-            </td>
+            </tr>
 
-            <td>
-                Teal
-            </td>
-        </tr>
+            <tr>
+                <td class="t" style="text-align:right">Domestic Violence:</td>
 
-        <tr>
-            <td class="t" style="text-align:right">Gender Identity: </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.domVio)
+                </td>
 
-            <td>
-                He/Him/His
-            </td>
+            </tr>
 
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">Ethnicity: </td>
+            <tr>
+                <td class="t" style="text-align:right"> Adopted: </td>
 
-            <td>
-                Hispanic
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adopted)
+                </td>
 
-        </tr>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">Evicted:</td>
 
-        <tr>
-            
-            <td class="t" style="text-align:right">
-                Date of Birth:
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.evicted)
+                </td>
 
-            <td>
-                12/5/1425
-            </td>
-        </tr>
+            </tr>
 
-        <tr>
-            <td class="t" style="text-align:right">Referral Source's First Name:</td>
+            <tr>
+                <td class="t" style="text-align:right"> Incarcarated Parent:</td>
 
-            <td> Roger</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.incarParent)
+                </td>
 
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    Receiving public assistance:
+                </td>
+                <td style="text-align:left">
+                    @Html.DisplayFor(modelItem => item.publicAssistance)
+                </td>
+            </tr>
 
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">Referral Source's Last Name:</td>
+            <tr>
+                <td class="t" style="text-align:right">Asthma</td>
 
-            <td> Pan</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.asthma)
+                </td>
 
-
-        </tr>
-
-        <tr>
-            <td class="t" style="text-align:right">Baker Acted</td>
-
-            <td>
-                No
-            </td>
-
-        </tr>
-
-        <tr>
-            <td class="t" style="text-align:right">Female-led household?</td>
-
-            <td>
-                Yes
-            </td>
-
-        </tr>
-
-        <tr>
-            <td class="t" style="text-align:right"> Adopted </td>
-
-            <td>
-                No
-            </td>
-
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">Evicted</td>
-
-            <td>
-                Yes
-            </td>
-
-        </tr>
-
-        <tr>
-            <td class="t" style="text-align:right"> Incarcarated Parent</td>
-
-            <td>
-                Yes
-            </td>
-
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                Which Parent is Incarcerated:
-            </td>
-            <td style="text-align:left">
-                N/A
-            </td>
-        </tr>
-
-        <tr>
-            <td class="t" style="text-align:right">Asthma</td>
-
-            <td>
-                No
-            </td>
-
-        </tr>
+            </tr>
+        }
     </table>
 
 </div>
@@ -272,117 +359,119 @@
 <div id="School Information" class="tabcontent">
     <p>
         <table id="t01">
-            <tr>
-                <td class="t" style="text-align:right">
-                    School
-                </td>
-                <td>
-                    Kernan Trail Elementary
-                </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="t" style="text-align:right">
+                        School at time of Referral:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.schoolRef)
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Failed a Grade
-                </td>
-                <td>
-                    No
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Current Reading Level:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.readingLevel)
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    If yes, which grade and how many times
-                </td>
-                <td>
-                    N/A
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Current Math Level:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mathLevel)
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Has an IEP/504 Plan<br />
-                </td>
-                <td>
-                    Gifted
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Does the youth have an IEP/504 Plan:<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.iep)
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    In Pride
-                </td>
-                <td>
-                    Yes
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        In Pride
+                    </td>
+                    <td>
+                        Yes
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    New FBA
-                </td>
-                <td>
-                    No
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        New FBA
+                    </td>
+                    <td>
+                        No
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Addititonal Accomodations Gained
-                </td>
-                <td>
-                    Yes
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Addititonal Accomodations Gained
+                    </td>
+                    <td>
+                        Yes
+                    </td>
 
-            </tr>
+                </tr>
 
-            <tr>
-                <td class="t" style="text-align:right">
-                    Additional Compensatory Services <br />
-                </td>
-                <td>
-                    No
-                </td>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Additional Compensatory Services <br />
+                    </td>
+                    <td>
+                        No
+                    </td>
 
-            </tr>
+                </tr>
 
-            <tr>
-                <td class="t" style="text-align:right">
-                    If yes, what services
-                </td>
-                <td>
-                    Services
-                </td>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        If yes, what services
+                    </td>
+                    <td>
+                        Services
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Bullied <br />
-                </td>
-                <td>
-                    No
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Bullied <br />
+                    </td>
+                    <td>
+                        No
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    If yes, was it reported  <br />
-                </td>
-                <td>
-                    N/A
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        If yes, was it reported  <br />
+                    </td>
+                    <td>
+                        N/A
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Date of report  <br />
-                </td>
-                <td>
-                    N/A
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Date of report  <br />
+                    </td>
+                    <td>
+                        N/A
+                    </td>
 
-            </tr>
-        </table>
+                </tr>}
+            </table>
     </p>
 </div>
 
@@ -452,7 +541,7 @@
                     Alternative School  <br />
                 </td>
                 <td>
-                   No
+                    No
                 </td>
 
             </tr>

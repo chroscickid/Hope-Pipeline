@@ -88,14 +88,14 @@
 
 
 
-            var r = confirm("Please Confirm you would like to submit the Referral Form")
-              if (r == true) {
+              if (confirm("Please Confirm you would like to submit the Referral Form")) {
 
-                  window.location.href = "confirmationM";
+
                   return true;
               }
-            else
-                return false;
+              else {
+                  return false;
+               event.preventDefault(); }
         }
         function afunction() {
             if (!document.getElementById('input').checked) {
@@ -366,7 +366,7 @@
         </table><br />
 
 
-        <button type="submit"  onclick="myConfirm()">Submit</button>
+        <button type="submit"  onclick="return myConfirm();">Submit</button>
     </form>
 
 </body>
