@@ -11,44 +11,49 @@ using HopePipeline.Models.DbEntities.Login;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HopePipeline.Controllers
 {
-   
-   // [Route("account")]
+
     public class AccountController : Controller
     {
         public string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-        //SqlConnection con = new SqlConnection();
-        //SqlCommand com = new SqlCommand();
-        //SqlDataReader dr;
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
-   //     void connectionString()
-     //   {
-      //      con.ConnectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        //}
+        [HttpPost]
+        public ActionResult newaccount(AdminRow acc)
+        {
+            SqlConnection con;
+            con = new SqlConnection(connectionString);
+            SqlCommand command;
+            con.Open();
+
+           string query = "INSERT INTO account VALUES('" + acc.email + "','" + acc.pass + "','" + acc.firstname + "','" + acc.lastname + "')";
+           command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Close();
+            //add reader for potential database errors
+            return RedirectToAction("AdminList", "Account");
+        }
+
+        public ActionResult AdditionalAdmin()
+        {
+            return View();
+        }
 
         public ActionResult Verify(Account acc)
         {
             SqlConnection con;
             con = new SqlConnection(connectionString);
             SqlCommand command;
-            //return Content(acc.pass);
             con.Open();
 
-            //  connectionString();
-            // con.Open();
-            //com.Connection = con;
-            // com.CommandText = "select * from dbo.account where username='"+acc.username+"' and pass='"+acc.pass+"'";
-             string query = "select * from dbo.account where username='" + acc.username + "' and pass='" + acc.pass + "'";
-            //string query = "SELECT* FROM dbo.account WHERE username = 'username' AND password = 'password'";
+             string query = "select * from dbo.account where email='" + acc.email + "' and pass='" + acc.pass + "'";
 
             command = new SqlCommand(query, con);
             SqlDataReader reader = command.ExecuteReader();
@@ -67,69 +72,89 @@ namespace HopePipeline.Controllers
             }
            
         }
-        // [HttpGet]
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
 
-        //[Route("login")]
-        //[HttpPost]
+        public ViewResult AdminList()
+        {
+            var results = new List<AdminRow>();
+            //  string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-        // public IActionResult Login(string username, string pass)
-        // {
-        // public string connectionString = "Server=tcp:ccrhopepipeline.database.windows.net,1433;Initial Catalog=Hope Pipeline;Persist Security Info=False;User ID=user;Password=P4ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection con;
+            con = new SqlConnection(connectionString);
+            SqlCommand command;
+            con.Open();
 
-        //if (username != null && pass != null && username.Equals("ccr") && pass.Equals("123"))
-        //{
-        //    HttpContext.Session.SetString("username", username);
-        //    return RedirectToAction("RefList","Referral");
-        //}
-        //else
-        //{
-        //    ViewBag.error = "Invalid Account";
-        //    return View("../Home/Index");
-        //}
-    }
+            string query = "SELECT firstname, lastname, email from dbo.account;";
+            command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
 
-    //[Route("logout")]
-    //[HttpGet]
+            while (reader.Read())
+            {
 
-    //public IActionResult Logout()
+                //We push information from the query into a row and onto the list of rows
+                AdminRow row = new AdminRow { firstname = reader.GetString(0), lastname = reader.GetString(1), email = reader.GetString(2) };
+                results.Add(row);
+            }
+            reader.Close();
+            con.Close();
+
+            return View("AdminList", results);
+        }
+
+        public IActionResult Delete( AdminRow acc)
+        {
+            SqlConnection con;
+            con = new SqlConnection(connectionString);
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            con.Open();
+           // string query = "INSERT INTO account VALUES('" + acc.email + "','" + acc.pass + "','" + acc.firstname + "','" + acc.lastname + "')";
+            string query = "DELETE from account WHERE email = ('" + acc.email + "')";
+            command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Close();
+
+            return RedirectToAction("AdminList", "Account");
+        }
+
+    //[route("logout")]
+    //[httpget]
+
+    //public iactionresult logout()
     //{
-    //    HttpContext.Session.Remove("username");
-    //    return RedirectToAction("Index", "Home");
+    //    httpcontext.session.remove("username");
+    //    return redirecttoaction("index", "home");
     //}
 
 
-    //public ActionResult ForgotPassword()
+    //public actionresult forgotpassword()
     //{
-    //    return View();
+    //    return view();
     //}
 
-   // [HttpPost]
-    //public ActionResult SendForgotPassEmail(ForgotAccount account)
+   // [httppost]
+    //public actionresult sendforgotpassemail(forgotaccount account)
     //{
-    //      MailMessage mail = new MailMessage();
-    //                  SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-    //                  mail.From = new MailAddress("hopepipeline@gmail.com");
+    //      mailmessage mail = new mailmessage();
+    //                  smtpclient smtpserver = new smtpclient("smtp.gmail.com");
+    //                  mail.from = new mailaddress("hopepipeline@gmail.com");
     //                  string rsemail = account.email;
-    //                  mail.To.Add(rsemail);
+    //                  mail.to.add(rsemail);
 
-    //                  mail.Subject = "Forgot Password link";
-    //                  DateTime Date = DateTime.Now;
-    //                  string mails = "PLaceholder. Email is " + account.email;
-    //                  mail.Body = mails;
+    //                  mail.subject = "forgot password link";
+    //                  datetime date = datetime.now;
+    //                  string mails = "placeholder. email is " + account.email;
+    //                  mail.body = mails;
 
 
 
-    //                  SmtpServer.Port = 587;
-    //                  SmtpServer.Credentials = new System.Net.NetworkCredential("hopepipeline@gmail.com", "ReferralInfo22");
-    //                  SmtpServer.EnableSsl = true;
-    //                  SmtpServer.Send(mail);
+    //                  smtpserver.port = 587;
+    //                  smtpserver.credentials = new system.net.networkcredential("hopepipeline@gmail.com", "referralinfo22");
+    //                  smtpserver.enablessl = true;
+    //                  smtpserver.send(mail);
 
-    //    return RedirectToAction("Index", "Home");
+    //    return redirecttoaction("index", "home");
     //}
 
 
 }
+    }
