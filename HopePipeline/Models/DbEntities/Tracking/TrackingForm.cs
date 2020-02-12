@@ -22,6 +22,7 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public string clientEthnicity { get; set; }
         public string school { get; set; }
         public string currentGrade { get; set; }
+        public string compTime { get; set; }
 
         public string careGender { get; set; }
         public string careFirstName { get; set; }
@@ -34,7 +35,6 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public int failCount { get; set; }
         public int failedGrade { get; set; }
         public int whichGradeFailed { get; set; }
-        public int howManyTimes { get; set; }
         public int baker { get; set; }
         public int femHouse { get; set; }
         public int marchman { get; set; }

@@ -80,7 +80,7 @@ namespace HopePipeline.Controllers
             cnn.Open();
             List<string> qs = new List<String>();
 
-            /*qs.Add("INSERT INTO dbo.demographics VALUES (" + id + ")");
+            qs.Add("INSERT INTO dbo.demographics VALUES (" + id + ")");
             qs.Add("INSERT INTO dbo.accomodations VALUES (" + sub.accomGained + "," + sub.compService + ",'" + sub.ifWhatServices + "'," + id + ")");
             qs.Add("INSERT INTO dbo.client VALUES ('" + sub.clientLastName + "','" + sub.clientFirstName + "','" + sub.adopted + "','" + sub.clientGender + "','" + sub.clientEthnicity + "','" + sub.clientDOB + "'," + id + ",'" + sub.carePhone + "')");
 
@@ -92,7 +92,7 @@ namespace HopePipeline.Controllers
             qs.Add("INSERT INTO dbo.caregiver VALUES ('" + sub.careFirstName + "','" + sub.careLastName + "','" + sub.careGender + "','" + sub.careEthnicity + "'," + "'careRelationship'" + "," + id + ")");
   
             qs.Add("INSERT dbo.ccr VALUES ('" + sub.levelOfServiceProvided + "'," + sub.caseStatus + "," + sub.remedyResolution + "," + sub.rearrestWhileRepresented + ",'" + sub.schoolAtClosure + "'," + id + ")");          
-            qs.Add("INSERT INTO dbo.comp VALUES (" + sub.compService + ",'" + sub.ifWhatServices + "'," + id + ")");
+            qs.Add("INSERT INTO dbo.comp VALUES (" + sub.compService + ",'" + sub.ifWhatServices + "','" + sub.compTime + "',"+ id + ")");
             //AddService?
             //Servicesgained
             qs.Add("INSERT INTO dbo.currentStatus VALUES (" + sub.readingLevel + "," + sub.mathLevel + ",'" + "currentServices?" + "'," + sub.inPride + "," + sub.newFBA + "," + 0 + ",'" + "servicesGained" + "'," + id + ")");
@@ -102,7 +102,7 @@ namespace HopePipeline.Controllers
             //addIEP?
             qs.Add("INSERT INTO dbo.iep VALUES (" + sub.iep + "," + sub.iepplan1 + "," + sub.iepplan2 + "," + "0" + "," + id + ")");
             //otherLegal should be in the db?
-            qs.Add("INSERT INTO dbo.legal VALUES (" + sub.firstLegal + ",'" + sub.secondLegal + "'," + id + ")");*/
+            qs.Add("INSERT INTO dbo.legal VALUES (" + sub.firstLegal + ",'" + sub.secondLegal + "'," + id + ")");
             int totalSus = sub.iss + sub.oss;
             qs.Add("INSERT INTO dbo.suspension VALUES(" + sub.suspended + "," + sub.suspendCount + "," + totalSus + "," + sub.iss + "," + sub.oss + "," + 0 + "," + 0 + "," + id + ")");
             //Lili is going to rework the meetings table soon so I'm not even going to bother

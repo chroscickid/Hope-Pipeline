@@ -232,7 +232,7 @@
 
 <form asp-controller="Tracking" asp-action="SubmitTracking" class="form-style-9" method="post">
     @{
-        var refMove = Model.referralBrandi;
+    var refMove = Model.referralBrandi;
     }
     <div id="page1">
         <h3>Demographic Information</h3>
@@ -260,25 +260,46 @@
 
             <li>
                 Gender Identity <br>
-                <input asp-for="clientGender" type="radio" value="male"> He/Him/His<br>
-                <input asp-for="clientGender" type="radio" value="female"> She/Her/Hers<br>
-                <input asp-for="clientGender" type="radio" value="trans*"> They/Them/Theirs<br />
-                <input asp-for="clientGender" type="radio" value="nonbinaryF"> She/They<br>
-                <input asp-for="clientGender" type="radio" value="nonbinaryM"> He/They<br>
-                <input asp-for="clientGender" type="radio" value="neutral"> Zie/Zir/Zirs<br />
+                <div>
+                @{ if (refMove.gender == "Male")
+                    { <input asp-for="clientGender" type="radio" value="male" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="male">} } He / Him / His<br>
+
+                @{ if (refMove.gender == "female")
+                    { <input asp-for="clientGender" type="radio" value="female" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="female">} } She/Her/Hers<br>
+                @{ if (refMove.gender == "trans")
+                    { <input asp-for="clientGender" type="radio" value="trans" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="trans">} } They/Them/Theirs<br>
+                @{ if (refMove.gender == "nonbinaryF")
+                    { <input asp-for="clientGender" type="radio" value="nonbinaryF" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="nonbinaryF">} } She/They<br>
+                @{ if (refMove.gender == "nonbinaryM")
+                    { <input asp-for="clientGender" type="radio" value="nonbinaryM" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="nonbinaryM">} } He/They<br>
+                @{ if (refMove.gender == "neutral")
+                    { <input asp-for="clientGender" type="radio" value="neutral" checked>}
+                    else
+                    { <input asp-for="clientGender" type="radio" value="neutral">} } Zie/Zir/Zirs<br>
+                    </div>
             </li>
 
             <li>
                 Ethnicity <br>
-                <select asp-for="clientEthnicity" class="field-style field-full align-none">
-                    <option value="nhWhite">Non Hispanic White</option>
-                    <option value="hispanic">Hispanic</option>
-                    <option value="natAm">Native American</option>
-                    <option value="jewish">Jewish</option>
-                    <option value="black">Black</option>
-                    <option value="multi">Multiple Ethnicities</option>
-                    <option value="notListed">Ethnicity Not Listed</option>
-                </select>
+                          <select asp-for="clientEthnicity" class="field-style field-full align-none">
+                              <option value="nhWhite">Non Hispanic White</option>
+                              <option value="hispanic">Hispanic</option>
+                              <option value="natAm">Native American</option>
+                              <option value="jewish">Jewish</option>
+                              <option value="black">Black</option>
+                              <option value="multi">Multiple Ethnicities</option>
+                              <option value="notListed">Ethnicity Not Listed</option>
+                          </select>
             </li>
 
             <li>
@@ -335,7 +356,7 @@
 
                     <br />
                     How many times? <br />
-                    <input asp-for="howManyTimes" type="number" />
+                    <input asp-for="failCount" type="number" />
                     <br />
                     <br />
                 </div>
@@ -349,10 +370,15 @@
                 Caregiver Info <br />
                 <input asp-for="careFirstName" class="field-style field-full align-none" placeholder="Caregiver First Name" value="@refMove.guardianName">
                 <input asp-for="careLastName" asptype="text" name="careFirstName" class="field-style field-full align-none" placeholder="Caregiver First Name" value="@refMove.guardianName">
-                <input asp-for="careGender" type="radio" value="Mother"> Mother
-                <br>
-                <input asp-for="careGender" type="radio" value="Father"> Father
-                <br>
+                @{ if (refMove.guardianRelationship == "Mother")
+                    { <input asp-for="careGender" type="radio" value="Mother" checked>}
+                    else
+                    { <input asp-for="careGender" type="radio" value="Mother">} } Mother <br />
+                @{ if (refMove.guardianRelationship == "Father")
+                    { <input asp-for="careGender" type="radio" value="Father" checked>}
+                    else
+                    { <input asp-for="careGender" type="radio" value="Father">} } Father <br />
+                
                 <input asp-for="careGender" type="radio" value="mGrandma"> Grandmother
                 <br>
                 <input asp-for="careGender" type="radio" value="mGrandpa"> Grandfather
@@ -578,6 +604,9 @@
                     <input asp-for="ifWhatServices" type="text" class="field-style field-full align-none" />
                     <br />
                     <br />
+                    How much time have they spent using these compensatory services?
+                    <input asp-for="compTime" type="text" class="field-style field-full align-none" />
+
                 </div>
 
                 <div id="ifNoComp">
