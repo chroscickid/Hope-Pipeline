@@ -88,6 +88,7 @@ namespace HopePipeline.Models.DbEntities.Tracking
         public string referralCount { get; set; }
         public int courtAdvocacy { get; set; }
         public int staffAdvocacy { get; set; }
+        public int daysSinceIntake { get; set; }
 
         
     }

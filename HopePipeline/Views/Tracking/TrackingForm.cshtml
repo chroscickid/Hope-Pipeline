@@ -369,7 +369,7 @@
             <li>
                 Caregiver Info <br />
                 <input asp-for="careFirstName" class="field-style field-full align-none" placeholder="Caregiver First Name" value="@refMove.guardianName">
-                <input asp-for="careLastName" asptype="text" name="careFirstName" class="field-style field-full align-none" placeholder="Caregiver First Name" value="@refMove.guardianName">
+                <input asp-for="careLastName" asptype="text" name="careFirstName" class="field-style field-full align-none" placeholder="Caregiver Last Name" value="@refMove.guardianName">
                 @{ if (refMove.guardianRelationship == "Mother")
                     { <input asp-for="careGender" type="radio" value="Mother" checked>}
                     else
@@ -394,7 +394,7 @@
                     <option value="multi">Multiple Ethnicities</option>
                     <option value="notListed">Ethnicity Not Listed</option>
                 </select>
-                <input type="tel" asp-for="carePhone" />
+                <input type="tel" asp-for="carePhone" placeholder="Caretaker Phone Number"/>
             </li>
 
 
@@ -642,7 +642,7 @@
         </ul>
     </div>
 
-    <div id="page3">
+    <div id="page3" hidden>
         <h3> Discipline </h3>
         <ul>
             <li>
@@ -676,7 +676,7 @@
 
             <li>
                 How many days have they spent in ISS?<br />
-                <input asp-for="iss" type="number" />
+                <input asp-for="iss" type="number" /> <br />
 
                 How many days have they spent in OSS?<br />
                 <input asp-for="oss" type="number" />
@@ -725,7 +725,7 @@
 
             <li>
                 Total Days since Intake <br />
-                <input asp-for="daysOwed" type="text" id="dateintake" class="field-style field-full align-none">
+                <input asp-for="daysSinceIntake" type="number" id="dateintake" class="field-style field-full align-none">
             </li>
 
             <li>
@@ -746,21 +746,21 @@
                     <option value="housing" id="housing">Housing</option>
                     <option value="other" id="other">Other</option>
                 </select>
-                <input asp-for="secondLegal" type="text"  class="field-style field-full align-none" />
+                <input asp-for="secondLegal" type="text"  class="field-style field-full align-none" placeholder="Other legal issues"/>
 
             </li>
         </ul>
         </div>
 
 
-        <div id="page4">
+        <div id="page4" hidden>
             <h2> Center for Children's Rights Information</h2>
             <br />
             <ul>
                 <li>
 
                     Referral Date and Time <br />
-                    <input asp-for="referralDate" type="datetime-local" class="field-style field-full align-none" id="refdate"
+                    <input asp-for="referralDate" type="datetime" class="field-style field-full align-none" id="refdate"
                            value="@refMove.dateInput"
                            min="2000-06-07T00:00" max="2060-06-14T00:00">
                     <br />
@@ -811,8 +811,9 @@
                     <input asp-for="legalAdvocacy" type="radio" id="yes" value="1"> Yes<br />
                     <input asp-for="legalAdvocacy" type="radio" id="no" value="0" /> No<br />
                 </li>
-                <input asp-for="legalAdvoTaken" type="text" class="field-style field-split align-left" placeholder="legalAdvoTaken" />
-
+                <li>
+                    <input asp-for="legalAdvoTaken" type="text" class="field-style field-split align-left" placeholder="legalAdvoTaken" />
+                </li>
 
                 <li>
                     Remedy Resolution <br />
