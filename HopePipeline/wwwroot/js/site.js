@@ -26,18 +26,18 @@ function addSearchField(count) {
 //Datatables 
 //...
 $(document).ready(function () {
-    $('#reflist').DataTable({
-        "ordering" : true
-    });
-    $(document).ready(function () {
-        $('#tracklist').DataTable({
-            "ordering": true
-        });
-    });
+    $('#reflist').DataTable();
 
-    $(document).ready(function () {
-        $('#reportsresultlist').DataTable({
-            "ordering": true
-        });
-    });
+    var eventFired = function (type) {
+        var n = $('#demo_info')[0];
+        n.innerHTML += '<div>' + type + ' event - ' + new Date().getTime() + '</div>';
+        n.scrollTop = n.scrollHeight;
+    }
+
+    $('#tracklist')
+        .on('order.dt', function () { eventFired('Order'); })
+        .on('search.dt', function () { eventFired('Search'); })
+        .on('page.dt', function () { eventFired('Page'); })
+        .DataTable();
 });
+

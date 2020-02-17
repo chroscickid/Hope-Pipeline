@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DataTables.AspNet.Mvc5" Version="2.0.2" />
     <PackageReference Include="Grpc.Core" Version="2.24.0" />
     <PackageReference Include="JsonFx" Version="2.0.1209.2802" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
