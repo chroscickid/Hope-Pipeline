@@ -47,85 +47,86 @@
     </style>
 </head>
 <h2>Referral </h2>
+@foreach (var item in Model)
+{
+    <div>
+        <h4>Detail</h4>
+        <hr />
+       
+            <table id="t01">
 
-<div>
-    <h4>Detail</h4>
-    <hr />
-    @foreach (var item in Model)
-    {
-        <table id="t01">
+                <tr>
+                    <td class="t" style="text-align:right"> First Name:</td>
 
-            <tr>
-                <td class="t" style="text-align:right"> First Name:</td>
+                    <td>@Html.DisplayFor(modelItem => item.fName)</td>
 
-                <td>@Html.DisplayFor(modelItem => item.fName)</td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Last Name: </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Last Name: </td>
+                    <td> @Html.DisplayFor(modelItem => item.lName)</td>
 
-                <td> @Html.DisplayFor(modelItem => item.lName)</td>
+                </tr>
 
-            </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Gender Identity:  </td>
 
-            <tr>
-                <td class="t" style="text-align:right"> Gender Identity:  </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gender)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.gender)
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Date of Birth:</td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Date of Birth:</td>
+                    <td> @Html.DisplayFor(modelItem => item.dOB)</td>
 
-                <td> @Html.DisplayFor(modelItem => item.dOB)</td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">   Guardian's Name:</td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">   Guardian's Name:</td>
+                    <td> @Html.DisplayFor(modelItem => item.guardianName)</td>
 
-                <td> @Html.DisplayFor(modelItem => item.guardianName)</td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Guardian's relationship to the youth:</td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Guardian's relationship to the youth:</td>
+                    <td> @Html.DisplayFor(modelItem => item.guardianRelationship)</td>
 
-                <td> @Html.DisplayFor(modelItem => item.guardianRelationship)</td>
-
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Street Address:</td>
-
-
-                <td> @Html.DisplayFor(modelItem => item.address)</td>
-
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">zip</td>
-
-                <td>@Html.DisplayFor(modelItem => item.zip)</td>
-
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Parent/Guardian's Email:</td>
-
-                <td>@Html.DisplayFor(modelItem => item.guardianEmail)</td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Street Address:</td>
 
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right"> Parent/Guardian's Phone Number:</td>
+                    <td> @Html.DisplayFor(modelItem => item.address)</td>
 
-                <td>@Html.DisplayFor(modelItem => item.guardianPhone)</td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">zip</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.zip)</td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Parent/Guardian's Email:</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.guardianEmail)</td>
 
 
-            </tr>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Parent/Guardian's Phone Number:</td>
 
-            <tr>
-                <td class="t" style="text-align:right"> Does the youth have a meeting?</td>
+                    <td>@Html.DisplayFor(modelItem => item.guardianPhone)</td>
 
-                <td>@Html.DisplayFor(modelItem => item.meeting)<br />
+
+                </tr>
+
+                <tr>
+                    <td class="t" style="text-align:right"> Does the youth have a meeting?</td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.meeting)<br />
                 </td>
             <tr>
                 <td class="t" style="text-align:right">Date of Youth's Meeting:</td>
@@ -256,14 +257,14 @@
 
 
 
-
+            @{int tale = item.clientCode;}
 
 
         </table>
-    }
+
         <p id="demo"></p>
     </div>
-<div>
-    <a asp-controller="n" asp-action="editReferralM">Edit</a><br />
-    <a asp-action="RefList" asp-controller="Referral">Back to List</a>
-</div>
+
+    <a asp-controller="n" asp-action="editReferralM" asp-route-clientCode="@tale">Edit</a>}<br />
+        <a asp-action="RefList" asp-controller="Referral">Back to List</a>
+

@@ -42,6 +42,9 @@
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
+            position:fixed;
+            width:100%;
+            top:55px;
         }
 
             /* Style the buttons inside the tab */
@@ -54,7 +57,10 @@
                 padding: 14px 16px;
                 transition: 0.3s;
                 font-size: 17px;
+                display:block;
             }
+            
+}
 
                 /* Change background color of buttons on hover */
                 .tab button:hover {
@@ -96,14 +102,17 @@
 
     </script>
 </head>
-<h2>Detail of Client Tracking Information</h2>
-<div class="tab">
-    <button class="tablinks active" onclick="Information(event, 'Demographic Information')">Demographic Information</button>
-    <button class="tablinks" onclick="Information(event, 'School Information')">School Information</button>
-    <button class="tablinks" onclick="Information(event, 'CCR')">Center for Children's Rights Information</button>
-    <button class="tablinks" onclick="Information(event, 'Discipline Information')">Discipline Information</button>
+<a name="top"></a><br /><br /><br />
+                              <div class="tab">
+                                  <button class="tablinks active" onclick="Information(event, 'Demographic Information')">Demographic Information</button>
+                                  <button class="tablinks" onclick="Information(event, 'School Information')">School Information</button>
+                                  <button class="tablinks" onclick="Information(event, 'Discipline Information')">Discipline Information</button>
+                                  <button class="tablinks" onclick="Information(event, 'CCR')">Center for Children's Rights Information</button>
 
-</div>
+
+                              </div>
+<h2>Detail of Client Tracking Information</h2>
+
 
 
 
@@ -113,7 +122,11 @@
     <table id="t01">
         @foreach (var item in Model)
         {
-
+            <tr>
+                <td class="t" style="text-align:left" colspan="2">
+                    <h2><b>Client Information</b></h2>
+                </td>
+            </tr>
             <tr>
                 <td class="t" style="text-align:right">
                     Client Code:
@@ -129,7 +142,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.referralname)
+                    @Html.DisplayFor(modelItem => item.referralSource)
                 </td>
             </tr>
 
@@ -184,7 +197,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.schoola)
+                    @Html.DisplayFor(modelItem => item.school)
                 </td>
             </tr>
             <tr>
@@ -193,7 +206,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.grade)
+                    @Html.DisplayFor(modelItem => item.currentGrade)
                 </td>
             </tr>
             <tr>
@@ -220,7 +233,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.howManyTimes)
+                    @Html.DisplayFor(modelItem => item.failCount)
                 </td>
             </tr>
             <tr>
@@ -251,7 +264,7 @@
                 <td class="t" style="text-align:right">Caregivers Relationship: </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.careRelation)
+                    @Html.DisplayFor(modelItem => item.careGender)
                 </td>
 
             </tr>
@@ -271,7 +284,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.guardianPhone)
+                    @Html.DisplayFor(modelItem => item.carePhone)
                 </td>
             </tr>
 
@@ -362,6 +375,12 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td class="t" style="text-align:left" colspan="2">
+                        <h2><b>School Information</b></h2>
+                    </td>
+
+                </tr>
+                <tr>
                     <td class="t" style="text-align:right">
                         School at time of Referral:
                     </td>
@@ -399,10 +418,28 @@
                 </tr>
                 <tr>
                     <td class="t" style="text-align:right">
-                        In Pride
+                        If yes, IEP Plan:<br />
                     </td>
                     <td>
-                        Yes
+                        @Html.DisplayFor(modelItem => item.iepplan1)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Secondary IEP:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.iepplan2)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        In Pride:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.inPride)
                     </td>
 
                 </tr>
@@ -411,7 +448,7 @@
                         New FBA
                     </td>
                     <td>
-                        No
+                        @Html.DisplayFor(modelItem => item.newFBA)
                     </td>
 
                 </tr>
@@ -420,7 +457,7 @@
                         Addititonal Accomodations Gained
                     </td>
                     <td>
-                        Yes
+                        @Html.DisplayFor(modelItem => item.accomGained)
                     </td>
 
                 </tr>
@@ -430,26 +467,35 @@
                         Additional Compensatory Services <br />
                     </td>
                     <td>
-                        No
+                        @Html.DisplayFor(modelItem => item.compService)
                     </td>
 
                 </tr>
-
                 <tr>
                     <td class="t" style="text-align:right">
-                        If yes, what services
+                        If yes, what services <br />
                     </td>
                     <td>
-                        Services
+                        @Html.DisplayFor(modelItem => item.ifWhatServices)
                     </td>
 
                 </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        How much time have they spent using these compensatory services:<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.compTime)
+                    </td>
+
+                </tr>
+             
                 <tr>
                     <td class="t" style="text-align:right">
                         Bullied <br />
                     </td>
                     <td>
-                        No
+                        @Html.DisplayFor(modelItem => item.bullied)
                     </td>
 
                 </tr>
@@ -458,7 +504,7 @@
                         If yes, was it reported  <br />
                     </td>
                     <td>
-                        N/A
+                        @Html.DisplayFor(modelItem => item.bullyReport)
                     </td>
 
                 </tr>
@@ -467,11 +513,12 @@
                         Date of report  <br />
                     </td>
                     <td>
-                        N/A
+                        @Html.DisplayFor(modelItem => item.dateofBully)
                     </td>
 
-                </tr>}
-            </table>
+                </tr>
+            }
+        </table>
     </p>
 </div>
 
@@ -479,47 +526,132 @@
 <div id="CCR" class="tabcontent">
     <p>
         <table id="t01">
-            <tr>
+            @foreach (var item in Model)
+            {
+                <tr>
 
-                <td class="t" style="text-align:right">Level of Service Provided</td>
-                <td>
-                    Information/Education
+                    <td class="t" style="text-align:left" colspan="2">
+                        <h2><b>Center For Children's Rights Information</b></h2>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+                <tr>
 
-            <tr>
-                <td class="t" style="text-align:right"> Date Referral Input:</td>
+                    <td class="t" style="text-align:right">Referral Date and Time </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.referralDate)
 
-                <td>12/31/2019</td>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td class="t" style="text-align:right">School at time of Case Closure</td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">Intake Date</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.schoolAtClosure)
+                    </td>
 
-                <td>
-                    12/31/2019
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right"> Email of First Referral Source</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.emailOfFirstReferralSource)
+                    </td>
+                </tr>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">Reason for Nonengagement</td>
-                <td>
-                    N/A
-                </td>
-            </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Level of Service Provided
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.levelOfServiceProvided)
+                    </td>
 
-            <tr>
-                <td class="t" style="text-align:right">
-                    Case open/close status
-                </td>
-                <td>
-                    Open
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Reason for Nonengagement
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nonEngagementReason)
+                    </td>
 
-            </tr>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Case Status
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.caseStatus)
+                    </td>
 
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Legal Advocacy
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.legalAdvocacy)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Legal Advocacy Taken:
+                    </td>
+                    <td>
+                      
+                     @Html.DisplayFor(modelItem => item.legalAdvoTaken)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Remedy Resolution
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.remedyResolution)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Re-arrest while Being Represented
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rearrestWhileRepresented)
+                    </td>
+
+                </tr>
+             
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Advocacy at Court
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.courtAdvocacy)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Advocacy at Staffing
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.staffAdvocacy)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Re-arrest at time of Advocacy
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rearrestAdvocacy)
+                    </td>
+
+                </tr>
+            }
         </table>
     </p>
 </div>
@@ -527,40 +659,141 @@
 <div id="Discipline Information" class="tabcontent">
     <p>
         <table id="t01">
-            <tr>
-                <td class="t" style="text-align:right">
-                    Suspended more than three times  <br />
-                </td>
-                <td>
-                    No
-                </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="t" style="text-align:left" colspan="2">
+                        <h2> <b>Discipline</b></h2>
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Alternative School  <br />
-                </td>
-                <td>
-                    No
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Suspended more than three times in a year:  <br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.suspended)
+                    </td>
 
-            </tr>
-            <tr>
-                <td class="t" style="text-align:right">
-                    Alternative School Name<br />
-                </td>
-                <td>
-                    N/A
-                </td>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        If yes, how many times: <br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.suspendCount)
+                    </td>
 
-            </tr>
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Total In School Suspension<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.iss)
+                    </td>
 
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Total Out of School Suspension<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oss)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Total ISS and OSS<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.totaldaysdisicpline)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Attended Alternative School<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.altSchool)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Alternative School Attended Name<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.altSchoolName)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        How many times was the youth in an Alternative School<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.timesInAlt)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        What day did the student enter the Alternative School<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateOfAlt)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        How many days owed<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.daysOwed)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Total Days since Intake<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.daysSinceIntake)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Juvenile Justice Outcome <br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.justiceOutcome)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="t" style="text-align:right">
+                        Other legal issues<br />
+                    </td>
+                    <td>
+                        1. @Html.DisplayFor(modelItem => item.firstLegal)<br />
+                        2. @Html.DisplayFor(modelItem => item.secondLegal)
+                    </td>
+
+                </tr>
+
+            }
         </table>
     </p>
 </div>
 
 <div>
+    <a href="#top">Back to Top of Page</a><br /><br />
     <a asp-controller="n" asp-action="EditTrackingM">Edit</a><br />
-    <a asp-action="Index" asp-controller="Home">Back to List</a>
+    <a asp-action="TrackingList" asp-controller="Tracking">Back to List</a>
 </div>
 
