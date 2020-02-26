@@ -1084,10 +1084,6 @@
                     <td class="t" style="text-align:right"> Status:</td>
 
                     <td>
-                        @{ if (data.status == "Pending")
-                            {<input type="radio" name="status" value="Pending" asp-for="status" checked> }
-                            else
-                            {<input type="radio" name="status" value="Pending"  id="pen" asp-for="status"> } }Pending
                         @{ if (data.status == "Open")
                             {<input type="radio" name="status" value="Open" asp-for="status" checked> }
                             else
