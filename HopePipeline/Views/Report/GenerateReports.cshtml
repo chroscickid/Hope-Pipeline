@@ -6,7 +6,7 @@
 }
 
  <h2 id="hey">Summary Statistics</h2>
- <div class="center-block">
+ <div>
      <!--<form asp-controller="Report" asp-action="ViewReports" method="post">
         <p>
             <select id="field1" name="field1">
@@ -233,29 +233,45 @@
      <div id="race" style="width:500px;height:500px;"></div>
      <div id="edu" style="width:500px;height:500px;"></div>
      <div id="ref" style="width:500px;height:500px;"></div>
-     <div id="advo" style="width:500px;height:500px"></div>
+     <div id="advo" style="width:1000px;height:500px"></div>
 
      <script>
 
          GENDER = document.getElementById('gender');
 
          var trace1 = {
-             x: ['Referral'],
-             y: [15, 14, 16, 13],
-             width: [0.8, 0.8, 0.8, 0.8],
-             name: ['Male', 'Female', 'Nonbinary', 'Trans*'],
+             x: ['Client', 'Referral'],
+             y: [4, 9],
+             width: [0.8],
+             name: ['Male'],
              type: 'bar'
          };
 
          var trace2 = {
-             x: ['Male', 'Female', 'Nonbinary', 'Trans*'],
-             y: [10, 7, 9, 8],
-             width: [0.8, 0.8, 0.8, 0.8],
-             name: ['Client'],
+             x: ['Client', 'Referral'],
+             y: [8, 9],
+             width: [0.8],
+             name: ['Female'],
              type: 'bar'
          };
 
-         var data = [trace1, trace2];
+         var trace3 = {
+             x: ['Client', 'Referral'],
+             y: [2, 4],
+             width: [0.8],
+             name: ['Nonbinary'],
+             type: 'bar'
+         };
+
+         var trace4 = {
+             x: ['Client', 'Referral'],
+             y: [3, 5],
+             width: [0.8],
+             name: ['Trans*'],
+             type: 'bar'
+         };
+
+         var data = [trace1, trace2, trace3, trace4];
 
          var layout = {
              barmode: 'stack',
@@ -272,20 +288,30 @@
          RACE = document.getElementById('race');
 
          var trace1 = {
-             x: ['Black', 'White', 'Latino'],
-             y: [10, 14, 12],
-             name: 'Referral',
+             x: ['Client', 'Referral'],
+             y: [4, 2],
+             width: [0.8],
+             name: ['Black'],
              type: 'bar'
          };
 
          var trace2 = {
-             x: ['Black', 'White', 'Latino'],
-             y: [6, 9, 8],
-             name: 'Client',
+             x: ['Client', 'Referral'],
+             y: [5, 1],
+             width: [0.8],
+             name: ['White'],
              type: 'bar'
          };
 
-         var data = [trace1, trace2];
+         var trace3 = {
+             x: ['Client', 'Referral'],
+             y: [6, 4],
+             width: [0.8],
+             name: ['Latino'],
+             type: 'bar'
+         };
+
+         var data = [trace1, trace2, trace3];
 
          var layout = {
              barmode: 'stack',
@@ -373,3 +399,4 @@
 
      <a asp-controller="Report" asp-action="ExportDb">Click here to export to Excel</a>
 
+ </div>
