@@ -7,6 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">/>
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     </environment>
@@ -27,11 +28,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/ccr-logo.png" alt="Center for Children's Rights logo"/></a>
             </div>
-            <div class="navbar-collapse collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Tracking" asp-action="TrackingList">Manage Tracking Information</a></li>
+            <div class="navbar-collapse collapse navbar-right  d-flex flew row">
+                <ul class="d-flex flex row">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/ccr-logo.png" alt="Center for Children's Rights logo" /></a>
+                    <li class="nav-item"><a asp-area="" asp-controller="Tracking" asp-action="TrackingList">Manage Tracking Information</a></li>
                     <li><a asp-area="" asp-controller="Referral" asp-action="RefList">Manage Referrals</a></li>
                     <li><a asp-area="" asp-controller="Report" asp-action="GenerateReports">Generate Reports</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Logout</a></li>
