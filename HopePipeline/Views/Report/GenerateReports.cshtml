@@ -229,11 +229,11 @@
     </form>-->
 
      <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
-     <div id="gender" style="width:500px;height:500px;"></div>
-     <div id="race" style="width:500px;height:500px;"></div>
-     <div id="edu" style="width:500px;height:500px;"></div>
-     <div id="ref" style="width:500px;height:500px;"></div>
-     <div id="advo" style="width:1000px;height:500px"></div>
+     <div id="gender" style="width:500px;height:500px;padding-left:150px;"></div>
+     <div id="race" style="width:500px;height:500px;padding-left:150px"></div>
+     <div id="edu" style="width:500px;height:500px;padding-left:50px"></div>
+     <div id="ref" style="width:500px;height:500px;padding-left:50px"></div>
+     <div id="advo" style="width:500px;height:500px;padding-left:50px"></div>
 
      <script>
 
@@ -329,13 +329,12 @@
 
          var data = [{
              type: 'bar',
-             x: [20, 14, 23, 5, 7, 23],
-             y: ['Has an IEP/504', 'Not in School', 'Suspended >3 times in a year', 'Baker Acted', 'Alternative School', 'Failed a Grade'],
-             orientation: 'h'
+             y: [20, 14, 23, 5, 7, 23],
+             x: ['Has an IEP/504', 'Not in School', 'Suspended >3 times in a year', 'Baker Acted', 'Alternative School', 'Failed a Grade']
          }];
 
          var layout = {
-             title: 'Referring Educational Issue'
+             title: 'Referring Educational Issue',
          };
 
          Plotly.newPlot(edu, data, layout);
@@ -376,11 +375,10 @@
 
          var data = [{
              type: 'bar',
-             x: [20, 14, 23, 5, 7, 23],
-             y: ['Additional Behavior Supports', 'Additional Learning Supports', 'Re-enrolled', 'Grade Adjustment', 'Initial Eligibility Determination',
+             y: [20, 14, 23, 5, 7, 23],
+             x: ['Additional Behavior Supports', 'Additional Learning Supports', 'Re-enrolled', 'Grade Adjustment', 'Initial Eligibility Determination',
                  'Pending Eligibility Determination', 'Completed Re-evaluation', 'Pening Re-evaluation', 'Updated IEP', 'Placement Change', 'Graduated',
                 'Direct Referral for Ligigation', 'Information'],
-             orientation: 'h'
          }];
 
          var layout = {
