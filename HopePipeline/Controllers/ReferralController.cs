@@ -12,7 +12,8 @@ namespace HopePipeline.Controllers
     public class ReferralController : Controller
     {
         public ReferralRepository repository;
-        public string connectionString = "Data Source=hope-sqlserver.database.windows.net;Initial Catalog=hope-database;User ID=dadmin;Password=Hope2020!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; public ReferralController(ReferralRepository repo)
+        public string connectionString = "Server=tcp:hopepipeline.database.windows.net,1433;Initial Catalog=Hope-Pipeline;Persist Security Info=False;User ID=badmin;Password=Hope2020!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;;
+        public ReferralController(ReferralRepository repo)
         {
             repository = repo;            
         }
