@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "confirmationM";
+ 
+}
+    <head>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .form-style-9 {
+                max-width: 1000px;
+                background: #FAFAFA;
+                padding: 60px;
+                margin: 50px auto;
+                border-radius: 10px;
+                border: 6px solid #305A72;
+            }
+
+                .form-style-9 ul li .field-style {
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    padding: 8px;
+                    outline: none;
+                    border: 1px solid #B0CFE0;
+                    -webkit-transition: all 0.30s ease-in-out;
+                    -moz-transition: all 0.30s ease-in-out;
+                    -o-transition: all 0.30s ease-in-out;
+                }
+
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                background-color: #09335e;
+                color: white;
+                padding: 10px 18px;
+                width: auto;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                color: white;
+                background-color: #f44336;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript">
+            function buttondisable() {
+	 if(document.getElementById("emailaddress").value===""||document.getElementById("emailaddress").value==="Please enter your email address") { 
+            document.getElementById('emailbutton').disabled = true; 
+        } else { 
+            document.getElementById('emailbutton').disabled = false;
+        }
+    }
+            function myConfirm(name) {
+                var refemailwarn = document.getElementById("emailaddress").value;
+                var email = /^[a-zA-Z0-9_\-.]+\u0040[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/;
+
+                if ((!refemailwarn.match(email) && refemailwarn.length != 0)) {
+                    if (!refemailwarn.match(email) && refemailwarn.length != 0) {
+                        document.getElementById('refemailwarnValid').innerHTML = 'This is not a valid email address';
+                    }
+                    else { document.getElementById('refemailwarnValid').innerHTML = ''; }
+                
+                alert("You will need to correct the error's in red before submitting this referral");
+                return false;
+            }
+                else {
+                    var name = document.getElementById('custId').value;
+                    var emailaddress1 = document.getElementById('emailaddress').value;
+                    if (confirm("Please Confirm you would like to send a copy of " + name + "'s referral to "+ emailaddress1)) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                        event.preventDefault();
+                    }
+                }
+            }
+        </script>
+    </head>
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+    <br /><br />
+
+          <form asp-action="Emailreferral" class="form-style-9" asp-controller="n" method="post">
+              <h4>A referral was successfully made for @ViewBag.Name </h4>
+              <h4>at @ViewBag.Bessage</h4>
+              <h4>Thank you for your submission</h4>
+
+
+              <br />
+              <br />
+              <input type="hidden" id="key" name="key" value="@ViewBag.Key">
+              <input type="hidden" id="custId" name="name" value="@ViewBag.Name">
+              <p>
+
+                  To get this confirmation in an email, please enter your email address and click the email icon:<br />
+                  <input type="email" name="emailaddress" id="emailaddress" size="35" style="font-size:25px;vertical-align:middle" onkeyup="buttondisable()"value="Please enter your email address">
+
+                  &nbsp;&nbsp;&nbsp;
+                  <input type="image" style="vertical-align:middle;width:140px;height:57px;" id ="emailbutton"src="~/images/email33.png" alt="Submit" onclick="return myConfirm(name);" disabled><br />
+              <p style="color:red" id="refemailwarnValid"></p>
+              <br />
+              <button onclick="location.href='@Url.Action("Index","Home")'" class="cancelbtn">Cancel</button>
+
+              
+          </form>
+
+        <br />
+
+</body>
+</html>

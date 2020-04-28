@@ -1,0 +1,165 @@
+﻿@model ccr_hope_pipeline.Models.ReportForm;
+@{
+    ViewData["Title"] = "Generate Reports";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2 id="hey">Summary Statistics</h2>
+
+
+<style>
+    .content {
+       
+        margin: auto;
+    }
+</style>
+
+<div class="content">
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <div id="gender" style="width:500px;height:500px;"></div>
+    <div id="race" style="width:500px;height:500px;"></div>
+    <div id="edu" style="width:1000px;height:500px;"></div>
+    <div id="ref" style="width:500px;height:500px;"></div>
+    <div id="advo" style="width:1000px;height:500px"></div>
+
+    <script>
+        var genderIdentities = @Html.Raw(Json.Serialize(@ViewData["GenderIdentities"]));
+        var genderCounts = @Html.Raw(Json.Serialize(@ViewData["GenderCounts"]));
+        var refGenderIdentities = @Html.Raw(Json.Serialize(@ViewData["RefGenResults"]));
+        var refGenderCounts = @Html.Raw(Json.Serialize(@ViewData["RefGenCntResults"]));
+
+        GENDER = document.getElementById('gender');
+      
+        var trace1 = {
+            type: 'bar',
+            x: genderIdentities,
+            y: genderCounts,
+            name: 'Client',
+            orientation: 'v'
+        };
+        var trace2 = {
+            type: 'bar',
+            x: refGenderIdentities,
+            y: refGenderCounts,
+            name: 'Referral',
+            orientation: 'v'
+        }
+        var data = [trace1, trace2];
+        var layout = {
+            title: 'Gender Breakdown by Client and Referral',
+            xaxis: {title: 'Gender Identities' },
+            yaxis: {text: 'Number of Clients' }
+        };
+
+         Plotly.newPlot(gender, data, layout);
+    
+
+    </script>
+
+
+    <script>
+
+        var Ethnicities = @Html.Raw(Json.Serialize(@ViewData["Ethnicities"]));
+        var EthnicityCounts = @Html.Raw(Json.Serialize(@ViewData["EthnicityCounts"]));
+
+        RACE = document.getElementById('race');
+
+        var trace1 = {
+            type: 'bar',
+            x: Ethnicities,
+            y: EthnicityCounts,
+            orientation: 'v'
+        };
+
+        var data = [trace1];
+
+        var layout = {
+            title: ' Client Race Breakdown',
+            xaxis: { title: 'Ethnicity' },
+            yaxis: { text: 'Number of Clients' }
+        };
+
+        Plotly.newPlot(race, data, layout);
+
+    </script>
+
+
+    <script>
+        EDU = document.getElementById('edu');
+
+
+        var data = [{
+            type: 'bar',
+            x: [20, 14, 23, 5, 7, 23],
+            y: ['Has an IEP/504', 'Not in School', 'Suspended >3 times in a year', 'Baker Acted', 'Alternative School', 'Failed a Grade'],
+            orientation: 'h',
+            
+        }];
+
+        var layout = {
+            title: 'Referring Educational Issue',
+        };
+
+        Plotly.newPlot(edu, data, layout);
+    </script>
+
+    <script>
+        REF = document.getElementById('ref');
+
+
+        var trace1 = {
+            x: ['Female-led Household', 'Domestic Violence', 'Baker Acted', 'Evicted', 'Realtive Caretaker', 'Adopted'],
+            y: [2, 8, 3, 5, 3, 9],
+            name: 'Referral',
+            type: 'bar'
+        };
+
+        var trace2 = {
+            x: ['Female-led Household', 'Domestic Violence', 'Baker Acted', 'Evicted', 'Realtive Caretaker', 'Adopted'],
+            y: [2, 6, 2, 4, 1, 3],
+            name: 'Client',
+            type: 'bar'
+        };
+
+        var data = [trace1, trace2];
+
+        var layout = {
+            barmode: 'group',
+            title: 'Adverse Childhood Experience'
+        };
+
+        Plotly.newPlot(ref, data, layout);
+    </script>
+
+
+    <script>
+        ADVO = document.getElementById('advo');
+
+
+        var data = [{
+            type: 'bar',
+            x: [20, 14, 23, 5, 7, 23],
+            y: ['Additional Behavior Supports', 'Additional Learning Supports', 'Re-enrolled', 'Grade Adjustment', 'Initial Eligibility Determination',
+                'Pending Eligibility Determination', 'Completed Re-evaluation', 'Pening Re-evaluation', 'Updated IEP', 'Placement Change', 'Graduated',
+                'Direct Referral for Ligigation', 'Information'],
+            orientation: 'h'
+        }];
+
+        var layout = {
+            title: 'Advocacy Outcome'
+        };
+
+        Plotly.newPlot(advo, data, layout);
+    </script>
+
+
+
+
+
+
+
+
+    <a asp-controller="Report" asp-action="ExportDb">Click here to export to Excel</a>
+
+</div>
