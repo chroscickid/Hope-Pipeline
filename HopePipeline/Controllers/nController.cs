@@ -12,7 +12,7 @@ using System.Diagnostics;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 //using Microsoft.Azure;
-
+using System.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.IO;
@@ -73,10 +73,12 @@ namespace ccr_hope_pipeline.Controllers
             
             command = new SqlCommand(query, cnn);
             //Pass values to Parameters
+            
             SqlParameter fNamecheck = command.Parameters.AddWithValue("@fName", form.fName);
             if (form.fName == null)
             {
                 fNamecheck.Value = DBNull.Value;
+                
             }
             SqlParameter lNamecheck = command.Parameters.AddWithValue("@lName", form.lName);
             if (form.lName == null)
@@ -257,19 +259,286 @@ namespace ccr_hope_pipeline.Controllers
             }
 
             SqlDataReader reader= command.ExecuteReader();
-          
 
+            string keycode = getsendgrid();
             emailaddress = "hopepipeline@gmail.com";
             
             htmlplain = "A new was referral was made by " + form.referralfname + " " + form.referrallname + " for " + form.fName + " " + form.lName + " as of " + form.dateInput+"";
             subjectemail = "New Referral from " + form.referralfname +" " +form.referrallname+ " as of "+ form.dateInput;
-            Execute(emailaddress, messagehtml, subjectemail, referralname, htmlplain).Wait();
+            Execute(emailaddress, messagehtml, subjectemail, referralname, htmlplain, keycode).Wait();
            IFormFile file = form.file;
           Guid herefiles = form.clientCode;
             Guid key = Guid.NewGuid();
             Debug.WriteLine("files =" + file);
-            string fname = form.fName.ToString();
-            string lname = form.lName.ToString();
+            //List<string> emailcomp = new List<string>();
+            string fname = Convert.ToString(form.fName);
+           
+            //emailcomp.Add(fname);
+          string lname = Convert.ToString(form.lName);
+          
+
+            //emailcomp.Add(lname);
+            //string dob = Convert.ToString(form.dOB);
+            //if (Convert.ToString(dob).Length > 10)
+
+            //{
+            //    //int space1 = Convert.ToString(dataReader["dob"]).IndexOf(' ');
+            //    dob = Convert.ToString(dob).Substring(0, 10);
+            //}
+
+            //if (dob.ToString() == " " || dob.ToString() == null || dob.ToString() == "" || Convert.ToString(dob).Length < 10)
+            //{ dob = "N/A"; }
+            //emailcomp.Add(dob);
+            //string guardianName = Convert.ToString(form.guardianName);
+            //if (guardianName.ToString() == " " || guardianName.ToString() == null || guardianName.ToString() == "")
+            //{ guardianName = "N/A"; }
+
+            //emailcomp.Add(guardianName);
+            //string guardianlName = Convert.ToString(form.guardianlName);
+            //if (guardianlName.ToString() == " " || guardianlName.ToString() == null || guardianlName.ToString() == "")
+            //{ guardianlName = "N/A"; }
+
+            //emailcomp.Add(guardianlName);
+
+            //string guardianRelationship = "";
+            //if (Convert.ToString(form.guardianRelationship)== " " || Convert.ToString(form.guardianRelationship) == null || Convert.ToString(form.guardianRelationship) == "")
+            //{ guardianRelationship = "N/A"; }
+            //else { guardianRelationship = Convert.ToString(form.guardianRelationship); }
+            //emailcomp.Add(guardianRelationship);
+
+            //string strAddress = "";
+            //if (Convert.ToString(form.address) == " " || Convert.ToString(form.address) == null || Convert.ToString(form.address) == "")
+            //{ strAddress = "N/A"; }
+            //else { strAddress = Convert.ToString(form.address); }
+            //emailcomp.Add(strAddress);
+
+            //string gender = Convert.ToString(form.gender);
+
+            //if (gender.ToString() == "male")
+            //{ gender = "He/Him/His"; }
+            //if (gender.ToString() == "female")
+            //{ gender = "She/Her/Hers"; }
+            //if (gender.ToString() == "trans*")
+            //{ gender = "They/them/Theirs"; }
+            //if (gender.ToString() == "nonbinaryF")
+            //{ gender = "She/They"; }
+            //if (gender.ToString() == "nonbinaryM")
+            //{ gender = "He/They"; }
+            //if (gender.ToString() == "neutral")
+            //{ gender = "Zie/Zir/Zirs"; }
+            //if (gender.ToString() == " " || gender.ToString() == null || gender.ToString() == "")
+            //{ gender = "N/A"; }
+
+            //emailcomp.Add(gender);
+            //string guardianEmail = Convert.ToString(form.guardianEmail);
+            //if (guardianEmail.ToString() == " " || guardianEmail.ToString() == null || guardianEmail.ToString() == "")
+            //{ guardianEmail = "N/A"; }
+            //emailcomp.Add(guardianEmail);
+            //string guardianPhone = Convert.ToString(form.guardianPhone);
+            //if (guardianPhone.ToString() == " " || guardianPhone.ToString() == null || guardianPhone.ToString() == "")
+            //{ guardianPhone = "N/A"; }
+
+            //emailcomp.Add(guardianPhone);
+            //string meeting = Convert.ToString(form.meeting);
+
+            //if (meeting.ToString() == "1")
+            //{ meeting = "Yes"; }
+            //if (meeting.ToString() == "2")
+            //{ meeting = "Maybe"; }
+            //if (meeting.ToString() == "0")
+            //{ meeting = "No"; }
+            //if (meeting.ToString() == "")
+            //{ meeting = "N/A"; }
+            //else
+            //{ meeting = meeting.ToString(); }
+            //emailcomp.Add(meeting);
+            //string youthInDuvalSchool = Convert.ToString(form.youthInDuvalSchool);
+            //if (youthInDuvalSchool.ToString() == "1")
+            //{ youthInDuvalSchool = "Yes"; }
+            //if (youthInDuvalSchool.ToString() == "2")
+            //{ youthInDuvalSchool = "Maybe"; }
+            //if (youthInDuvalSchool.ToString() == "0")
+            //{ youthInDuvalSchool = "No"; }
+            //if (youthInDuvalSchool.ToString() == "")
+            //{ youthInDuvalSchool = "N/A"; }
+            //else
+            //{ youthInDuvalSchool = youthInDuvalSchool.ToString(); }
+
+            //emailcomp.Add(youthInDuvalSchool);
+            //string youthInSchool = Convert.ToString(form.youthInSchool);
+            //if (youthInSchool.ToString() == "1")
+            //{ youthInSchool = "Yes"; }
+            //if (youthInSchool.ToString() == "2")
+            //{ youthInSchool = "Maybe"; }
+            //if (youthInSchool.ToString() == "0")
+            //{ youthInSchool = "No"; }
+            //if (youthInSchool.ToString() == "" || youthInSchool.ToString() == null)
+            //{ youthInSchool = "N/A"; }
+            //else
+            //{ youthInSchool = youthInSchool.ToString(); }
+
+            //emailcomp.Add(youthInSchool);
+            //string issues = Convert.ToString(form.issues);
+            //if (issues.ToString() == " " || issues.ToString() == null || issues.ToString() == "")
+            //{ issues = "N/A"; }
+
+            //emailcomp.Add(issues);
+            //string currentSchool = Convert.ToString(form.currentSchool);
+            //if (currentSchool.ToString() == " " || currentSchool.ToString() == null || currentSchool.ToString() == "")
+            //{ currentSchool = "N/A"; }
+
+            //emailcomp.Add(currentSchool);
+            //string zip = Convert.ToString(form.zip);
+            //if (zip.ToString() == " " || zip.ToString() == null || zip.ToString() == "")
+            //{ zip = "N/A"; }
+
+            //emailcomp.Add(zip);
+            //string grade = Convert.ToString(form.grade);
+            //if (grade.ToString() == " " || grade.ToString() == null || grade.ToString() == "")
+            //{ grade = "N/A"; }
+            //emailcomp.Add(grade);
+            //string currStatus = Convert.ToString(form.status);
+            //if (currStatus.ToString() == " " || currStatus.ToString() == null || currStatus.ToString() == "")
+            //{ currStatus = "N/A"; }
+            //emailcomp.Add(currStatus);
+            //string arrest = Convert.ToString(form.arrest);
+            //if (arrest.ToString() == "1")
+            //{ arrest = "Yes"; }
+            //if (arrest.ToString() == "2")
+            //{ arrest = "Maybe"; }
+            //if (arrest.ToString() == "0")
+            //{ arrest = "No"; }
+            //if (arrest.ToString() == "" || arrest.ToString() == null)
+            //{ arrest = "N/A"; }
+            //else
+            //{ arrest = arrest.ToString(); }
+            //emailcomp.Add(arrest);
+            //string school = Convert.ToString(form.school);
+            //if (school.ToString() == " " || school.ToString() == null || school.ToString() == "")
+            //{ school = "N/A"; }
+            //emailcomp.Add(school);
+            //string dateInput = Convert.ToString(form.dateInput);
+            //int space2 = Convert.ToString(dateInput).IndexOf(' ');
+            //if (Convert.ToString(dateInput).Length > 10)
+            //{ dateInput = Convert.ToString(dateInput).Substring(0, space2); }
+            //if (dateInput.ToString() == " " || dateInput.ToString() == null || dateInput.ToString() == "" || Convert.ToString(dateInput).Length < 10)
+            //{ dateInput = "N/A"; }
+            //emailcomp.Add(dateInput);
+            //string meetingDate = Convert.ToString(form.date);
+            //if (meetingDate.ToString() == " " || meetingDate.ToString() == null || meetingDate.ToString() == "" || meetingDate.ToString() == "1/1/1900 12:00:00 AM")
+            //{ meetingDate = "N/A"; }
+
+            //emailcomp.Add(meetingDate);
+            //string email = Convert.ToString(form.guardianEmail);
+            //if (email.ToString() == " " || email.ToString() == null || email.ToString() == "")
+            //{ email = "N/A"; }
+
+            //emailcomp.Add(email);
+            //string reach = Convert.ToString(form.Reach);
+            //if (reach.ToString() == " " || reach.ToString() == null || reach.ToString() == "")
+            //{ reach = "N/A"; }
+
+
+            //emailcomp.Add(reach);
+            //string moreInfo = Convert.ToString(form.moreInfo);
+            //if (moreInfo.ToString() == " " || moreInfo.ToString() == null || moreInfo.ToString() == "")
+            //{ moreInfo = "N/A"; }
+            //emailcomp.Add(moreInfo);
+            //string reason = Convert.ToString(form.reason);
+            //if (reason.ToString() == " " || reason.ToString() == null || reason.ToString() == "")
+            //{ reason = "N/A"; }
+
+            //emailcomp.Add(reason);
+
+            //string referralfname = Convert.ToString(form.referralfname);
+            //if (referralfname.ToString() == " " || referralfname.ToString() == null || referralfname.ToString() == "")
+            //{ referralfname = "N/A"; }
+
+            //emailcomp.Add(referralfname);
+            //string referrallname = Convert.ToString(form.referrallname);
+            //if (referrallname.ToString() == " " || referrallname.ToString() == null || referrallname.ToString() == "")
+            //{ referrallname = "N/A"; }
+
+            //emailcomp.Add(referrallname);
+            //string nameOrg = Convert.ToString(form.nameOrg);
+            //if (nameOrg.ToString() == " " || nameOrg.ToString() == null || nameOrg.ToString() == "")
+            //{ nameOrg = "N/A"; }
+
+            //emailcomp.Add(nameOrg);
+            //string youthNu = Convert.ToString(form.youthNu);
+            //if (youthNu.ToString() == " " || youthNu.ToString() == null || youthNu.ToString() == "")
+            //{ youthNu = "N/A"; }
+            //emailcomp.Add(youthNu);
+            //string youthEmail = Convert.ToString(form.youthEmail);
+            //if (youthEmail.ToString() == " " || youthEmail.ToString() == null || youthEmail.ToString() == "")
+            //{ youthEmail = "N/A"; }
+            //emailcomp.Add(youthEmail);
+            //string youthCit = Convert.ToString(form.youthCit);
+            //if (youthCit.ToString() == "1")
+            //{ youthCit = "Yes"; }
+            //if (youthCit.ToString() == "0")
+            //{ youthCit = "No"; }
+            //if (youthCit.ToString() == "" || youthCit.ToString() == null)
+            //{ youthCit = "N/A"; }
+            //else
+            //{ youthCit = youthCit.ToString(); }
+            //emailcomp.Add(youthCit);
+            //string youthOffense = Convert.ToString(form.youthOffense);
+            //if (youthOffense.ToString() == "1")
+            //{ youthOffense = "Yes"; }
+            //if (youthOffense.ToString() == "2")
+            //{ youthOffense = "Maybe"; }
+            //if (youthOffense.ToString() == "0")
+            //{ youthOffense = "No"; }
+            //if (youthOffense.ToString() == "" ||youthOffense.ToString() == null)
+            //{ youthOffense = "N/A"; }
+            //else
+            //{ youthOffense = youthOffense.ToString(); }
+            //emailcomp.Add(youthOffense);
+
+            //string youthImpact = Convert.ToString(form.youthImpact);
+            //if (youthImpact.ToString() == " " || youthImpact.ToString() == null || youthImpact.ToString() == "")
+            //{ youthImpact = "N/A"; }
+            //emailcomp.Add(youthImpact);
+            //string youthAlt = Convert.ToString(form.youthAlt);
+            //if (youthAlt.ToString() == "1")
+            //{ youthAlt = "Yes"; }
+            //if (youthAlt.ToString() == "2")
+            //{ youthAlt = "Maybe"; }
+            //if (youthAlt.ToString() == "0")
+            //{ youthAlt = "No"; }
+            //if (youthAlt.ToString() == "" || youthAlt.ToString() == null)
+            //{ youthAlt = "N/A"; }
+            //else
+            //{ youthAlt = youthAlt.ToString(); }
+            //emailcomp.Add(youthAlt);
+            //string youthSetting = Convert.ToString(form.youthSetting);
+            //if (youthSetting.ToString() == "1")
+            //{ youthSetting = "Yes"; }
+            //if (youthSetting.ToString() == "2")
+            //{ youthSetting = "Maybe"; }
+            //if (youthSetting.ToString() == "0")
+            //{ youthSetting = "No"; }
+            //if (youthSetting.ToString() == "" || youthSetting.ToString() == null)
+            //{ youthSetting = "N/A"; }
+            //else
+            //{ youthSetting = youthSetting.ToString(); }
+            //emailcomp.Add(youthSetting);
+            //string youthInjunction = Convert.ToString(form.youthInjunction);
+            //if (youthInjunction.ToString() == "1")
+            //{ youthInjunction = "Yes"; }
+            //if (youthInjunction.ToString() == "2")
+            //{ youthInjunction = "Maybe"; }
+            //if (youthInjunction.ToString() == "0")
+            //{ youthInjunction = "No"; }
+            //if (youthInjunction.ToString() == "" || youthInjunction.ToString() == null)
+            //{ youthInjunction = "N/A"; }
+            //else
+            //{ youthInjunction = youthInjunction.ToString(); }
+            //emailcomp.Add(youthInjunction);
+
+
+
             string namestring = fname+ " " + lname;
     
             reader.Close();
@@ -332,8 +601,8 @@ namespace ccr_hope_pipeline.Controllers
             ViewBag.key = key;
             ViewBag.Name = namestring;
             ViewBag.Bessage = DateTime.Now;
-            
-          
+           // ViewBag.Lessage = emailcomp;
+
             return View("confirmationM", "n");
 
         }//-------------------------------------------------------------End Form Submit Referral GUID DONE
@@ -3744,13 +4013,17 @@ namespace ccr_hope_pipeline.Controllers
 
         }
         [HttpPost]
-        public IActionResult Emailreferral( string emailaddress, Guid key)
+        public IActionResult Emailreferral( string emailaddress, Guid key, List<object> emailcomp)
         {
+            
+            Debug.WriteLine(emailaddress);
+            Debug.WriteLine(key);
             string htmlplain = null;
             string referralname = "";
            string subjectemail = "";
             string messagehtml = "";
-            List<referralDetail> clientl = new List<referralDetail>();
+
+            List<referralEmail> clientl = new List<referralEmail>();
             SqlConnection cnn;
             cnn = new SqlConnection(connectionString);
             SqlCommand command;
@@ -3767,7 +4040,7 @@ namespace ccr_hope_pipeline.Controllers
                 while (dataReader.Read())
                 {
 
-                    referralDetail client = new referralDetail();
+                    referralEmail client = new referralEmail();
                     client.clientCode = Guid.Parse(Convert.ToString(dataReader["clientCode"]));
 
 
@@ -4033,54 +4306,270 @@ namespace ccr_hope_pipeline.Controllers
 
                 }
             }
-            
+
             adapter.Dispose();
             command.Dispose();
             cnn.Close();
             foreach (var item in clientl)
             {
-                var fname = item.fName;
-                var lname = item.lName;
-                var dob = item.dOB;
-                var guardianName = item.guardianName;
-                var guardianlName = item.guardianlName;
-                var guardianRelationship = item.guardianRelationship;
-                var strAddress = item.address;
-                var gender = item.gender;
-                var guardianEmail = item.guardianEmail;
-                var guardianPhone = item.guardianPhone;
-                var meeting = item.meeting;
-                var youthInDuvalSchool = item.youthInDuvalSchool;
-                var youthInSchool = item.youthInSchool;
-                var issues = item.issues;
-                var currentSchool = item.currentSchool;
-                var zip = item.zip;
-                var grade = item.grade;
-                var currStatus = item.status;
-                var arrest = item.arrest;
-                var school = item.school;
-                var dateInput = item.dateInput;
-                var meetingDate = item.date;
-                var email = item.guardianEmail;
-                var reach = item.Reach;
-                var moreInfo = item.moreInfo;
-                var reason = item.reason;
 
-                var referralfname = item.referralfname;
-                var referrallname = item.referrallname;
-                var nameOrg = item.nameOrg;
-                var youthNu = item.youthNu;
-                var youthEmail = item.youthEmail;
-                var youthCit = item.youthCit;
-                var youthOffense = item.youthOffense;
 
-                var youthImpact = item.youthImpact;
-                var youthAlt = item.youthAlt;
-                var youthSetting = item.youthSetting;
-                var youthInjunction = item.youthInjunction;
+               // var fname = emailcomp[1];
+               // if (fname.ToString() == " " || fname.ToString() == "null" || fname.ToString() == "")
+               // { fname = "N/A"; }
+               // var lname = emailcomp[2];
+            
+               // if (lname.ToString() == " " || lname.ToString() == "null" || lname.ToString() == "")
+               // { lname = "N/A"; }
+
+               // var dob = emailcomp[3];
+
+               // if (Convert.ToString(dob).Length > 10)
+
+               // {
+               //     //int space1 = Convert.ToString(dataReader["dob"]).IndexOf(' ');
+               //     dob = Convert.ToString(dob).Substring(0, 10);
+               // }
+
+               // if (dob.ToString() == " " || dob.ToString()== "null" || dob.ToString() == "" || Convert.ToString(dob).Length < 10)
+               // { dob = "N/A"; }
+
+               // var guardianName = emailcomp[4];
+               
+               // if (guardianName.ToString() == " " || guardianName.ToString() == "null" || guardianName.ToString() == "")
+               // { guardianName = "N/A"; }
+
+               // var guardianlName = emailcomp[5];
+               // if (guardianlName.ToString() == " " || guardianlName.ToString() == "null" || guardianlName.ToString() == "")
+               // { guardianlName = "N/A"; }
+
+               // var guardianRelationship = emailcomp[6];
+               // if (guardianRelationship.ToString() == " " || guardianRelationship.ToString() == "null" || guardianRelationship.ToString() == "")
+               // { guardianRelationship= "N/A"; }
+
+               // var strAddress = emailcomp[7];
+               // if (strAddress.ToString() == " " || strAddress.ToString() == "null" || strAddress.ToString() == "")
+               // { strAddress = "N/A"; }
+               // var gender = emailcomp[8];
                 
-                subjectemail = "Confirmation of your Referral for "+item.lName+", "+item.fName+"" ;
-                referralname = ""+item.referralfname +" " + item.referrallname+" ";
+               // if (gender.ToString() == "male")
+               // { gender = "He/Him/His"; }
+               // if (gender.ToString() == "female")
+               // { gender = "She/Her/Hers"; }
+               // if (gender.ToString() == "trans*")
+               // { gender= "They/them/Theirs"; }
+               // if (gender.ToString() == "nonbinaryF")
+               // { gender = "She/They"; }
+               // if (gender.ToString() == "nonbinaryM")
+               // { gender= "He/They"; }
+               // if (gender.ToString() == "neutral")
+               // { gender= "Zie/Zir/Zirs"; }
+               // if (gender.ToString() == " " || gender.ToString() == "null" || gender.ToString() == "")
+               // { gender= "N/A"; }
+
+               // var guardianEmail = emailcomp[9];
+              
+               // if (guardianEmail.ToString() == " " || guardianEmail.ToString() == "null" || guardianEmail.ToString() == "")
+               // { guardianEmail = "N/A"; }
+               // var guardianPhone = emailcomp[10];
+              
+               // if (guardianPhone.ToString() == " " || guardianPhone.ToString() == "null" || guardianPhone.ToString() == "")
+               // { guardianPhone = "N/A"; }
+
+
+               // var meeting = emailcomp[11];
+            
+               // if (meeting.ToString() == "1")
+               // { meeting= "Yes"; }
+               // if (meeting.ToString() == "2")
+               // { meeting = "Maybe"; }
+               // if (meeting.ToString() == "0")
+               // { meeting= "No"; }
+               // if (meeting.ToString() == "")
+               // { meeting = "N/A"; }
+               // else
+               // { meeting= meeting.ToString(); }
+
+               // var youthInDuvalSchool = emailcomp[12];
+
+               // if (youthInDuvalSchool.ToString() == "1")
+               // { youthInDuvalSchool = "Yes"; }
+               // if (youthInDuvalSchool.ToString() == "2")
+               // { youthInDuvalSchool = "Maybe"; }
+               // if (youthInDuvalSchool.ToString() == "0")
+               // { youthInDuvalSchool = "No"; }
+               // if (youthInDuvalSchool.ToString() == "")
+               // { youthInDuvalSchool = "N/A"; }
+               // else
+               // { youthInDuvalSchool = youthInDuvalSchool.ToString(); }
+               // var youthInSchool = emailcomp[13];
+
+               // if (youthInSchool.ToString() == "1")
+               // { youthInSchool = "Yes"; }
+               // if (youthInSchool.ToString() == "2")
+               // { youthInSchool = "Maybe"; }
+               // if (youthInSchool.ToString() == "0")
+               // { youthInSchool= "No"; }
+               // if (youthInSchool.ToString() == "")
+               // { youthInSchool= "N/A"; }
+               // else
+               // { youthInSchool = youthInSchool.ToString(); }
+
+               // var issues = emailcomp[14];
+
+               // if (issues.ToString() == " " || issues.ToString() == "null" || issues.ToString() == "")
+               // { issues = "N/A"; }
+
+               // var currentSchool = emailcomp[15];
+
+               // if (currentSchool.ToString() == " " || currentSchool.ToString() == "null" || currentSchool.ToString() == "")
+               // { currentSchool="N/A"; }
+               // var zip = emailcomp[16];
+               // if (zip.ToString() == " " || zip.ToString() == "null" || zip.ToString() == "")
+               // { zip = "N/A"; }
+
+               // var grade = emailcomp[17];
+               // if (grade.ToString() == " " || grade.ToString() == "null" || grade.ToString() == "")
+               // { grade= "N/A"; }
+               // var currStatus = emailcomp[18];
+               // if (currStatus.ToString() == " " || currStatus.ToString() == "null" || currStatus.ToString() == "")
+               // { currStatus= "N/A"; }
+               // var arrest = emailcomp[19];
+
+               // if (arrest.ToString() == "1")
+               // { arrest = "Yes"; }
+               // if (arrest.ToString() == "2")
+               // { arrest = "Maybe"; }
+               // if (arrest.ToString() == "0")
+               // { arrest = "No"; }
+               // if (arrest.ToString() == "")
+               // { arrest = "N/A"; }
+               // else
+               // { arrest = arrest.ToString(); }
+               // var school = emailcomp[20];
+               // if (school.ToString() == " " || school.ToString() == "null" || school.ToString() == "")
+               // { school= "N/A"; }
+
+
+               // var dateInput = emailcomp[21];
+               //int space2 = Convert.ToString(dateInput).IndexOf(' ');
+               // if (Convert.ToString(dateInput).Length > 10)
+               // { dateInput = Convert.ToString(dateInput).Substring(0, space2); }
+               // if (dateInput.ToString() == " " || dateInput.ToString() == "null" || dateInput.ToString() == "" || Convert.ToString(dateInput).Length < 10)
+               // { dateInput= "N/A"; }
+
+               // var meetingDate = emailcomp[22];
+              
+               // if (meetingDate.ToString() == " " || meetingDate.ToString() == "null" || meetingDate.ToString() == "" || meetingDate.ToString() == "1/1/1900 12:00:00 AM")
+               // { meetingDate= "N/A"; }
+
+               // var email = emailcomp[23];
+              
+               // if (email.ToString() == " " || email.ToString() == "null" || email.ToString() == "")
+               // { email = "N/A"; }
+
+
+               // var reach = emailcomp[24];
+               
+               // if (reach.ToString() == " " || reach.ToString() == "null" || reach.ToString() == "")
+               // { reach = "N/A"; }
+          
+
+               // var moreInfo = emailcomp[25];
+               
+               // if (moreInfo.ToString() == " " || moreInfo.ToString() == "null" || moreInfo.ToString() == "")
+               // { moreInfo = "N/A"; }
+               // var reason = emailcomp[26];
+              
+               // if (reason.ToString() == " " || reason.ToString() == "null" || reason.ToString() == "")
+               // { reason = "N/A"; }
+
+               // var referralfname = emailcomp[27];
+
+               // if (referralfname.ToString() == " " || referralfname.ToString() == "null" || referralfname.ToString() == "")
+               // { referralfname= "N/A"; }
+            
+               // var referrallname = emailcomp[28];
+               // if (referrallname.ToString() == " " || referrallname.ToString() == "null" || referrallname.ToString() == "")
+               // { referrallname= "N/A"; }
+               // var nameOrg = emailcomp[29];
+               
+               // if (nameOrg.ToString() == " " || nameOrg.ToString() == "null" || nameOrg.ToString() == "")
+               // { nameOrg = "N/A"; }
+       
+               // var youthNu = emailcomp[30];
+               // if (youthNu.ToString() == " " || youthNu.ToString() == "null" || youthNu.ToString() == "")
+               // { youthNu= "N/A"; }
+               // var youthEmail = emailcomp[31];
+               // if (youthEmail.ToString() == " " || youthEmail.ToString() == "null" || youthEmail.ToString() == "")
+               // { youthEmail = "N/A"; }
+               // var youthCit = emailcomp[32];
+
+               // if (youthCit.ToString() == "1")
+               // { youthCit= "Yes"; }
+               // if (youthCit.ToString() == "0")
+               // { youthCit = "No"; }
+               // if (youthCit.ToString() == "")
+               // { youthCit= "N/A"; }
+               // else
+               // { youthCit = youthCit.ToString(); }
+
+               // var youthOffense = emailcomp[33];
+              
+               // if (youthOffense.ToString() == "1")
+               // { youthOffense = "Yes"; }
+               // if (youthOffense.ToString() == "2")
+               // { youthOffense = "Maybe"; }
+               // if (youthOffense.ToString() == "0")
+               // { youthOffense = "No"; }
+               // if (youthOffense.ToString() == "")
+               // { youthOffense = "N/A"; }
+               // else
+               // { youthOffense = youthOffense.ToString(); }
+             
+
+               // var youthImpact = emailcomp[34];
+               // if (youthImpact.ToString() == " " || youthImpact.ToString() == "null" || youthImpact.ToString() == "")
+               // { youthImpact = "N/A"; }
+               // var youthAlt = emailcomp[35];
+
+               // if (youthAlt.ToString() == "1")
+               // { youthAlt= "Yes"; }
+               // if (youthAlt.ToString() == "2")
+               // { youthAlt= "Maybe"; }
+               // if (youthAlt.ToString() == "0")
+               // { youthAlt = "No"; }
+               // if (youthAlt.ToString() == "")
+               // { youthAlt = "N/A"; }
+               // else
+               // { youthAlt = youthAlt.ToString(); }
+               // var youthSetting = emailcomp[36];
+              
+               // if (youthSetting.ToString() == "1")
+               // { youthSetting= "Yes"; }
+               // if (youthSetting.ToString() == "2")
+               // { youthSetting= "Maybe"; }
+               // if (youthSetting.ToString() == "0")
+               // { youthSetting= "No"; }
+               // if (youthSetting.ToString() == "")
+               // { youthSetting= "N/A"; }
+               // else
+               // { youthSetting = youthSetting.ToString(); }
+               // var youthInjunction = emailcomp[37];
+
+               // if (youthInjunction.ToString() == "1")
+               // { youthInjunction= "Yes"; }
+               // if (youthInjunction.ToString() == "2")
+               // { youthInjunction = "Maybe"; }
+               // if (youthInjunction.ToString() == "0")
+               // { youthInjunction= "No"; }
+               // if (youthInjunction.ToString() == "")
+               // { youthInjunction = "N/A"; }
+               // else
+               // { youthInjunction = youthInjunction.ToString(); }
+
+                subjectemail = "Confirmation of your Referral for "+ item.lName+", "+item.fName+"" ;
+                referralname = ""+item.referralfname+" " + item.referrallname+" ";
                 messagehtml = "<html><head>" +
 
     "</head>" +
@@ -4295,12 +4784,12 @@ namespace ccr_hope_pipeline.Controllers
     "</tr>" +
                "<tr style =\"background-color: #e6f3ff;\" >" +
                    "<td style =\" padding: 11px;text-align: right;border: 1px solid black;border-collapse: collapse; width: 30%; table-layout: fixed;\"> Referral Source's Last Name:</td>" +
-    "<td style =\" padding: 11px;text-align: left;border: 1px solid black;border-collapse: collapse; \">" + item.referrallname+"</td>" +
+    "<td style =\" padding: 11px;text-align: left;border: 1px solid black;border-collapse: collapse; \">" + item.referrallname +"</td>" +
 
    "</tr>" +
                "<tr>" +
                     "<td style =\" padding: 11px;text-align: right;border: 1px solid black;border-collapse: collapse; width: 30%; table-layout: fixed;\"> Referral Source's Email for youth:</td>" +
-   "<td style =\" padding: 11px;text-align: left;border: 1px solid black;border-collapse: collapse; \"> " + item.email+"</td>" +
+   "<td style =\" padding: 11px;text-align: left;border: 1px solid black;border-collapse: collapse; \"> " + item.email +"</td>" +
    "</tr>" +
                "<tr style =\"background-color: #e6f3ff;\" >" +
                    "<td style =\" padding: 11px;text-align: right;border: 1px solid black;border-collapse: collapse; width: 30%; table-layout: fixed;\"> Name of organization making referral:</td>" +
@@ -4316,28 +4805,37 @@ namespace ccr_hope_pipeline.Controllers
             //got the information
             //now put it in a html string
 
-
+            string keycode = getsendgrid();
 
             //  Main(emailaddress);
             //confirmation thank you page for submiting and give email submit referral
-            Execute(emailaddress, messagehtml, subjectemail, referralname, htmlplain).Wait();
+            Debug.WriteLine(emailaddress.ToString());
+           // Debug.WriteLine(messagehtml);
+            Debug.WriteLine(subjectemail.ToString());
+            Debug.WriteLine(referralname.ToString());
+            Debug.WriteLine(htmlplain.ToString());
+            emailaddress.ToString();
+            subjectemail.ToString();
+            referralname.ToString();
+            ExecuteConfirm(emailaddress, messagehtml, subjectemail, referralname, htmlplain, keycode).Wait();
 
             return RedirectToAction("Index", "Home");
 
         }
-
-        static async Task Execute(string emailaddress, string messagehtml, string subjectemail, string referralname, string htmlplain)
-        {  
+        static async Task ExecuteConfirm(string emailaddress, string messagehtml, string subjectemail, string referralname, string htmlplain, string keycode)
+        {
 
             //if statments pertaining to if the table doesn't have a clientCode in it display all the variable for the table as N/A
             //SqlCommand commandd = cnnn.CreateCommand();
-           //    Execute().Wait();
+            //    Execute().Wait();
             //}
 
 
             //static async Task Execute()
             //{
-            var apiKey = Environment.GetEnvironmentVariable("API_KEY");
+
+
+            var apiKey = keycode;
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("n01057930@unf.edu", "The Center for Children's Rights");
             var subject = subjectemail;
@@ -4345,7 +4843,31 @@ namespace ccr_hope_pipeline.Controllers
             var plainTextContent = htmlplain;
             var htmlContent = messagehtml;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
+            await client.SendEmailAsync(msg);
+
+        }
+        static async Task Execute(string emailaddress, string messagehtml, string subjectemail, string referralname, string htmlplain, string keycode)
+        {
+
+            //if statments pertaining to if the table doesn't have a clientCode in it display all the variable for the table as N/A
+            //SqlCommand commandd = cnnn.CreateCommand();
+            //    Execute().Wait();
+            //}
+
+
+            //static async Task Execute()
+            //{
+          
+
+            var apiKey = keycode;
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("n01057930@unf.edu", "The Center for Children's Rights");
+            var subject = subjectemail;
+            var to = new EmailAddress(emailaddress, referralname);
+            var plainTextContent = htmlplain;
+            var htmlContent = messagehtml;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            await client.SendEmailAsync(msg);
 
         }
         [Route("api/blobs/upload")]
@@ -4354,8 +4876,8 @@ namespace ccr_hope_pipeline.Controllers
             //string here = file;
             // string delimiter = "\" \"";
             // Array file1 = new Array[here.Split(delimiter).Length];
-
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+           string keycode= getBlob();
+            var connectionString = keycode;
 
             if (imageToUpload != null)
 
@@ -4406,8 +4928,8 @@ namespace ccr_hope_pipeline.Controllers
             //string here = file;
             // string delimiter = "\" \"";
             // Array file1 = new Array[here.Split(delimiter).Length];
-
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+            string keycode = getBlob();
+            var connectionString = keycode;
 
             //container name
             var _containerName = herefiles.ToString();
@@ -4461,8 +4983,8 @@ namespace ccr_hope_pipeline.Controllers
             //string here = file;
             // string delimiter = "\" \"";
             // Array file1 = new Array[here.Split(delimiter).Length];
-
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+            string keycode = getBlob();
+            var connectionString = keycode;
 
             //container name
             var _containerName = herefiles.ToString();
@@ -4488,7 +5010,30 @@ namespace ccr_hope_pipeline.Controllers
         
             
         }
+        public string getsendgrid()
+        {
+            SqlConnection cnn;
+            cnn = new SqlConnection(cconnectionString);
+            cnn.Open();//Connect
+            object apikey = new SqlCommand("SELECT keycode FROM dbo.keys WHERE keyname = 'Sendgrid'", cnn).ExecuteScalar();
 
+         
+
+            cnn.Close();
+            return apikey.ToString();
+        }
+        public string getBlob()
+        {
+            SqlConnection cnn;
+            cnn = new SqlConnection(cconnectionString);
+            cnn.Open();//Connect
+            object apikey = new SqlCommand("SELECT keycode FROM dbo.keys WHERE keyname = 'Blob'", cnn).ExecuteScalar();
+
+
+
+            cnn.Close();
+            return apikey.ToString();
+        }
         //}
         //public FileContentResult GetFile(Guid fileId)
         //{
