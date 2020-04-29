@@ -4013,7 +4013,7 @@ namespace ccr_hope_pipeline.Controllers
 
         }
         [HttpPost]
-        public IActionResult Emailreferral( string emailaddress, Guid key, List<object> emailcomp)
+        public IActionResult Emailreferral( string emailaddress, Guid key)
         {
             
             Debug.WriteLine(emailaddress);
@@ -4843,7 +4843,7 @@ namespace ccr_hope_pipeline.Controllers
             var plainTextContent = htmlplain;
             var htmlContent = messagehtml;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            await client.SendEmailAsync(msg);
+           await client.SendEmailAsync(msg);
 
         }
         static async Task Execute(string emailaddress, string messagehtml, string subjectemail, string referralname, string htmlplain, string keycode)
