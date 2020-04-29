@@ -312,7 +312,6 @@ namespace ccr_hope_pipeline.Controllers
             return View("MeetingList", sendme);
         }
 
-        [HttpPost]
         public IActionResult DeleteMeeting(Guid meetingCode, Guid clientCode)
         {
             SqlConnection cnn;
@@ -320,7 +319,7 @@ namespace ccr_hope_pipeline.Controllers
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
-            string query = "DELETE from dbo.meeting WHERE meetingCode = '" + meetingCode + "';";
+            string query = "DELETE from dbo.meetings WHERE meetingCode = '" + meetingCode + "';";
             command = new SqlCommand(query, cnn);
             SqlDataReader reader = command.ExecuteReader();
             reader.Close();
@@ -455,7 +454,7 @@ namespace ccr_hope_pipeline.Controllers
         }
 
 
-        public IActionResult ChangeStatus(int clientCode, int status)
+        public IActionResult ChangeStatus(Guid clientCode, int status)
         {
             SqlConnection cnn = new SqlConnection(connectionString);
             SqlCommand command;

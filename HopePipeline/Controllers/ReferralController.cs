@@ -44,7 +44,9 @@ namespace ccr_hope_pipeline.Controllers
             return View("RefList", results);
         }
 
-        public IActionResult Delete(int pk)
+
+        
+        public IActionResult Delete(Guid clientCode)
         {
             // Super straight-forward, I think
             //We simply push a SQL command for deleting the primary key
@@ -53,7 +55,7 @@ namespace ccr_hope_pipeline.Controllers
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             cnn.Open();
-            string query = "DELETE from dbo.refform WHERE clientCode = " + pk + ";";
+            string query = "DELETE from refform WHERE clientCode = '" + clientCode + "';";
             command = new SqlCommand(query, cnn);
             SqlDataReader reader = command.ExecuteReader();
             reader.Close();
@@ -97,10 +99,10 @@ namespace ccr_hope_pipeline.Controllers
             {
                 RefRow row = new RefRow
                 {
-                    fname = reader.GetString(reader.GetOrdinal("fname")),
-                    lname = reader.GetString(1),
-                    dob = reader.GetDateTime(2).ToString("dd MMMM yyyy"),
-                    clientCode = reader.GetGuid(3)
+                    fname = reader2.GetString(reader2.GetOrdinal("fname")),
+                    lname = reader2.GetString(1),
+                    dob = reader2.GetDateTime(2).ToString("dd MMMM yyyy"),
+                    clientCode = reader2.GetGuid(3)
                 };
                 results.Add(row);
 
