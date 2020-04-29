@@ -91,7 +91,7 @@
                 document.getElementById('value1Cit').checked = false;
             }
         }
- 
+
         function validation() {
             var at = "\u0040";
             //textbox
@@ -105,26 +105,26 @@
             var youthphonewarn = document.getElementById('youthphone').value;
             var parentphonewarn = document.getElementById('parentphone').value;
             var zipwarn = document.getElementById('zip').value;
-                 //email
+            //email
             var parentemailwarn = document.getElementById('parentemail').value;
             var youthemailwarn = document.getElementById('youthemail').value;
             var refemailwarn = document.getElementById('refemail').value;
             //dob
             var dobwarn = document.getElementById('dob').value;
-      
+
             //address validate/phone number validate/zip code validation
             //NOT DONE YET LENGTH
             var letters = /^[A-Za-z]+$/;
             var phoneno = /^[1-9]\d{2}-\d{3}-\d{4}/;
             var zipno = /^\d{5}$/;
-            var email =" /^[a-zA-Z0-9_\-.]+"+at +"[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/";
+            var email = " /^[a-zA-Z0-9_\-.]+" + at + "[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/";
             if ((!inputtext.match(letters) && inputtext.length != 0) || (!reflastname.match(letters) && reflastname.length != 0)
                 || (!lnamewarn.match(letters) && lnamewarn.length != 0) || (!fnamewarn.match(letters) && fnamewarn.length != 0)
                 || (!guardianNamewarn.match(letters) && guardianNamewarn.length != 0) || (!guardianlNamewarn.match(letters) && guardianlNamewarn.length != 0)
                 || (!youthphonewarn.match(phoneno) && youthphonewarn.length != 0) || (!parentphonewarn.match(phoneno) && parentphonewarn.length != 0) ||
                 (!inputtext.checkValidity()) || (!reflastname.checkValidity()) || (!lnamewarn.checkValidity()) || (!fnamewarn.checkValidity()) || (!guardianNamewarn.checkValidity())
-                || (!guardianlNamewarn.checkValidity())  || (!parentphonewarn.checkValidity())
-                ||(!parentemailwarn.checkValidity())||(!youthemailwarn.checkValidity())||(!refemailwarn.checkValidity())||(!dobwarn.checkValidity())
+                || (!guardianlNamewarn.checkValidity()) || (!parentphonewarn.checkValidity())
+                || (!parentemailwarn.checkValidity()) || (!youthemailwarn.checkValidity()) || (!refemailwarn.checkValidity()) || (!dobwarn.checkValidity())
 
             ) {
                 //reffirstname//reflast name/ lastname/first name//guardian name//phone
@@ -146,44 +146,55 @@
                 else { document.getElementById('parentphoneError').innerHTML = ''; }
                 if (!zipwarn.match(zipno) && zipwarn.length != 0) { document.getElementById('zipError').innerHTML = 'Please only enter 5 digits'; }
                 else { document.getElementById('zipError').innerHTML = ''; }
-                  if (!inputtext.checkValidity()) {
-                    document.getElementById("inputtextValid").innerHTML = inputtext.validationMessage; }
-                else {document.getElementById("inputtextValid").innerHTML = ""; }
-                 if (!reflastname.checkValidity()) {
-                    document.getElementById("reflastnameValid").innerHTML = reflastname.validationMessage; }
+                if (!inputtext.checkValidity()) {
+                    document.getElementById("inputtextValid").innerHTML = inputtext.validationMessage;
+                }
+                else { document.getElementById("inputtextValid").innerHTML = ""; }
+                if (!reflastname.checkValidity()) {
+                    document.getElementById("reflastnameValid").innerHTML = reflastname.validationMessage;
+                }
                 else { document.getElementById("reflastnameValid").innerHTML = ""; }
-                 if (!lnamewarn.checkValidity()) {
-                    document.getElementById("lnamewarnValid").innerHTML = lnamewarn.validationMessage; }
+                if (!lnamewarn.checkValidity()) {
+                    document.getElementById("lnamewarnValid").innerHTML = lnamewarn.validationMessage;
+                }
                 else { document.getElementById("lnamewarnValid").innerHTML = ""; }
                 if (!fnamewarn.checkValidity()) {
-                    document.getElementById("fnamewarnValid").innerHTML = fnamewarn.validationMessage; }
+                    document.getElementById("fnamewarnValid").innerHTML = fnamewarn.validationMessage;
+                }
                 else { document.getElementById("fnamewarnValid").innerHTML = ""; }
                 if (!guardianNamewarn.checkValidity()) {
-                    document.getElementById("guardianNamewarnValid").innerHTML = guardianNamewarn.validationMessage; }
+                    document.getElementById("guardianNamewarnValid").innerHTML = guardianNamewarn.validationMessage;
+                }
                 else { document.getElementById("guardianNamewarnValid").innerHTML = ""; }
                 if (!guardianlNamewarn.checkValidity()) {
-                    document.getElementById("guardianlNamewarnValid").innerHTML = guardianlNamewarn.validationMessage; }
+                    document.getElementById("guardianlNamewarnValid").innerHTML = guardianlNamewarn.validationMessage;
+                }
                 else { document.getElementById("guardianlNamewarnValid").innerHTML = ""; }
                 if (!parentphonewarn.checkValidity()) {
-                    document.getElementById("parentphonewarnValid").innerHTML = parentphonewarn.validationMessage; }
+                    document.getElementById("parentphonewarnValid").innerHTML = parentphonewarn.validationMessage;
+                }
                 else { document.getElementById("parentphonewarnValid").innerHTML = ""; }
                 if (!parentemailwarn.checkValidity()) {
-                    document.getElementById("parentemailwarnValid").innerHTML = parentemailwarn.validationMessage; }
+                    document.getElementById("parentemailwarnValid").innerHTML = parentemailwarn.validationMessage;
+                }
                 else { document.getElementById("parentemailwarnValid").innerHTML = ""; }
                 if (!youthemailwarn.checkValidity()) {
-                    document.getElementById("youthemailwarnValid").innerHTML = youthemailwarn.validationMessage; }
+                    document.getElementById("youthemailwarnValid").innerHTML = youthemailwarn.validationMessage;
+                }
                 else { document.getElementById("youthemailwarnValid").innerHTML = ""; }
-                    if (!refemailwarn.checkValidity()) {
-                    document.getElementById("refemailwarnValid").innerHTML = refemailwarn.validationMessage; }
+                if (!refemailwarn.checkValidity()) {
+                    document.getElementById("refemailwarnValid").innerHTML = refemailwarn.validationMessage;
+                }
                 else { document.getElementById("refemailwarnValid").innerHTML = ""; }
-                   if (!dobwarn.checkValidity()) {
-                    document.getElementById("dobwarnValid").innerHTML = dobwarn.validationMessage; }
+                if (!dobwarn.checkValidity()) {
+                    document.getElementById("dobwarnValid").innerHTML = dobwarn.validationMessage;
+                }
                 else { document.getElementById("dobwarnValid").innerHTML = ""; }
 
                 return false;
 
-               // if (!inpObj.checkValidity()) {
-    //document.getElementById("demo").innerHTML = inpObj.validationMessage;
+                // if (!inpObj.checkValidity()) {
+                //document.getElementById("demo").innerHTML = inpObj.validationMessage;
             }
             else
             //textbox
@@ -254,8 +265,8 @@
             }
 
             document.getElementById("youthImpact").value = arrayImpact;
-//let try this so if statement return false else (if confirm)
-                //textbox
+            //let try this so if statement return false else (if confirm)
+            //textbox
             //referral first name only alpha
             var inputtext = document.getElementById('referralfname').value;
             var reflastname = document.getElementById('referrallname').value;
@@ -266,30 +277,28 @@
             var youthphonewarn = document.getElementById('youthphone').value;
             var parentphonewarn = document.getElementById('parentphone').value;
             var zipwarn = document.getElementById('zip').value;
-                 //email
+            //email
             var parentemailwarn = document.getElementById('parentemail').value;
             var youthemailwarn = document.getElementById('youthemail').value;
             var refemailwarn = document.getElementById('refemail').value;
             //dob
             var dobwarn = document.getElementById('dob').value;
-      
+
             //address validate/phone number validate/zip code validation
             //NOT DONE YET LENGTH
             var letters = /^[A-Za-z]+$/;
             var phoneno = /^[1-9]\d{2}-\d{3}-\d{4}/;
             var zipno = /^\d{5}$/;
-           
-      var email =/^[a-zA-Z0-9_\-.]+\u0040[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/;
-         
+
+            var email = /^[a-zA-Z0-9_\-.]+\u0040[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/;
+
             if ((!inputtext.match(letters) && inputtext.length != 0) || (!reflastname.match(letters) && reflastname.length != 0)
                 || (!lnamewarn.match(letters) && lnamewarn.length != 0) || (!fnamewarn.match(letters) && fnamewarn.length != 0)
                 || (!guardianNamewarn.match(letters) && guardianNamewarn.length != 0) || (!guardianlNamewarn.match(letters) && guardianlNamewarn.length != 0)
-                || (!youthphonewarn.match(phoneno) && youthphonewarn.length != 0) || (!parentphonewarn.match(phoneno) && parentphonewarn.length != 0) || (!zipwarn.match(zipno) && zipwarn.length != 0)||
+                || (!youthphonewarn.match(phoneno) && youthphonewarn.length != 0) || (!parentphonewarn.match(phoneno) && parentphonewarn.length != 0) || (!zipwarn.match(zipno) && zipwarn.length != 0) ||
                 (inputtext.length == 0) || (reflastname.length == 0) || (lnamewarn.length == 0) || (fnamewarn.length == 0) || (guardianNamewarn.length == 0)
-                || (guardianlNamewarn.length == 0)  || (parentphonewarn.length == 0)
-                ||(!parentemailwarn.match(email)&& parentemailwarn.length != 0)||(!youthemailwarn.match(email)&& youthemailwarn.length != 0)||(!refemailwarn.match(email)&& refemailwarn.length != 0)||(dobwarn.length == 0))
-
-            {
+                || (guardianlNamewarn.length == 0) || (parentphonewarn.length == 0)
+                || (!parentemailwarn.match(email) && parentemailwarn.length != 0) || (!youthemailwarn.match(email) && youthemailwarn.length != 0) || (!refemailwarn.match(email) && refemailwarn.length != 0) || (dobwarn.length == 0)) {
                 //reffirstname//reflast name/ lastname/first name//guardian name//phone
                 if (!inputtext.match(letters) && inputtext.length != 0) { document.getElementById('reffname').innerHTML = 'Please input alphabet characters only'; }
                 else { document.getElementById('reffname').innerHTML = ''; }
@@ -309,49 +318,60 @@
                 else { document.getElementById('parentphoneError').innerHTML = ''; }
                 if (!zipwarn.match(zipno) && zipwarn.length != 0) { document.getElementById('zipError').innerHTML = 'Please only enter 5 digits'; }
                 else { document.getElementById('zipError').innerHTML = ''; }
-                  if (inputtext.length == 0) {
-                    document.getElementById('inputtextValid').innerHTML = 'This field is required'; }
-                else {document.getElementById('inputtextValid').innerHTML = ''; }
-                 if (reflastname.length == 0) {
-                    document.getElementById('reflastnameValid').innerHTML = 'This field is required'; }
+                if (inputtext.length == 0) {
+                    document.getElementById('inputtextValid').innerHTML = 'This field is required';
+                }
+                else { document.getElementById('inputtextValid').innerHTML = ''; }
+                if (reflastname.length == 0) {
+                    document.getElementById('reflastnameValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('reflastnameValid').innerHTML = ''; }
-                 if (lnamewarn.length == 0) {
-                    document.getElementById('lnamewarnValid').innerHTML = 'This field is required'; }
+                if (lnamewarn.length == 0) {
+                    document.getElementById('lnamewarnValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('lnamewarnValid').innerHTML = ''; }
-                if (fnamewarn.length ==0) {
-                    document.getElementById('fnamewarnValid').innerHTML =  'This field is required'; }
+                if (fnamewarn.length == 0) {
+                    document.getElementById('fnamewarnValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('fnamewarnValid').innerHTML = ''; }
-                if (guardianNamewarn.length ==0) {
-                    document.getElementById('guardianNamewarnValid').innerHTML =  'This field is required'; }
+                if (guardianNamewarn.length == 0) {
+                    document.getElementById('guardianNamewarnValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('guardianNamewarnValid').innerHTML = ''; }
-                if (guardianlNamewarn.length==0) {
-                    document.getElementById('guardianlNamewarnValid').innerHTML = 'This field is required'; }
+                if (guardianlNamewarn.length == 0) {
+                    document.getElementById('guardianlNamewarnValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('guardianlNamewarnValid').innerHTML = ''; }
-                if (parentphonewarn.length==0) {
-                    document.getElementById('parentphonewarnValid').innerHTML ='This field is required'; }
+                if (parentphonewarn.length == 0) {
+                    document.getElementById('parentphonewarnValid').innerHTML = 'This field is required';
+                }
                 else { document.getElementById('parentphonewarnValid').innerHTML = ''; }
-                if (!parentemailwarn.match(email)&& parentemailwarn.length != 0) {
-                    document.getElementById('parentemailwarnValid').innerHTML = 'This is not a valid email address'; }
+                if (!parentemailwarn.match(email) && parentemailwarn.length != 0) {
+                    document.getElementById('parentemailwarnValid').innerHTML = 'This is not a valid email address';
+                }
                 else { document.getElementById('parentemailwarnValid').innerHTML = ''; }
-                if (!youthemailwarn.match(email)&& youthemailwarn.length != 0) {
-                  document.getElementById('youthemailwarnValid').innerHTML = 'This is not a valid email address'; }
-             else { document.getElementById('youthemailwarnValid').innerHTML = ''; }
-                   if (!refemailwarn.match(email)&& refemailwarn.length != 0) {
-                   document.getElementById('refemailwarnValid').innerHTML = 'This is not a valid email address'; }
-               else { document.getElementById('refemailwarnValid').innerHTML = ''; }
-                   if (dobwarn.length==0) {
-                   document.getElementById('dobwarnValid').innerHTML = 'This field is required'; }
-               else { document.getElementById('dobwarnValid').innerHTML = ''; }
+                if (!youthemailwarn.match(email) && youthemailwarn.length != 0) {
+                    document.getElementById('youthemailwarnValid').innerHTML = 'This is not a valid email address';
+                }
+                else { document.getElementById('youthemailwarnValid').innerHTML = ''; }
+                if (!refemailwarn.match(email) && refemailwarn.length != 0) {
+                    document.getElementById('refemailwarnValid').innerHTML = 'This is not a valid email address';
+                }
+                else { document.getElementById('refemailwarnValid').innerHTML = ''; }
+                if (dobwarn.length == 0) {
+                    document.getElementById('dobwarnValid').innerHTML = 'This field is required';
+                }
+                else { document.getElementById('dobwarnValid').innerHTML = ''; }
                 alert("You will need to correct the error's in red before submitting this referral");
                 return false;
 
-               // if (!inpObj.checkValidity()) {
-    //document.getElementById("demo").innerHTML = inpObj.validationMessage;
+                // if (!inpObj.checkValidity()) {
+                //document.getElementById("demo").innerHTML = inpObj.validationMessage;
             }
-            
 
 
-          else {
+
+            else {
 
                 if (confirm("Please Confirm you would like to submit the Referral Form")) {
 
@@ -402,7 +422,7 @@
 
     <!-- register should only be provided by authorized personal so not for any user till logged in and authorized user will have to register new users
     1.1 Login Page -->
-    <form asp-action="submitform" asp-controller="n" method="post", new { enctype = "multipart/form-data" }>
+    <form asp-action="submitform" asp-controller="n" method="post" , new { enctype="multipart/form-data" }>
         <input type="hidden" name="clientCode" asp-for="clientCode" value="@ViewBag.Tessage">
         <input type="hidden" name="dateInput" asp-for="dateInput" value="@ViewBag.Bessage">
         <p></p>
@@ -414,13 +434,13 @@
             <tr>
                 <td>
                     Referral Source's First Name:<br />
-                    <input type="text" name="referralfname" asp-for="referralfname" id="referralfname" maxlength="20" ><br>
+                    <input type="text" name="referralfname" asp-for="referralfname" id="referralfname" maxlength="20"><br>
                     <p style="color:red" id="reffname"></p>
                     <p style="color:red" id="inputtextValid"></p>
                 </td>
                 <td>
                     Referral Source's Last Name:<br />
-                    <input type="text" name="referrallname" asp-for="referrallname" id="referrallname" maxlength="20" ><br>
+                    <input type="text" name="referrallname" asp-for="referrallname" id="referrallname" maxlength="20"><br>
                     <p style="color:red" id="reflname"></p>
                     <p style="color:red" id="reflastnameValid"></p>
                 </td>
@@ -428,7 +448,7 @@
             <tr>
                 <td>
                     Referral Source's Email Address:<br />
-                    <input type="email" asp-for="email" id="refemail" >
+                    <input type="email" asp-for="email" id="refemail">
                     <p style="color:red" id="refemailwarnValid"></p>
                 </td>
 
@@ -478,7 +498,7 @@
                 </td>
                 <td>
                     Date Of Birth:<br />
-                    <input type="date" name="dOB" asp-for="dOB"  id="dob"><br/>
+                    <input type="date" name="dOB" asp-for="dOB" id="dob"><br />
                     <p style="color:red" id="dobwarnValid"></p>
                 </td>
             </tr>
@@ -487,7 +507,7 @@
 
                     Youth's email address:<br />
                     <input type="email" asp-for="youthEmail" id="youthemail" maxlength="50">
-                  
+
                     <p style="color:red" id="youthemailwarnValid"></p>
                 </td>
                 <td colspan="2">
@@ -503,7 +523,7 @@
                 <!-- is their a reason you don't ask for first and last name???? -->
                 <td>
                     Primary Caretaker's First Name:<br />
-                    <input type="text" name="guardianName" asp-for="guardianName" id="guardianName" maxlength="20" >
+                    <input type="text" name="guardianName" asp-for="guardianName" id="guardianName" maxlength="20">
                     <p style="color:red" id="guardianNameError"></p>
 
                     <p style="color:red" id="guardianNamewarnValid"></p>
@@ -556,7 +576,7 @@
                     <p><sub style=color:black><i>*Format: ###-###-####</i></sub></p>
                     <p style="color:red" id="parentphoneError"></p>
                     <p style="color:red" id="parentphonewarnValid"></p>
-                   
+
                 </td>
             </tr>
             <tr>
@@ -632,7 +652,7 @@
                 <td>
                     Is youth at risk of placement in alternative school, either Mattie V or Grand Park? <br />
                     <select name="youthAlt" asp-for="youthAlt">
-                        
+
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                         <option value="2" selected>Maybe</option>
@@ -756,7 +776,7 @@
         </table><br />
 
 
-        <button type="submit"onclick="return myConfirm()" >Submit</button>
+        <button type="submit" onclick="return myConfirm()">Submit</button>
     </form>
 
 </body>

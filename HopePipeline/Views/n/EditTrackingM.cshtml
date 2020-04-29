@@ -214,30 +214,30 @@
         //test
         var refemailError = document.getElementById("referralemail").value;//email
         //care giver name
-         var cfnwarn = document.getElementById("careFirstName").value;//alpha required
+        var cfnwarn = document.getElementById("careFirstName").value;//alpha required
         var clnwarn = document.getElementById("careLastName").value;//alpha required
         var isswarn = document.getElementById("iss").value;//number
         var osswarn = document.getElementById("oss").value;// number
         var dowarn = document.getElementById("daysOwed").value;//number
         var phonewarn = document.getElementById("carePhone").value;//phonenu
         var t1 = "";
-     
+
         var t3 = "";
-         var t4 = "";
-        alert(failCountno);
-            var letters = /^[A-Za-z]+$/;
-          var phoneno = /^[1-9]\d{2}-\d{3}-\d{4}/;
-          var zipno = /^\d{5}$/;
+        var t4 = "";
+   
+        var letters = /^[A-Za-z]+$/;
+        var phoneno = /^[1-9]\d{2}-\d{3}-\d{4}/;
+        var zipno = /^\d{5}$/;
         var numbers = /^[0-9]+$/;
-     var email =/^[a-zA-Z0-9_\-.]+\u0040[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/;
+        var email = /^[a-zA-Z0-9_\-.]+\u0040[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/;
 
         if ((!cltfirstname.match(letters) && cltfirstname.length != 0) || (cltfirstname.length == 0)//t
             || (!cltlastname.match(letters) && cltlastname.length != 0) || (cltlastname.length == 0)//t
             || (clientBirth.length == 0) || //t
             (!refFirstName.match(letters) && refFirstName.length != 0) || (refFirstName.length == 0)//t
             || (!refLastName.match(letters) && refLastName.length != 0) || (refLastName.length == 0) || (!failCountno.match(numbers) && failCountno.length != 0)//t
-            || (!refemailError.match(email) && refemailError.length != 0) 
-           || (!cfnwarn.match(letters) && cfnwarn.length != 0) || (cfnwarn.length == 0)//t
+            || (!refemailError.match(email) && refemailError.length != 0)
+            || (!cfnwarn.match(letters) && cfnwarn.length != 0) || (cfnwarn.length == 0)//t
             || (!clnwarn.match(letters) && clnwarn.length != 0) || (clnwarn.length == 0)
             || (!isswarn.match(numbers) && isswarn.length != 0) || (!osswarn.match(numbers) && osswarn.length != 0)
             || (!dowarn.match(numbers) && dowarn.length != 0)
@@ -246,126 +246,126 @@
 
             //Demographic
             //First name client/ Last name Client- alpha, required, maxlength
-            if (!cltfirstname.match(letters) && cltfirstname.length != 0)
-            {
+            if (!cltfirstname.match(letters) && cltfirstname.length != 0) {
                 document.getElementById("clientfError").innerHTML = "Please input alphabet characters only";
-                t1 = "Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("clientfError").innerHTML = ""; }
-            if (cltfirstname.length == 0)
-            {
+            if (cltfirstname.length == 0) {
                 document.getElementById("clientfReqError").innerHTML = 'This field is required';
-              t1 = "Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("clientfReqError").innerHTML = ""; }
-             if (!cltlastname.match(letters) && cltlastname.length != 0)
-             {
-                 document.getElementById("clientlError").innerHTML = "Please input alphabet characters only";
-               t1 = "Demographic Information";}
+            if (!cltlastname.match(letters) && cltlastname.length != 0) {
+                document.getElementById("clientlError").innerHTML = "Please input alphabet characters only";
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("clientlError").innerHTML = ""; }
-            if (cltlastname.length == 0)
-            {
+            if (cltlastname.length == 0) {
                 document.getElementById("clientlReqError").innerHTML = 'This field is required';
-              t1 = "Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("clientlReqError").innerHTML = ""; }
-            if (clientBirth.length == 0)
-            {
+            if (clientBirth.length == 0) {
                 document.getElementById("clientdobError").innerHTML = 'This field is required';
-              t1= "Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("clientdobError").innerHTML = ""; }
 
-               if (!refFirstName.match(letters) && refFirstName.length != 0)
-               {
-                   document.getElementById("refFError").innerHTML = "Please input alphabet characters only";
-                 t4 = "Center for Children's Rights Information";}
+            if (!refFirstName.match(letters) && refFirstName.length != 0) {
+                document.getElementById("refFError").innerHTML = "Please input alphabet characters only";
+                t4 = "Center for Children's Rights Information";
+            }
             else { document.getElementById("refFError").innerHTML = ""; }
 
-              if (refFirstName.length == 0)
-              {
-                  document.getElementById("refFErrorReq").innerHTML = 'This field is required';
-              t4 = "Center for Children's Rights Information";}
+            if (refFirstName.length == 0) {
+                document.getElementById("refFErrorReq").innerHTML = 'This field is required';
+                t4 = "Center for Children's Rights Information";
+            }
             else { document.getElementById("refFErrorReq").innerHTML = ""; }
 
-             if (!refLastName.match(letters) && refLastName.length != 0)
-             {
-                 document.getElementById("refLError").innerHTML = "Please input alphabet characters only";
-             t4 = "Center for Children's Rights Information";}
+            if (!refLastName.match(letters) && refLastName.length != 0) {
+                document.getElementById("refLError").innerHTML = "Please input alphabet characters only";
+                t4 = "Center for Children's Rights Information";
+            }
             else { document.getElementById("refLError").innerHTML = ""; }
-                  if (refLastName.length == 0)
-                  {
-                      document.getElementById("refLErrorReq").innerHTML = 'This field is required';
-                  t4 = "Center for Children's Rights Information";}
+            if (refLastName.length == 0) {
+                document.getElementById("refLErrorReq").innerHTML = 'This field is required';
+                t4 = "Center for Children's Rights Information";
+            }
             else { document.getElementById("refLErrorReq").innerHTML = ""; }
 
-                   if (!failCountno.match(numbers) && failCountno.length !=0)
-                   {
-                       document.getElementById("failCError").innerHTML = "Please input numbers only";
-                   t1 = "Demographic Information";}
+            if (!failCountno.match(numbers) && failCountno.length != 0) {
+                document.getElementById("failCError").innerHTML = "Please input numbers only";
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("failCError").innerHTML = ""; }
             //check email
-            if (!refemailError.match(email) && refemailError.length != 0) 
-            {
+            if (!refemailError.match(email) && refemailError.length != 0) {
                 document.getElementById("refemailwarn").innerHTML = 'This is not a valid email address';
-            t4 = "Center for Children's Rights Information";}
+                t4 = "Center for Children's Rights Information";
+            }
             else { document.getElementById("refemailwarn").innerHTML = ""; }
             //days owed number only
-            if (!dowarn.match(numbers) && dowarn.length != 0)
-            {
+            if (!dowarn.match(numbers) && dowarn.length != 0) {
                 document.getElementById("doError").innerHTML = "Please input numbers only";
-              t3="Discipline";}
+                t3 = "Discipline";
+            }
             else { document.getElementById("doError").innerHTML = ""; }
             //day iss number ony
-                  if (!isswarn.match(numbers) && isswarn.length !=0)
-                  {
-                      document.getElementById("issError").innerHTML = "Please input numbers only";
-                  t3="Discipline"}
+            if (!isswarn.match(numbers) && isswarn.length != 0) {
+                document.getElementById("issError").innerHTML = "Please input numbers only";
+                t3 = "Discipline"
+            }
             else { document.getElementById("issError").innerHTML = ""; }
-        //oss number only
-                  if (!osswarn.match(numbers) && osswarn.length !=0)
-                  {
-                      document.getElementById("ossError").innerHTML = "Please input numbers only";
-                  t3="Discipline"}
+            //oss number only
+            if (!osswarn.match(numbers) && osswarn.length != 0) {
+                document.getElementById("ossError").innerHTML = "Please input numbers only";
+                t3 = "Discipline"
+            }
             else { document.getElementById("ossError").innerHTML = ""; }
             //carge giver name alpha
             //caregive require
-               if (!cfnwarn.match(letters) && cfnwarn.length != 0)
-               {
-                   document.getElementById("carefError").innerHTML = "Please input alphabet characters only";
-                 t1 = "Demographic Information";}
+            if (!cfnwarn.match(letters) && cfnwarn.length != 0) {
+                document.getElementById("carefError").innerHTML = "Please input alphabet characters only";
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("carefError").innerHTML = ""; }
-            if (cfnwarn.length == 0)
-            {
+            if (cfnwarn.length == 0) {
                 document.getElementById("carefReqError").innerHTML = 'This field is required';
-              t1 = "Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("carefReqError").innerHTML = ""; }
-             if (!clnwarn.match(letters) && clnwarn.length != 0)
-             {  t1 = "Demographic Information";
-                 document.getElementById("carelError").innerHTML = "Please input alphabet characters only";
-             }
+            if (!clnwarn.match(letters) && clnwarn.length != 0) {
+                t1 = "Demographic Information";
+                document.getElementById("carelError").innerHTML = "Please input alphabet characters only";
+            }
             else { document.getElementById("carelError").innerHTML = ""; }
-            if (clnwarn.length == 0)
-            {
+            if (clnwarn.length == 0) {
                 document.getElementById("carelReqError").innerHTML = 'This field is required';
-            t1="Demographic Information";}
+                t1 = "Demographic Information";
+            }
             else { document.getElementById("carelReqError").innerHTML = ""; }
             //care phone
-            if ((!phonewarn.match(phoneno) && phonewarn.length != 0))
-            {  t1 = "Demographic Information";
+            if ((!phonewarn.match(phoneno) && phonewarn.length != 0)) {
+                t1 = "Demographic Information";
                 document.getElementById('phoneError').innerHTML = 'Please format your phone numbers as ###-###-####';
             }
             else {
                 document.getElementById('phoneError').innerHTML = '';
             }
             //care phone required
-              if ((phonewarn.length == 0))
-              {
-                  document.getElementById('phoneReqError').innerHTML = 'This field is required';
-                t1 = "Demographic Information";}
+            if ((phonewarn.length == 0)) {
+                document.getElementById('phoneReqError').innerHTML = 'This field is required';
+                t1 = "Demographic Information";
+            }
             else { document.getElementById('phoneReqError').innerHTML = ''; }
-       
-            
-                if (t1 != "") { var length = 1; } 
 
-             alert("You will need to correct the error's in red before submitting this tracking form which are located on the following tabs "+t1  +" / "+ t3 +" / " +t4+ "");
-                
+
+            if (t1 != "") { var length = 1; }
+
+            alert("You will need to correct the error's in red before submitting this tracking form which are located on the following tabs " + t1 + " / " + t3 + " / " + t4 + "");
+
             return false;
         }
         else {
@@ -514,14 +514,14 @@
             //client ethnicity end
             //end radiobutton
             //school begin
-      
+
             var sch = "";
             var school = document.getElementById("school").value;
             var schoolHidden = document.getElementById("schoolHidden").value;
-         
+
             //text
             if (school != schoolHidden) {
-                
+
                 var sch = "\n The client's school has been changed to " + school + "\n";
             }
 
@@ -885,7 +885,7 @@
             if (iepplan2 != null) { var iep2 = "\n The client's secondary IEP plan has been changed to " + iepplan2name + "\n"; }
 
             //iepplan 2 end
-            //school ref begin
+            ////school ref begin
             var reskull = "";
             var schoolRef = document.getElementById("schoolRef").value;
             var schoolRefHidden = document.getElementById("schoolRefHidden").value;
@@ -938,7 +938,7 @@
             if (mathLevel != mathLevelHidden) { var math = "\n The client's math level has been changed to " + mathname + "\n"; }
             //math level done
 
-            //pride done
+            ////pride done
             var inPridename = "";
             var ip = "";
 
@@ -1041,9 +1041,9 @@
             var dateofBullyHidden = document.getElementById("dateofBullyHidden").value;
             if (dateofBully != dateofBullyHidden) { var dbr = "\n The client's bullied report date has been changed to " + dateofBully + "\n"; }
             //done date of bully
-            ////Done CCR
-            //CCR Begin
-            //level of service begin
+            //////Done CCR
+            ////CCR Begin
+            ////level of service begin
             var levelOfServiceProvidedname = "";
             var lspn = "";
 
@@ -1175,7 +1175,7 @@
             var referralemail = document.getElementById("referralemail").value;
             var emailOfFirstReferralSourceHidden = document.getElementById("emailOfFirstReferralSourceHidden").value;
             if (referralemail != emailOfFirstReferralSourceHidden) { var refemail = "\n The client's school at closure has been changed to " + referralemail + "\n"; }
-            //refemail done
+            ////refemail done
             //start
             var courtAdvocacyname = "";
             var cadvo = "";
@@ -1184,13 +1184,13 @@
                 var courtAdvocacy = "1";
                 var courtAdvocacyname = "having had court advocacy";
             }
-            if ((document.getElementById('courtAdvocacy1')) && (document.getElementById("courtAdvocacy0").checked) == true) {
+            if ((document.getElementById('courtAdvocacy0')) && (document.getElementById("courtAdvocacy0").checked) == true) {
                 var courtAdvocacy = "0";
                 var courtAdvocacyname = "not having had court advocacy";
             }
             if (courtAdvocacy != null) { var cadvo = "\n The client's information has been changed to " + courtAdvocacyname + "\n"; }
             //cour advo done
-            //staff advo begin
+            ////staff advo begin
             var staffAdvocacyname = "";
             var sadvo = "";
 
@@ -1210,15 +1210,15 @@
 
             if ((document.getElementById('rearrestAdvocacy1')) && (document.getElementById("rearrestAdvocacy1").checked) == true) {
                 var rearrestAdvocacy = "1";
-                var rearrestAdvocacyname = "having had court advocacy";
+                var rearrestAdvocacyname = "has been rearrested during advocacy";
             }
             if ((document.getElementById('rearrestAdvocacy0')) && (document.getElementById("rearrestAdvocacy0").checked) == true) {
                 var rearrestAdvocacy = "0";
-                var rearrestAdvocacyname = "not having had court advocacy";
+                var rearrestAdvocacyname = "has not been rearrested during advocacy";
             }
             if (rearrestAdvocacy != null) { var radvo = "\n The client's information has been changed to " + rearrestAdvocacyname + "\n"; }
             //rearrest advo done
-            //Discipline start
+            ////Discipline start
 
             var suspendedname = "";
             var sus = "";
@@ -1294,8 +1294,8 @@
 
             var timesInAltHidden = document.getElementById("timesInAltHidden").value;
             if (timesInAlt != timesInAltHidden) { var tia = "\n The client's time in an alternative school has been changed to " + timesInAltname + "\n"; }
-            //times in alt end
-            //days owed begin
+            ////times in alt end
+            ////days owed begin
             var dowed = "";
             var daysOwed = document.getElementById("daysOwed").value;
             var daysOwedHidden = document.getElementById("daysOwedHidden").value;
@@ -1339,7 +1339,7 @@
             var oss = document.getElementById("oss").value;
             var ossHidden = document.getElementById("ossHidden").value;
             if (oss != ossHidden) { var osss = "\n The client's number of out of school suspension's has been changed to " + oss + "\n"; }
-            //oss end
+            ////oss end
             var jj = "";
             var justiceOutcome = document.getElementById("justiceOutcome").value;
             var justiceOutcomeHidden = document.getElementById("justiceOutcomeHidden").value;
@@ -1393,7 +1393,7 @@
             //can't find
             //var otherLegal= document.getElementById("otherLegal");
             //var otherLegalHidden = document.getElementById("otherLegalHidden");
-          
+
             //start reenrolled
             var editenroll = "";
             var reenrolledname = "";
@@ -1401,44 +1401,46 @@
             var reenrolled = document.getElementById("reenrolled").value;
             if (reenrolled == "0") { reenrolledname = "No"; }
             if (reenrolled == "1") { reenrolledname = "Yes"; }
-            
+
             var reenrolledHidden = document.getElementById("reenrolledHidden").value;
             if (reenrolled != reenrolledHidden) { var editenroll = "\n The client's reenrolled status has been changed to " + reenrolledname + "\n"; }
             //end reenrolled
 
-              //start pregnantparenting
-            var editpp= "";
+            //start pregnantparenting
+            var editpp = "";
             var pregnantparentingname = "";
 
             var pregnantparenting = document.getElementById("pregnantparenting").value;
             if (pregnantparenting == "0") { pregnantparentingname = "No"; }
             if (pregnantparenting == "1") { pregnantparentingname = "Yes"; }
-            
+
             var pregnantparentingHidden = document.getElementById("pregnantparentingHidden").value;
             if (pregnantparenting != pregnantparentingHidden) { var editpp = "\n The client's pregnant parenting status has been changed to " + pregnantparentingname + "\n"; }
             //end pregnantparenting
 
-              //start addServicesGained
-            var editasg= "";
+            //start addServicesGained
+            var editasg = "";
             var addServicesGainedname = "";
 
             var addServicesGained = document.getElementById("addServicesGained").value;
             if (addServicesGained == "0") { addServicesGainedname = "No"; }
             if (addServicesGained == "1") { addServicesGainedname = "Yes"; }
-            
+
             var addServicesGainedHidden = document.getElementById("addServicesGainedHidden").value;
             if (addServicesGained != addServicesGainedHidden) { var editasg = "\n The client's added Services Gained status has been changed to " + addServicesGainedname + "\n"; }
-            //end addServicesGained
+            ////end addServicesGained
 
             if (confirm("Please Confirm you would like to Submit your changes\n" + rS + rSl +
                 cfn + cln +
-                cbd + clg + cgr + cey +
-                sch + curg + fgn + faicou + whichfa + bake + femh + march + dv + ado + evi + incp + ast +
-                cadvo + sadvo + radvo +
-                iepn + iep1 + iep2 + reskull + read + math + ip + FBA + ag + cS + ifs + cT + bully + br + dbr + lspn + redate + ind + ner + cs + LA + LAT + rr + rwr + skullc +
-                refemail + sus + susc + asn + asnn + doa + tia + dowed + fl + sl + isss + osss + dsit +
-                jj + carefn + careln +
-                careeth + cp + pan + editenroll + editpp + editasg  +
+               cbd + clg + cgr + cey +
+             sch + curg + fgn + faicou + whichfa + bake + femh + march + dv + ado + evi + incp + ast +
+                cadvo + sadvo + radvo + iepn + iep1 + iep2 + reskull + read + math + 
+                ip + FBA + ag + cS + ifs + cT + bully + br + dbr + 
+                lspn + redate + ind + ner + cs +
+                LA + LAT + rr + rwr + skullc + refemail + sus + susc + asn + asnn + doa + tia +
+                dowed + fl + sl + isss + osss + dsit +
+              jj + carefn + careln +
+                careeth + cp + pan + editenroll + editpp + editasg +
                 "")) { return true; }
 
             else {
@@ -1446,7 +1448,7 @@
                 event.preventDefault();
             }
         }
-      }
+    }
 </script>
 @{
     var info = ViewBag.LSessage;
@@ -1508,7 +1510,7 @@
                 <td>
                     <input asp-for="clientDOB" type="date" max="2050-12-31" id="clientDOB" value="@info.stringDateOfBirth">
                     <p style="color:red" id="clientdobError"></p>
-                 
+
                     <input type="hidden" asp-for="clientDOBHidden" value="@info.stringDateOfBirth" id="clientDOBHidden">
 
                 </td>
@@ -1879,7 +1881,7 @@
                         <br />
 
                         How many times? <br />
-                        <input asp-for="failCount"  type="text" value="@info.failCount" id="failCount" maxlength="2" />
+                        <input asp-for="failCount" type="text" value="@info.failCount" id="failCount" maxlength="2" />
                         <p style="color:red" id="failCError"></p>
                         <input type="hidden" asp-for="failCountHidden" id="failCountHidden" value="@info.failCount">
                         <br />
@@ -2760,7 +2762,7 @@
                                 }
                                 else
                                 {
-                                    <option value="1">1</option>
+                                    <option value="1">Yes</option>
                                 }}
                             @{if (info.addServicesGained == 0)
                                 {
@@ -2768,7 +2770,7 @@
                                 }
                                 else
                                 {
-                                    <option value="0">0</option>
+                                    <option value="0">No</option>
                                 }}
 
                         </select>
@@ -2843,7 +2845,7 @@
                                 }
                                 else
                                 {
-                                    <option value="1">1</option>
+                                    <option value="1">Yes</option>
                                 }}
                             @{if (info.reenrolled == 0)
                                 {
@@ -2851,7 +2853,7 @@
                                 }
                                 else
                                 {
-                                    <option value="0">0</option>
+                                    <option value="0">No</option>
                                 }}
 
                         </select>
@@ -2872,7 +2874,7 @@
                                 }
                                 else
                                 {
-                                    <option value="1">1</option>
+                                    <option value="1">Yes</option>
                                 }}
                             @{if (info.pregnantparenting == 0)
                                 {
@@ -2880,7 +2882,7 @@
                                 }
                                 else
                                 {
-                                    <option value="0">0</option>
+                                    <option value="0">No</option>
                                 }}
 
                         </select>
@@ -2891,257 +2893,257 @@
                 </tr>
 
             </table>
-       
+
     </div>
 
     <div id="Discipline Information" class="tabcontent">
-      
-            <table id="t01">
-                <tr>
-                    <td class="t" style="text-align:left" colspan="2">
-                        <h2> <b>Discipline</b></h2>
-                    </td>
 
-                </tr>
-                <tr>
-                    <td class="t" style="text-align:right">
-                        <label>Suspended more than three times in a year? </label>
+        <table id="t01">
+            <tr>
+                <td class="t" style="text-align:left" colspan="2">
+                    <h2> <b>Discipline</b></h2>
+                </td>
 
-                    </td>
-                    <td>
-                        Yes
-                        @{if (info.suspended == 1)
-                            {
-                                <input asp-for="suspended" type="radio" id="yesSus" name="suspended" value="1" checked>
-                            }
-                            else
-                            {
-                                <input asp-for="suspended" type="radio" id="yesSus" name="suspended" value="1">
-                            } }
-                        &nbsp;
-                        No
-                        @{if (info.suspended == 0)
-                            {
-                                <input asp-for="suspended" type="radio" id="noSus" name="suspended" value="0" checked>
-                            }
-                            else
-                            {
-                                <input asp-for="suspended" type="radio" id="noSus" name="suspended" value="0">
-                            } }
-                        &nbsp;
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    <label>Suspended more than three times in a year? </label>
+
+                </td>
+                <td>
+                    Yes
+                    @{if (info.suspended == 1)
+                        {
+                            <input asp-for="suspended" type="radio" id="yesSus" name="suspended" value="1" checked>
+                        }
+                        else
+                        {
+                            <input asp-for="suspended" type="radio" id="yesSus" name="suspended" value="1">
+                        } }
+                    &nbsp;
+                    No
+                    @{if (info.suspended == 0)
+                        {
+                            <input asp-for="suspended" type="radio" id="noSus" name="suspended" value="0" checked>
+                        }
+                        else
+                        {
+                            <input asp-for="suspended" type="radio" id="noSus" name="suspended" value="0">
+                        } }
+                    &nbsp;
+                    <br />
+                    <input type="hidden" asp-for="suspendedHidden" value="@info.suspended">
+
+
+                    <div id="ifYesSus">
+                        If yes, how many times have they been suspended?<br />
+                        <select asp-for="suspendCount" id="suspendCount">
+                            @{if (info.suspendCount == 4)
+                                {
+                                    <option value="4" selected>4</option>
+                                }
+                                else
+                                {
+                                    <option value="4">4</option>
+                                }}
+                            @{if (info.suspendCount == 5)
+                                {
+                                    <option value="5" selected>5</option>
+                                }
+                                else
+                                {
+                                    <option value="5">5</option>
+                                }}
+                            @{if (info.suspendCount == 6)
+                                {
+                                    <option value="6" selected>6</option>
+                                }
+                                else
+                                {
+                                    <option value="6">6</option>
+                                }}
+                            @{if (info.suspendCount == 7)
+                                {
+                                    <option value="7" selected>7</option>
+                                }
+                                else
+                                {
+                                    <option value="7">7</option>
+                                }}
+                            @{if (info.suspendCount == 8)
+                                {
+                                    <option value="8" selected>8</option>
+                                }
+                                else
+                                {
+                                    <option value="8">8</option>
+                                }}
+                            @{if (info.suspendCount == 9)
+                                {
+                                    <option value="9" selected>9</option>
+                                }
+                                else
+                                {
+                                    <option value="9">9</option>
+                                }}
+                            @{if (info.suspendCount == 10)
+                                {
+                                    <option value="10" selected>10+</option>
+                                }
+                                else
+                                {
+                                    <option value="10">10+</option>
+                                }}
+                        </select>
+                        <input type="hidden" asp-for="suspendCountHidden" value="@info.suspendCount" id="suspendCountHidden">
+
                         <br />
-                        <input type="hidden" asp-for="suspendedHidden" value="@info.suspended">
 
+                    </div>
 
-                        <div id="ifYesSus">
-                            If yes, how many times have they been suspended?<br />
-                            <select asp-for="suspendCount" id="suspendCount">
-                                @{if (info.suspendCount == 4)
-                                    {
-                                        <option value="4" selected>4</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="4">4</option>
-                                    }}
-                                @{if (info.suspendCount == 5)
-                                    {
-                                        <option value="5" selected>5</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="5">5</option>
-                                    }}
-                                @{if (info.suspendCount == 6)
-                                    {
-                                        <option value="6" selected>6</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="6">6</option>
-                                    }}
-                                @{if (info.suspendCount == 7)
-                                    {
-                                        <option value="7" selected>7</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="7">7</option>
-                                    }}
-                                @{if (info.suspendCount == 8)
-                                    {
-                                        <option value="8" selected>8</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="8">8</option>
-                                    }}
-                                @{if (info.suspendCount == 9)
-                                    {
-                                        <option value="9" selected>9</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="9">9</option>
-                                    }}
-                                @{if (info.suspendCount == 10)
-                                    {
-                                        <option value="10" selected>10+</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="10">10+</option>
-                                    }}
-                            </select>
-                            <input type="hidden" asp-for="suspendCountHidden" value="@info.suspendCount" id="suspendCountHidden">
+                    <div id="ifNoSus">
+                    </div>
 
-                            <br />
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
 
-                        </div>
+                    How many days have they spent in ISS?
+                </td>
+                <td>
+                    <input asp-for="iss" value="@info.iss" type="text" id="iss" maxlength="3" />
+                    <p style="color:red" id="issError"></p>
+                    <input type="hidden" asp-for="issHidden" value="@info.iss" id="issHidden">
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    How many days have they spent in OSS?
+                </td>
+                <td>
+                    <input asp-for="oss" type="text" value="@info.oss" id="oss" maxlength="3" />
+                    <p style="color:red" id="ossError"></p>
+                    <input type="hidden" asp-for="ossHidden" value="@info.oss" id="ossHidden">
 
-                        <div id="ifNoSus">
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="t" style="text-align:right">
-
-                        How many days have they spent in ISS?
-                    </td>
-                    <td>
-                        <input asp-for="iss" value="@info.iss" type="text" id="iss" maxlength="3" />
-        <p style="color:red" id="issError"></p>
-        <input type="hidden" asp-for="issHidden" value="@info.iss" id="issHidden">
-        </td>
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                How many days have they spent in OSS?
-            </td>
-            <td>
-                <input asp-for="oss" type="text" value="@info.oss" id="oss" maxlength="3" />
-                <p style="color:red" id="ossError"></p>
-                <input type="hidden" asp-for="ossHidden" value="@info.oss" id="ossHidden">
-
-            </td>
-        </tr>
-        <tr>
-            <td class="t" style="text-align:right">
-                <label>Alternative School</label>
-            </td>
-            <td>
-                Yes
-                @{if (info.altSchool == 1)
-                    { <input asp-for="altSchool" type="radio" id="yesAlt" name="altSchool" value="1" checked> }
-                    else
-                    { <input asp-for="altSchool" type="radio" id="yesAlt" name="altSchool" value="1"> } }
-                &nbsp;
-                No
-                @{if (info.altSchool == 0)
-                    { <input asp-for="altSchool" type="radio" id="noAlt" name="altSchool" value="0" checked> }
-                    else
-                    { <input asp-for="altSchool" type="radio" id="noAlt" name="altSchool" value="0"> } }
-                &nbsp;<br />
-                <input type="hidden" asp-for="altSchoolHidden" value="@info.altSchool">
-                <br />
-
-                <div id="ifYesAlt">
-                    If yes, which school?<br />
-                    @{if (info.altSchoolName.Contains("yes"))
-                        { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Mattie" value="yes" checked> }
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+                    <label>Alternative School</label>
+                </td>
+                <td>
+                    Yes
+                    @{if (info.altSchool == 1)
+                        { <input asp-for="altSchool" type="radio" id="yesAlt" name="altSchool" value="1" checked> }
                         else
-                        { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Mattie" value="yes"> } }
-                    Mattie V  <br />
-                    @{if (info.altSchoolName.Contains("no"))
-                        { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Grand" value="no" checked> }
+                        { <input asp-for="altSchool" type="radio" id="yesAlt" name="altSchool" value="1"> } }
+                    &nbsp;
+                    No
+                    @{if (info.altSchool == 0)
+                        { <input asp-for="altSchool" type="radio" id="noAlt" name="altSchool" value="0" checked> }
                         else
-                        { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Grand" value="no"> } }
-                    Grand Park <br />
+                        { <input asp-for="altSchool" type="radio" id="noAlt" name="altSchool" value="0"> } }
+                    &nbsp;<br />
+                    <input type="hidden" asp-for="altSchoolHidden" value="@info.altSchool">
                     <br />
-                    <input type="hidden" asp-for="altSchoolNameHidden" value="@info.altSchoolName">
 
-
-                    How many times was the youth in an alternative school?&nbsp;
-                    <select asp-for="timesInAlt" id="timesInAlt">
-                        @{if (info.timesInAlt == 0)
-                            {
-                                <option value="0" id="1" selected>0</option>
-                            }
+                    <div id="ifYesAlt">
+                        If yes, which school?<br />
+                        @{if (info.altSchoolName.Contains("yes"))
+                            { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Mattie" value="yes" checked> }
                             else
-                            {
-                                <option value="0" id="1">0</option>
-                            }}
-                        @{if (info.timesInAlt == 1)
-                            {
-                                <option value="1" id="1" selected>1</option>
-                            }
+                            { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Mattie" value="yes"> } }
+                        Mattie V  <br />
+                        @{if (info.altSchoolName.Contains("no"))
+                            { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Grand" value="no" checked> }
                             else
-                            {
-                                <option value="1" id="1">1</option>
-                            }}
-                        @{if (info.timesInAlt == 2)
-                            {
-                                <option value="2" id="2" selected>2</option>
-                            }
-                            else
-                            {
-                                <option value="2" id="2">2</option>
-                            }}
-                        @{if (info.timesInAlt == 3)
-                            {
-                                <option value="3" id="3" selected>3+</option>
-                            }
-                            else
-                            {
-                                <option value="3" id="3">3+</option>
-                            } }
-                    </select>
-                    <input type="hidden" asp-for="timesInAltHidden" value="@info.timesInAlt" id="timesInAltHidden">
-                 
-                    <br />
-                    What day did the student enter the alternative school<br>
-                    <input asp-for="dateOfAlt" type="date" id="dateOfAlt"
-                           value="@info.stringDateOfAlt" max="2050-12-31">
-                    <br />
-                    <input type="hidden" asp-for="dateOfAltHidden" value="@info.stringDateOfAlt" id="dateOfAltHidden">
-                    <br />
-                    How many days owed?<br />
-                    <input asp-for="daysOwed" type="text" value="@info.daysOwed" id="daysOwed" maxlength="3"> <br />
-                    <p style="color:red" id="doError"></p>
-                    <input type="hidden" asp-for="daysOwedHidden" value="@info.daysOwed" id="daysOwedHidden">
-                    <br />
-                </div>
-   
-                
-                
-               
+                            { <input asp-for="altSchoolName" type="radio" name="altSchoolName" id="Grand" value="no"> } }
+                        Grand Park <br />
+                        <br />
+                        <input type="hidden" asp-for="altSchoolNameHidden" value="@info.altSchoolName">
+
+
+                        How many times was the youth in an alternative school?&nbsp;
+                        <select asp-for="timesInAlt" id="timesInAlt">
+                            @{if (info.timesInAlt == 0)
+                                {
+                                    <option value="0" id="1" selected>0</option>
+                                }
+                                else
+                                {
+                                    <option value="0" id="1">0</option>
+                                }}
+                            @{if (info.timesInAlt == 1)
+                                {
+                                    <option value="1" id="1" selected>1</option>
+                                }
+                                else
+                                {
+                                    <option value="1" id="1">1</option>
+                                }}
+                            @{if (info.timesInAlt == 2)
+                                {
+                                    <option value="2" id="2" selected>2</option>
+                                }
+                                else
+                                {
+                                    <option value="2" id="2">2</option>
+                                }}
+                            @{if (info.timesInAlt == 3)
+                                {
+                                    <option value="3" id="3" selected>3+</option>
+                                }
+                                else
+                                {
+                                    <option value="3" id="3">3+</option>
+                                } }
+                        </select>
+                        <input type="hidden" asp-for="timesInAltHidden" value="@info.timesInAlt" id="timesInAltHidden">
+
+                        <br />
+                        What day did the student enter the alternative school<br>
+                        <input asp-for="dateOfAlt" type="date" id="dateOfAlt"
+                               value="@info.stringDateOfAlt" max="2050-12-31">
+                        <br />
+                        <input type="hidden" asp-for="dateOfAltHidden" value="@info.stringDateOfAlt" id="dateOfAltHidden">
+                        <br />
+                        How many days owed?<br />
+                        <input asp-for="daysOwed" type="text" value="@info.daysOwed" id="daysOwed" maxlength="3"> <br />
+                        <p style="color:red" id="doError"></p>
+                        <input type="hidden" asp-for="daysOwedHidden" value="@info.daysOwed" id="daysOwedHidden">
+                        <br />
+                    </div>
 
 
 
-                        <div id="ifNoAlt">
 
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="t" style="text-align:right">
 
-                        Total Days of Discipline Since Intake
-                    </td>
-                    <td>
-                        <input asp-for="daysSinceIntake" type="text" id="dateintake" value="@info.daysSinceIntake" maxlength="3">
-                        <input type="hidden" asp-for="daysSinceIntakeHidden" value="@info.daysSinceIntake" id="daysSinceIntakeHidden">
-                    </td>
-                </tr>
-                
-            </table>
-      
+
+
+                    <div id="ifNoAlt">
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="t" style="text-align:right">
+
+                    Total Days of Discipline Since Intake
+                </td>
+                <td>
+                    <input asp-for="daysSinceIntake" type="text" id="dateintake" value="@info.daysSinceIntake" maxlength="3">
+                    <input type="hidden" asp-for="daysSinceIntakeHidden" value="@info.daysSinceIntake" id="daysSinceIntakeHidden">
+                </td>
+            </tr>
+
+        </table>
+
     </div>
 
 
     <div id="CCR" class="tabcontent">
-        
+
 
         <table id="t01">
             <tr>
